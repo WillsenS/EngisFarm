@@ -2,6 +2,7 @@
 #define LAND_H
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Land {
@@ -15,10 +16,17 @@ class Land {
         int getSizex();
         //Mengembalikan sizex map
         int getSizey();
+        //Mengembalikan value dari matriks map
+        int getElement(int x, int y);
+        //Mengembalikan jenis land sesuai dengan value dari matriks map
+        string getProperties(int value);
+
     private :
-        //ukuran map
+        //ukuran map dalam x dan y
         int sizex; 
         int sizey; 
+
+        //Matriks Map
         char *map;
 };
 #endif
