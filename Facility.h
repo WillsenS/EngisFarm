@@ -11,17 +11,17 @@ class Facility : public Land {
         Facility();
 
         //Mengembalikan letak x dari Well
-        getWellx();
+        int getWellx();
         //Mengembalikan letak y dari Well
-        getWelly();
+        int getWelly();
         //Mengembalikan letak x dari Well
-        getMixerx();
+        int getMixerx();
         //Mengembalikan letak y dari Mixer
-        getMixery();
+        int getMixery();
         //Mengembalikan letak x dari Mixer
-        getTruckx();
+        int getTruckx();
         //Mengembalikan letak y dari Well
-        getTrucky();
+        int getTrucky();
     private :
         //Posisi facility yang ada
         int wellx; 
