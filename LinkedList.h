@@ -29,7 +29,7 @@ class LinkedList{
         //Menambahkan elemen sebagai elemen paling akhir
         void add(Type element);
         //Membuang elemen dari linked list
-        void sremove(Type element);
+        void remove(Type element);
         //Mengembalikan elemen pada indeks
         Type get(int indeks);
         //mengembalikan ukuran dari linkedlist
