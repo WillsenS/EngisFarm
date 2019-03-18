@@ -3,17 +3,19 @@
 
 #include <iostream>
 #include <string>
+#include "livingThings.h"
 
-class FarmAnimal {//: public livingThings {
+using namespace std;
+class FarmAnimal : public LivingThings {
     public:
         FarmAnimal(int x , int y);//constructor
         ~FarmAnimal();//destructor
-        void Move (int posX,int posY);
-        void Talk();
-        virtual void eat();
+        //void move (int posX,int posY);
+        //void talk();
+        virtual void eat()=0;
         virtual string getProduct()=0;
         virtual void setProduct(string produk)=0;
-        static int getcountAnimal; // Menghitung jumlah hewan yang masih hidup
+        static int getcountAnimal(); // Menghitung jumlah hewan yang masih hidup
         
     private:
         static int countAnimal;
