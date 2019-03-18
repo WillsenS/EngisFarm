@@ -2,14 +2,12 @@
 #define PLAYER_H
 
 #include <iostream>
-#include <string>
 
 class Player {//: public livingThings {
     private:
         int posX;
         int posY;
         int water;
-        int inventory[100]; //(?) 
     public:
         //Constructor
         Player(int x, int y);
@@ -23,7 +21,6 @@ class Player {//: public livingThings {
 
         //Berbicara kepada hewan,
         //Suara dihasilkan bergantung pada hewan
-        //Apa perlu animal ada method talk?
         void Talk();
 
         //Berinteraksi dengan objek di samping player
@@ -37,6 +34,7 @@ class Player {//: public livingThings {
 
         //Menyiram land
         //Menumbuhkan rumput ditempat player berdiri
+        //Water -1
         void Grow();
 
 };
