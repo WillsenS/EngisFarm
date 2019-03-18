@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include "livingThings.h"
+#include "LivingThings.h"
 
 using namespace std;
 class FarmAnimal : public LivingThings {
