@@ -67,7 +67,7 @@ void LinkedList<Type>::add(Type element){
 }
 
 template<class Type>
-void LinkedList<Type>::sremove(Type element){
+void LinkedList<Type>::remove(Type element){
     node<Type> *p, *q;
     if(first == NULL) return;
     p = first;
