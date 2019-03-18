@@ -7,7 +7,6 @@ template<class Type>
 LinkedList<Type>::LinkedList(){
         first = NULL; 
         size = 0;
-        cout<<"create 1"<<endl;
 }
 
 // template<class Type>
@@ -52,6 +51,8 @@ void LinkedList<Type>::add(Type element){
         first = new node<Type>;
         first->data = element;
         first->next = NULL;
+        size++;
+        cout << "size++" << endl;
         return;
     }else{
         p = first;
@@ -64,6 +65,7 @@ void LinkedList<Type>::add(Type element){
         p->next = q; 
     }
     size++;
+    cout << "size++" << endl;
 }
 
 template<class Type>
@@ -71,16 +73,25 @@ void LinkedList<Type>::remove(Type element){
     node<Type> *p, *q;
     if(first == NULL) return;
     p = first;
+    q = NULL;
     while(p){
         if(p->data == element){
-            q->next = p->next;
-            delete p;
-            return;
+            if(!q){
+                first = p->next; 
+                delete p;
+                size--;
+                return;
+            }else{
+                q->next = p->next;
+                delete p;
+                size--;
+                return;
+            }
+            
         }
         q = p;
         p = p->next;
     }
-    size--;
 }
 
 template<class Type>
