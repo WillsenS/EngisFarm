@@ -1,6 +1,0 @@
-<map id="SideProduct" name="SideProduct">
-<area shape="rect" id="node3" href="$classBBQ.html" title="BBQ" alt="" coords="5,155,56,181"/>
-<area shape="rect" id="node4" href="$classOmelette.html" title="Omelette" alt="" coords="80,155,155,181"/>
-<area shape="rect" id="node5" href="$classSausage.html" title="Sausage" alt="" coords="179,155,253,181"/>
-<area shape="rect" id="node2" href="$classProduct.html" title="Product" alt="" coords="84,5,151,32"/>
-</map>

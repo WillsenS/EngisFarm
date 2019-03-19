@@ -1,6 +1,0 @@
-<map id="Milkproducing" name="Milkproducing">
-<area shape="rect" id="node4" href="$classkambing.html" title="kambing" alt="" coords="5,229,76,256"/>
-<area shape="rect" id="node5" href="$classsapi.html" title="sapi" alt="" coords="100,229,147,256"/>
-<area shape="rect" id="node2" href="$classFarmAnimal.html" title="FarmAnimal" alt="" coords="36,80,128,107"/>
-<area shape="rect" id="node3" href="$classLivingThings.html" title="LivingThings" alt="" coords="35,5,129,32"/>
-</map>
