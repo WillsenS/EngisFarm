@@ -10,7 +10,7 @@ class Land : public cell {
     public :
         //Constructor untuk map (land)
         Land();
-        
+
         //Mengembalikan value dari matriks map
         char getElement(int x, int y);
         //Mengembalikan jenis land sesuai dengan value dari matriks map

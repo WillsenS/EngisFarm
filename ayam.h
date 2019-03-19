@@ -3,21 +3,24 @@
 
 #include <iostream>
 #include <string>
-#include "FarmAnimal.h"
+//#include "FarmAnimal.h"
 #include "Eggproducing.h"
 #include "Meatproducing.h"
+
 using namespace std;
-class Ayam : public Eggproducing,public Meatproducing{
+class ayam : public Eggproducing,public Meatproducing{
     public:
-        Ayam(int posX ,int posY);
-        ~Ayam();
-        void move (int posX , int posY);
+        ayam(int posX ,int posY);
+        ~ayam();
+        void move ();
         void talk();
         void eat();
         string getProduct();
-        void setProduct(string telur);
+        //void setProduct(string telur);
         int getcountTelurA() const ;
         int getFull();
+        void setFull(int Full);
+        //void Print();
 
     private:
         bool hasEat;

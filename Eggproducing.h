@@ -5,7 +5,7 @@
 #include <string>
 #include "FarmAnimal.h"
 using namespace std;
-class Eggproducing :public FarmAnimal{
+class Eggproducing :virtual public FarmAnimal{
     private :
         static int jlhEggP ;// jumlah hewan petelur
     public :

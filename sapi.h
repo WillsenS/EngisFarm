@@ -11,13 +11,14 @@ class sapi : public Meatproducing,public Milkproducing{
     public:
         sapi(int posX ,int posY);
         ~sapi();
-        void move (int posX , int posY);
+        void move ();
         void talk();
         void eat();
         string getProduct();
-        void setProduct(string cowMilk);
+        //void setProduct(string cowMilk);
         int getcountcowMilk()const;
         int getFull();
+        void setFull(int Full);
     private:
         bool hasEat;
         string cowMilk;

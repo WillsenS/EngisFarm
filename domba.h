@@ -10,13 +10,14 @@ class domba : public Meatproducing{
     public:
         domba(int posX ,int posY);
         ~domba();
-        void move (int posX , int posY);
+        void move ();
         void talk();
         void eat();
         string getProduct();
-        void setProduct(string lambMeat);
+        //void setProduct(string lambMeat);
         int getcountlambMeat()const;
         int getFull();
+        void setFull(int Full);
     private:
         bool hasEat;
         string lambMeat;
