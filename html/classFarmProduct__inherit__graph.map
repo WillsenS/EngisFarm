@@ -1,0 +1,12 @@
+<map id="FarmProduct" name="FarmProduct">
+<area shape="rect" id="node3" href="$classChickenEgg.html" title="ChickenEgg" alt="" coords="5,155,99,181"/>
+<area shape="rect" id="node4" href="$classChickenMeat.html" title="ChickenMeat" alt="" coords="123,155,221,181"/>
+<area shape="rect" id="node5" href="$classCowMeat.html" title="CowMeat" alt="" coords="246,155,325,181"/>
+<area shape="rect" id="node6" href="$classCowMilk.html" title="CowMilk" alt="" coords="349,155,422,181"/>
+<area shape="rect" id="node7" href="$classDuckEgg.html" title="DuckEgg" alt="" coords="446,155,522,181"/>
+<area shape="rect" id="node8" href="$classDuckMeat.html" title="DuckMeat" alt="" coords="547,155,629,181"/>
+<area shape="rect" id="node9" href="$classGoatMeat.html" title="GoatMeat" alt="" coords="654,155,733,181"/>
+<area shape="rect" id="node10" href="$classGoatMilk.html" title="GoatMilk" alt="" coords="757,155,832,181"/>
+<area shape="rect" id="node11" href="$classPork.html" title="Pork" alt="" coords="857,155,906,181"/>
+<area shape="rect" id="node2" href="$classProduct.html" title="Product" alt="" coords="503,5,569,32"/>
+</map>

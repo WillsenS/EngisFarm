@@ -9,7 +9,7 @@
  * @author Ghazwan S. M. <ghazwan.sihamudin@gmail.com>
  * @since 2019.03.17
  */
-Class CowMeat : public FarmProduct {
+class CowMeat : public FarmProduct {
     public:
         CowMeat();
         ~CowMeat();

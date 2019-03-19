@@ -9,7 +9,7 @@
  * @author Ghazwan S. M. <ghazwan.sihamudin@gmail.com>
  * @since 2019.03.17
  */
-Class BBQ : public SideProduct {
+class BBQ : public SideProduct {
     public:
         BBQ();
         ~BBQ();

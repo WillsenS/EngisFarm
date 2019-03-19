@@ -1,0 +1,6 @@
+<map id="ayam" name="ayam">
+<area shape="rect" id="node2" href="$classEggproducing.html" title="Eggproducing" alt="" coords="5,155,107,181"/>
+<area shape="rect" id="node3" href="$classFarmAnimal.html" title="FarmAnimal" alt="" coords="74,80,166,107"/>
+<area shape="rect" id="node5" href="$classMeatproducing.html" title="Meatproducing" alt="" coords="131,155,237,181"/>
+<area shape="rect" id="node4" href="$classLivingThings.html" title="LivingThings" alt="" coords="73,5,167,32"/>
+</map>

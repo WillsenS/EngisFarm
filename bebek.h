@@ -6,7 +6,15 @@
 #include "FarmAnimal.h"
 #include "Eggproducing.h"
 #include "Meatproducing.h"
+
 using namespace std;
+
+/**
+ * bebek class.
+ * Class bebek ,turunan meat producing
+ * @author 13517090
+ * @since 2019.03.17
+ */
 
 class bebek : public Eggproducing,public Meatproducing{
     public:

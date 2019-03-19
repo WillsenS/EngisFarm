@@ -6,7 +6,14 @@
 #include "FarmAnimal.h"
 #include "Milkproducing.h"
 #include "Meatproducing.h"
+
 using namespace std;
+/**
+ * sapi class.
+ * Class sabi ,turunan meat producing&milk
+ * @author 13517090
+ * @since 2019.03.17
+ */
 class sapi : public Meatproducing,public Milkproducing{
     public:
         sapi(int posX ,int posY);
