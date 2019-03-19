@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-class Player {//: public livingThings {
+class Player : public livingThings {
     private:
         int posX;
         int posY;
@@ -15,7 +15,7 @@ class Player {//: public livingThings {
         /*Destructor*/
         ~Player();
 
-        /*Bergerak ke posX, posY
+        /*Bergerak ke posX, posY*/
           Hanya dapat bergerak 1 petak per pemanggilan (?) ato enggak*/
         void Move (int posX, int posY);
 
