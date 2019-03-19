@@ -5,8 +5,8 @@
 using namespace std;
 
 class Renderable {
-    //menampilkan semua yang ada di GUI
+    /*menampilkan semua yang ada di GUI */
     public:
-        virtual void render() = 0; // pure virtual
+        virtual void render() = 0; /* pure virtual */
 };
 #endif

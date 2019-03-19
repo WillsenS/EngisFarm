@@ -7,23 +7,23 @@ using namespace std;
 
 class Facility : public Cell {
     public :
-        //Constructor untuk facility
+        /*Constructor untuk facility*/
         Facility();
 
-        //Mengembalikan letak x dari Well
+        /*Mengembalikan letak x dari Well*/
         int getWellx();
-        //Mengembalikan letak y dari Well
+        /*Mengembalikan letak y dari Well*/
         int getWelly();
-        //Mengembalikan letak x dari Well
+        /*Mengembalikan letak x dari Well*/
         int getMixerx();
-        //Mengembalikan letak y dari Mixer
+        /*Mengembalikan letak y dari Mixer*/
         int getMixery();
-        //Mengembalikan letak x dari Mixer
+        /*Mengembalikan letak x dari Mixer*/
         int getTruckx();
-        //Mengembalikan letak y dari Well
+        /*Mengembalikan letak y dari Well*/
         int getTrucky();
     private :
-        //Posisi facility yang ada
+        /*Posisi facility yang ada*/
         int wellx; 
         int welly;
         int Mixerx; 
