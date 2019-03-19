@@ -16,9 +16,10 @@ class bebek : public Eggproducing,public Meatproducing{
         void talk();
         void eat();
         string getProduct();
-        void setProduct(string telur);
+        //void setProduct(string telur);
         int getcountTelurB()const;
         int getFull();
+        void setFull(int Full);
     private:
         bool hasEat;
         string telur;

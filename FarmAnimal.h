@@ -1,5 +1,6 @@
 #ifndef FARMANIMAL_H
 #define FARMANIMAL_H
+#define FULLMAX 5
 
 #include <iostream>
 #include <string>
@@ -13,14 +14,18 @@ class FarmAnimal : public LivingThings {
         //void move (int posX,int posY);
         //void talk();
         virtual void eat()=0;
-        virtual string getProduct()=0;
-        virtual void setProduct(string produk)=0;
+        //virtual string getProduct()=0;
+        //virtual void setProduct(string produk)=0;
         static int getcountAnimal(); // Menghitung jumlah hewan yang masih hidup
+        virtual void Print()=0;
+        virtual void setFull(int Full)=0;
         
     private:
         static int countAnimal;
         int posX;
         int posY;
+    protected:
+        int Full;
 
 
 

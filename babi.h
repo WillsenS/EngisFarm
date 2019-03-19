@@ -10,13 +10,14 @@ class babi : public Meatproducing{
     public:
         babi(int posX ,int posY);
         ~babi();
-        void move (int posX , int posY);
+        void move ();
         void talk();
         void eat();
         string getProduct();
-        void setProduct(string pork);
+        //void setProduct(string pork);
         int getcountPork() const;
         int getFull();
+        void setFull(int Full);
     private:
         bool hasEat;
         string pork;

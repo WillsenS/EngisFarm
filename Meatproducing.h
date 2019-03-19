@@ -6,7 +6,7 @@
 #include "FarmAnimal.h"
 using namespace std;
 
-class Meatproducing :public FarmAnimal {
+class Meatproducing :virtual public FarmAnimal {
     private :
         static int jlhMeatP ; // jumlah hewan daging
     public :
