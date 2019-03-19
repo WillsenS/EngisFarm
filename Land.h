@@ -27,6 +27,6 @@ class Land {
         int sizey; 
 
         //Matriks Map
-        char *map;
+        char **map;
 };
 #endif
