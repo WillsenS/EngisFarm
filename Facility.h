@@ -2,10 +2,10 @@
 #define FACILITY_H
 
 #include <iostream>
-#include "Land.h"
+#include "Cell.h"
 using namespace std;
 
-class Facility : public Land {
+class Facility : public Cell {
     public :
         //Constructor untuk facility
         Facility();

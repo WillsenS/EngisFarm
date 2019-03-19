@@ -3,30 +3,20 @@
 
 #include <iostream>
 #include <string>
+#include "Cell.h"
 using namespace std;
 
-class Land {
+class Land : public cell {
     public :
         //Constructor untuk map (land)
         Land();
-        //Dtor untuk map (land)
-        ~Land();
-
-        //Mengembalikan sizex map
-        int getSizex();
-        //Mengembalikan sizex map
-        int getSizey();
+        
         //Mengembalikan value dari matriks map
-        int getElement(int x, int y);
+        char getElement(int x, int y);
         //Mengembalikan jenis land sesuai dengan value dari matriks map
-        string getProperties(int value);
+        string getProperties(char value);
+        //Menentukan nilai value dari cell pada matriks
+        void setElement(int x, int y, char e);
 
-    private :
-        //ukuran map dalam x dan y
-        int sizex; 
-        int sizey; 
-
-        //Matriks Map
-        char *map;
 };
 #endif
