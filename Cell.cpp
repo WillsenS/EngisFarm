@@ -66,5 +66,5 @@ bool Cell::isEmptyCell(int x, int y){
 
 /*Menentukan nilai value dari cell pada matriks*/
 void Cell::setElement(int x, int y, char e){
-    map[x][y] = 'e';
+    map[x][y] = e;
 }
