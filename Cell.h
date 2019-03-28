@@ -21,11 +21,13 @@ class Cell {
         /*Mengembalikan sizex map*/
         int getSizey();
         /*Mengembalikan value dari matriks map*/
-        int getElement(int x, int y);
+        char getElement(int x, int y);
         /*Mengembalikan jenis land sesuai dengan value dari matriks map*/
-        string getProperties(int value);
+        //string getProperties(int value);
         /*Mengecek cell terisi atau tidak*/
         bool isEmptyCell(int x, int y);
+        /*Menentukan nilai value dari cell pada matriks*/
+        void setElement(int x, int y, char e);
 
     private :
         /*ukuran map dalam x dan y*/

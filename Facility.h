@@ -24,12 +24,12 @@ class Facility : public Cell {
         int getTrucky();
     private :
         /*Posisi facility yang ada*/
-        int wellx; 
-        int welly;
-        int Mixerx; 
-        int Mixery;
-        int Truckx; 
-        int Trucky;
+        static int wellx; 
+        static int welly;
+        static int Mixerx; 
+        static int Mixery;
+        static int Truckx; 
+        static int Trucky;
         
 };
 #endif
