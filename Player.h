@@ -8,6 +8,8 @@ class Player : public livingThings {
         int posX;
         int posY;
         int water;
+        int money;
+    
     public:
         /*Constructor */
         Player(int x, int y);
