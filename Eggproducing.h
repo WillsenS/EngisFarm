@@ -5,18 +5,12 @@
 #include <string>
 #include "FarmAnimal.h"
 using namespace std;
-/**
- * Eggproducing class 
- * Class hewan penghasil telur ,kelas turunan dari farm animal
- * @author 13517090
- * @since 2019.03.17
- */
 class Eggproducing :virtual public FarmAnimal{
     private :
-        static int jlhEggP ;/* menghitung jumlah hewan petelur*/
+        static int jlhEggP ;// jumlah hewan petelur
     public :
-        Eggproducing(int x,int y);/* constructor*/
-        ~Eggproducing();/*destructor*/
+        Eggproducing(int x,int y);
+        ~Eggproducing();
         static int getjlhEggP();
     
 };

@@ -3,18 +3,10 @@
 
 #include <iostream>
 #include <string>
-#include "FarmAnimal.h"
+//#include "FarmAnimal.h"
 #include "Milkproducing.h"
 #include "Meatproducing.h"
-
 using namespace std;
-
-/**
- * kambing class.
- * Classkambing ,turunan meat producing
- * @author 13517090
- * @since 2019.03.17
- */
 
 class kambing : public Meatproducing,public Milkproducing{
     public:
@@ -25,9 +17,14 @@ class kambing : public Meatproducing,public Milkproducing{
         void eat();
         string getProduct();
         //void setProduct(string goatMilk);
-        int getcountcowMilk() const;
+        int getcountgoatMilk() const;
         int getFull();
         void setFull(int Full);
+        /*int getPosX();
+        int getPosY();
+        void setPosX(int x);
+        void setPosY(int y);*/
+        void Print();
     private:
         bool hasEat;
         string goatMilk;

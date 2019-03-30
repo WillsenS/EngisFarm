@@ -5,14 +5,7 @@
 #include <string>
 #include "FarmAnimal.h"
 #include "Meatproducing.h"
-
 using namespace std;
-/**
- * babi class.
- * Class babi ,turunan meat producing
- * @author 13517090
- * @since 2019.03.17
- */
 class babi : public Meatproducing{
     public:
         babi(int posX ,int posY);
@@ -25,6 +18,7 @@ class babi : public Meatproducing{
         int getcountPork() const;
         int getFull();
         void setFull(int Full);
+        void Print();
     private:
         bool hasEat;
         string pork;

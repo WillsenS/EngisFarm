@@ -6,12 +6,6 @@
 #include "FarmAnimal.h"
 #include "Meatproducing.h"
 using namespace std;
-/**
- * domba class.
- * Class domba ,turunan meat producing
- * @author 13517090
- * @since 2019.03.17
- */
 class domba : public Meatproducing{
     public:
         domba(int posX ,int posY);
@@ -24,6 +18,7 @@ class domba : public Meatproducing{
         int getcountlambMeat()const;
         int getFull();
         void setFull(int Full);
+        void Print();
     private:
         bool hasEat;
         string lambMeat;

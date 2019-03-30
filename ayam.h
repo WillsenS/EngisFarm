@@ -7,26 +7,24 @@
 #include "Eggproducing.h"
 #include "Meatproducing.h"
 
-/**
- * Ayamclass.
- * Class Ayam yang menunjukkan hal yang bisa dilakukan oleh ayam
- * @author 13517090
- * @since 2019.03.17
- */
 using namespace std;
 class ayam : public Eggproducing,public Meatproducing{
     public:
-        ayam(int posX ,int posY); /// constructor
-        ~ayam(); /// destructor
+        ayam(int posX ,int posY);
+        ~ayam();
         void move ();
         void talk();
         void eat();
         string getProduct();
         //void setProduct(string telur);
-        int getcountTelurA() const ; /// menghitung jumlah telur yang dihasilkan
-        int getFull(); /// getter
-        void setFull(int Full); ///setter
-        //void Print();
+        int getcountTelurA() const ;
+        int getFull();
+        void setFull(int Full);
+        /*int getPosX();
+        int getPosY();
+         void setPosX(int x);
+        void setPosY(int y);*/
+        void Print();
 
     private:
         bool hasEat;
