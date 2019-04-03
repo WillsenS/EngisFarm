@@ -12,7 +12,7 @@ class Player : public LivingThings {
         int posY;
         int water;
         int money;
-        LinkedList<string> inventory;
+        // LinkedList<string> inventory;
     public:
         //Constructor
         Player(int x, int y);

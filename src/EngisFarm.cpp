@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <iomanip>
 #include <string>
 
 #include "ayam.h"
@@ -18,64 +18,67 @@
 
 using namespace std;
 
+typedef enum {
+    Interact,
+    Move,
+    Kill,
+    Grow,
+    Mix,
+    Exit
+} commands;
+
+void printCommandList() {
+    cout << endl << "Command List" << endl << endl;
+    cout << "0: Interact" << setw(20) << setiosflags(ios::right) << "3: Grow" << endl;
+    cout << "1: Move" << setw(23) << setiosflags(ios::right) << "4: Mix" << endl;
+    cout << "2: Kill" << setw(24) << setiosflags(ios::right) << "5: Exit" << endl;
+}
+
 int main(){
- 
-   //  //Farm
-    
-   //  ayam a (1,2);
-   //  kambing k(4,5);
-   //  babi b (9,12);
-   //  sapi s (4,8);
-   //  domba d (12,7);
-   //  bebek r (2,8);
-    
-   //  cout<<"jlh : "<< FarmAnimal::getcountAnimal()<<endl;
-   // //cout<<"jlh k : "<< k.getPosX()<<endl;
 
-   //  //k.talk();
-   // // k.getPosX();
-   //  k.move();
-   //  r.move();
-   //  //k.Print();
-   //  a.move();
-   //  d.move();
-   //  b.move();
-   //  s.move();
+    bool isRunning = true;
+    int command;
 
-   //  cout << k.getChar() << endl;
-   //  r.getChar();
-   //  //k.Print();
-   //  a.getChar();
-   //  d.getChar();
-   //  b.getChar();
-   //  s.getChar();
-    
-   //  s.eat();
-   //  r.eat();
-   //  a.eat();
-   //  a.eat();
-   //  ayam a1 (3,3);
-   //  a1.move();
-   //  a1.move();
-    
-   //  cout<<"a : "<< endl;
-   //   a.Print();
-   //  cout<<"a1 : "<< endl;
-   //   a1.Print();
-   //   cout<<"k : "<< endl;
-   //   k.Print();
-   //   cout<<"b : "<< endl;
-   //   b.Print();
-   //   cout<<"s : "<< endl;
-   //   s.Print();
-   //   cout<<"d : "<< endl;
-   //   d.Print();
-   //   cout<<"r: "<< endl;
-   //   r.Print();
-   //   cout<<"jlh : "<< FarmAnimal::getcountAnimal()<<endl;
+    Renderable r;
 
-    // Renderable r;
-    // r.render();
+    while (isRunning) {
+        r.render();
+        printCommandList();
+        
+        cout << endl << "Enter you Command: ";
+        cin >> command;
+        
+        switch (command) {
+            case Interact:
+                cout << "Interact" << endl;
+                break;
+
+            case Move:
+                cout << "Move" << endl;
+                break;
+
+            case Kill:
+                cout << "Kill" << endl;
+                break;
+
+            case Grow:
+                cout << "Grow" << endl;
+                break;
+
+            case Mix:
+                cout << "Mix" << endl;
+                break;
+
+            case Exit:
+                cout << "Exit" << endl;
+                isRunning = false;
+                break;
+
+         default:
+            cout << "Invalid command" << endl;
+       }
+    }
+    // cout << command << endl;
 
     return 0;
 }

@@ -10,6 +10,7 @@ build/objects
 *.exe
 *.o
 *.so
+*.ipch
 
 # Packages #
 ############
@@ -21,3 +22,4 @@ build/objects
 *.rar
 *.tar
 *.zip
+*.bin
