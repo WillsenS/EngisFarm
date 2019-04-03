@@ -3,6 +3,23 @@
 #include "Facility.h"
 #include "Cell.h"
 #include "LinkedList.h"
+#include "sapi.h"
+#include "ayam.h"
+#include "bebek.h"
+#include "domba.h"
+#include "babi.h"
+#include "kambing.h"
+#include "GoatMilk.h"
+#include "GoatMeat.h"
+#include "Pork.h"
+#include "ChickenEgg.h"
+#include "ChickenMeat.h"
+#include "DuckEgg.h"
+#include "DuckMeat.h"
+#include "LambMeat.h"
+#include "CowMilk.h"
+#include "CowMeat.h"
+
 using namespace std;
 
 //Constructor
