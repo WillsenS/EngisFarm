@@ -10,7 +10,7 @@ SideProduct::~SideProduct() {
 }
 
 int SideProduct::getProductValue() {
-    return this->productValue;
+    return this->isExpire() ? 0 : this->productValue;
 }
 
 int SideProduct::getExpireValue() {

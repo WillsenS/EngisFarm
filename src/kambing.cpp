@@ -12,15 +12,15 @@ const int c =5;
 const int d = 6;
 
 kambing::kambing(int posX , int posY):FarmAnimal(posX, posY), Meatproducing(posX, posY), Milkproducing(posX, posY) {
-    Full=FULLMAX;
+    Full = FULLMAX;
     countgoatMilk=0;
     this->posX = FarmAnimal::getPosX();
     this->posY = FarmAnimal::getPosY();
 }
 
 kambing::~kambing() {
-    this->posX =0;
-    this->posY =0;
+    this->posX = 0;
+    this->posY = 0;
     Full =0;
     countgoatMilk=0;
     //cout<<"One of your goats has died"<<endl;
@@ -49,9 +49,9 @@ void kambing::talk() {
 }
 
 void kambing::eat() {
-    Full=FULLMAX;
+    Full = FULLMAX;
     countgoatMilk++;
-    if (countgoatMilk>MAX) {
+    if (countgoatMilk > MAX) {
         countgoatMilk = MAX;
     }
 }
@@ -76,7 +76,7 @@ void kambing::setFull(int Full) {
 void kambing::Print() {
     cout<<"GM ada " <<countgoatMilk<<endl;
     cout<<"Full : "<< Full<<endl;
-    cout<<"pos : "<< this->posX<<" " << this->posY<<endl;
+    cout<<"pos : "<< this->posX << " " << this->posY<<endl;
 }
 
 /*void kambing::setPosX(int x) {

@@ -13,7 +13,7 @@ const int d =4;
 
 ayam::ayam(int posX, int posY):FarmAnimal(posX, posY), Eggproducing(posX, posY), Meatproducing(posX, posY) {
     Full = FULLMAX;
-    countTelurA =0;
+    countTelurA = 0;
     //cout<<"Full : "<< Full<<endl;
     this->posX = FarmAnimal::getPosX();
     this->posY = FarmAnimal::getPosY();
@@ -27,7 +27,7 @@ ayam::~ayam() {
    // cout<<"One of your chickens has died"<<endl;
 }
 
-void ayam :: move() {
+void ayam::move() {
     int x = rand()%(a+b-1);
     int y = rand()%(a+b-1);
     //cout<<" x , y "<<x<< " " <<y<<endl;
