@@ -23,18 +23,34 @@ void Player::talk() {
 
 }
 
-/*void Player::Interact() {
-    int WellX = Facility::getWellx();
-    int WellY = Facility::getWelly();
-    int MixerX = Facility::getMixerx();
-    int MixerY = Facility::getMixery();
-    int TruckX = Facility::getTruckx();
-    int TruckY = Facility::getTrucky();
+void Player::print() {
+    cout << "Player Info" << endl;
+    cout << "Position: " << posX << ", " << posY << endl;
+    cout << "Water: " << water << endl;
+    cout << "Money: " << money << endl;
+}
 
-//  //Interact dengan well
-//  if((((posX + 1) == WellX) || ((posX - 1) == WellX)) && (((posY + 1) == WellY) || ((posY - 1) == WellY))) {
-//      water = 10; //Anggap 1x isi bisa sirem sampe 10x
-//  }
+int Player::getPosX() {
+    return posX;
+}
+
+int Player::getPosY() {
+    return posY;
+}
+
+void Player::interact(Facility &_f) {
+    int WellX = _f.getWellx();
+    int WellY = _f.getWelly();
+    // int MixerX = _f.getMixerx();
+    // int MixerY = _f.getMixery();
+    // int TruckX = _f.getTruckx();
+    // int TruckY = _f.getTrucky();
+
+    //Interact dengan well
+    if((((posX + 1) == WellX) || ((posX - 1) == WellX)) || (((posY + 1) == WellY) || ((posY - 1) == WellY))) {
+        water = 10;
+    }
+}
 
 //  //Interact dengan Truck
 //  if((((posX + 1) == TruckX) || ((posX - 1) == TruckX)) && (((posY + 1) == TruckY) || ((posY - 1) == TruckY))) {
@@ -111,26 +127,29 @@ void Player::talk() {
 //          sapi::~sapi();
 // }
 
-void Player::Grow() {
-    char typeland = Cell::getElement(posX,posY);
-    if (water > 0) {
-        if (typeland == '-') {
-            Cell::setElement(posX,posY,'#');
-            water--;
-        }
-        else if (typeland == 'o') {
-            Cell::setElement(posX,posY,'*');
-            water--;
-        }
-        else if (typeland == 'x') {
-            Cell::setElement(posX,posY,'@');
-            water--;
-        }
-        else {
-        //udah ada rumput, jadi do nothing/pesen error
-        }
-    }
-    else {
-    //gaada air, sana pergi ke well
-    }
-}*/
+// void Player::grow(Renderable _r) {
+//     char typeland = _r.getTypeLand(posX, posY);
+//     this->print();
+//     if (water > 0) {
+//         if (typeland == '-') {
+//             _r.setElement(posX,posY,'#');
+//             water--;
+//         }
+//         else if (typeland == 'o') {
+//             _r.setElement(posX,posY,'*');
+//             water--;
+//         }
+//         else if (typeland == 'x') {
+//             _r.setElement(posX,posY,'@');
+//             water--;
+//         }
+//         else {
+//             //udah ada rumput, jadi do nothing/pesen error
+//             cout << "Can't grow anymore!" << endl; 
+//         }
+//     }
+//     else {
+//         //gaada air, sana pergi ke well
+//         cout << "Sufficient water!" << endl;
+//     }
+// }
