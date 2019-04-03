@@ -15,9 +15,8 @@ Player::~Player() {
 	cout<<"THE END"<<endl;
 }
 
-void Player::move(int x, int y) {
-	posX += x;
-	posY += y;
+void Player::Talk() {
+	cout<<"Player : Halo"<<endl;
 }
 
 // void Player::Interact() {
@@ -108,26 +107,26 @@ void Player::move(int x, int y) {
 // 			sapi::~sapi();
 // }
 
-// void Player::Grow() {
-// 	char typeland = Cell::getElement(posX,posY);
-// 	if (water > 0) {
-// 		if (typeland == '-') {
-// 			Cell::setElement(posX,posY,'#');
-// 			water--;
-// 		}
-// 		else if (typeland == 'o') {
-// 			Cell::setElement(posX,posY,'*');
-// 			water--;
-// 		}
-// 		else if (typeland == 'x') {
-// 			Cell::setElement(posX,posY,'@');
-// 			water--;
-// 		}
-// 		else {
-// 		//udah ada rumput, jadi do nothing/pesen error
-// 		}
-// 	}
-// 	else {
-// 	//gaada air, sana pergi ke well
-// 	}
-// }
+void Player::Grow() {
+	char typeland = Cell::getElement(posX,posY);
+	if (water > 0) {
+		if (typeland == '-') {
+			Cell::setElement(posX,posY,'#');
+			water--;
+		}
+		else if (typeland == 'o') {
+			Cell::setElement(posX,posY,'*');
+			water--;
+		}
+		else if (typeland == 'x') {
+			Cell::setElement(posX,posY,'@');
+			water--;
+		}
+		else {
+		//udah ada rumput, jadi do nothing/pesen error
+		}
+	}
+	else {
+	//gaada air, sana pergi ke well
+	}
+}
