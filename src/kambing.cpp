@@ -56,6 +56,10 @@ void kambing::eat() {
     }
 }
 
+string kambing::getChar() {
+    return "K";
+}
+
 string kambing::getProduct() {
     return "";
 }

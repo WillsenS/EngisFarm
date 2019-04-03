@@ -17,6 +17,7 @@ class FarmAnimal : public LivingThings {
         //void move (int posX,int posY);
         //void talk();
         virtual void eat() = 0;
+        virtual string getChar() = 0;
         //virtual string getProduct()=0;
         //virtual void setProduct(string produk)=0;
         static int getcountAnimal(); // Menghitung jumlah hewan yang masih hidup

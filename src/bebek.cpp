@@ -62,6 +62,10 @@ void bebek::eat() {
     }
 }
 
+string bebek::getChar() {
+    return "b";
+}
+
 string bebek::getProduct() {
     return "";
 }

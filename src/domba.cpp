@@ -58,6 +58,10 @@ void domba::eat() {
     }
 }
 
+string domba::getChar() {
+    return "D";
+}
+
 string domba::getProduct() {
     return "";
 }
