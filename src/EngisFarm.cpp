@@ -13,11 +13,12 @@
 #include "Milkproducing.h"
 #include "Meatproducing.h"
 #include "FarmAnimal.h"
+#include "Cell.h"
 #include "Renderable.h"
 
 using namespace std;
 
-int main(){;
+int main(){
  
    //  //Farm
     
@@ -73,7 +74,8 @@ int main(){;
    //   r.Print();
    //   cout<<"jlh : "<< FarmAnimal::getcountAnimal()<<endl;
 
-    Renderable r();
-    r.render();
+    // Renderable r;
+    // r.render();
+
     return 0;
 }

@@ -36,7 +36,7 @@ void Player::Move(int x, int y) {
 }
 
 void Player::Talk() {
-	cout<<"Player : Halo"<<endl
+	cout << "Player : Halo" << endl;
 }
 
 void Player::Interact() {

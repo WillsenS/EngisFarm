@@ -48,7 +48,7 @@ $(OBJ_DIR)/%.o: %.cpp
 # @^ automatic variable for all the items in dependecy list
 $(APP_DIR)/$(TARGET): $(OBJECTS)
 	@mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -o $(APP_DIR)/$(TARGET)/$(TARGET) $^
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -o $(APP_DIR)/$(TARGET) $^
 
 # Denote make task
 .PHONY: all build clean debug release
