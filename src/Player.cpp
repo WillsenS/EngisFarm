@@ -41,8 +41,10 @@ void Player::Interact() {
 			//Do Nothing / pesan error
 		}
 		else {
-			//remove semua item di inventory
-			//harganya brp?
+			while !(LinkedList::isEmpty()) {
+				money += SideProduct::getProductValue(LinkedList::get(0));
+				LinkedList::remove(LinkedList::get(0));
+			}
 		}
 	}
 
@@ -53,26 +55,74 @@ void Player::Interact() {
 	}	
 
 	//Interact dengan FarmAnimal
+	{
+		//ayam(A)
+		if((Cell::getElement(posX+1,posY) == "A") || (Cell::getElement(posX-1,posY) == "A") || (Cell::getElement(posX,posY+1) == "A") || (Cell::getElement(posX,posY-1) == "A"))
+			ChickenEgg::ChickenEgg();
+			LinkedList::add(chicken::getProduct());
+		//bebek(B)
+		if((Cell::getElement(posX+1,posY) == "B") || (Cell::getElement(posX-1,posY) == "B") || (Cell::getElement(posX,posY+1) == "B") || (Cell::getElement(posX,posY-1) == "B"))
+			DuckEgg::DuckEgg();
+			LinkedList::add(bebek::getProduct());
+		//kambing(K)
+		if((Cell::getElement(posX+1,posY) == "K") || (Cell::getElement(posX-1,posY) == "K") || (Cell::getElement(posX,posY+1) == "K") || (Cell::getElement(posX,posY-1) == "K"))
+			GoatMilk::GoatMilk();
+			LinkedList::add(kambing::getProduct());
+		//Sapi(S)
+		if((Cell::getElement(posX+1,posY) == "S") || (Cell::getElement(posX-1,posY) == "S") || (Cell::getElement(posX,posY+1) == "S") || (Cell::getElement(posX,posY-1) == "S"))
+			CowMilk::CowMilk();
+			LinkedList::add(sapi::getProduct());
+	}
 }
 
 void Player::Kill() {
 	//kill animalnya
 	//dapeting dagingnya
+		//ayam(A)
+		if((Cell::getElement(posX+1,posY) == "A") || (Cell::getElement(posX-1,posY) == "A") || (Cell::getElement(posX,posY+1) == "A") || (Cell::getElement(posX,posY-1) == "A"))
+			ChickenMeat::ChickenMeat();
+			LinkedList::add("ChickenMeat");
+			ayam::~ayam();
+		//bebek(B)
+		if((Cell::getElement(posX+1,posY) == "B") || (Cell::getElement(posX-1,posY) == "B") || (Cell::getElement(posX,posY+1) == "B") || (Cell::getElement(posX,posY-1) == "B"))
+			DuckMeat::DuckMeat();
+			LinkedList::add("DuckMeat");
+			bebek::~bebek();
+		//babi(b)
+		if((Cell::getElement(posX+1,posY) == "b") || (Cell::getElement(posX-1,posY) == "b") || (Cell::getElement(posX,posY+1) == "b") || (Cell::getElement(posX,posY-1) == "b"))
+			Pork::Pork();
+			LinkedList::add("Pork");
+			babi::~babi();
+		//domba(D)
+		if((Cell::getElement(posX+1,posY) == "D") || (Cell::getElement(posX-1,posY) == "D") || (Cell::getElement(posX,posY+1) == "D") || (Cell::getElement(posX,posY-1) == "D"))
+			LambMeat::LambMeat();
+			LinkedList::add("LambMeat");
+			domba::~domba();
+		//kambing(K)
+		if((Cell::getElement(posX+1,posY) == "K") || (Cell::getElement(posX-1,posY) == "K") || (Cell::getElement(posX,posY+1) == "K") || (Cell::getElement(posX,posY-1) == "K"))
+			GoatMeat::GoatMeat();
+			LinkedList::add("GoatMeat");
+			kambing::~kambing();
+		//Sapi(S)
+		if((Cell::getElement(posX+1,posY) == "S") || (Cell::getElement(posX-1,posY) == "S") || (Cell::getElement(posX,posY+1) == "S") || (Cell::getElement(posX,posY-1) == "S"))
+			CowMeat::CowMeat();
+			LinkedList::add("CowMeat");
+			sapi::~sapi();
 }
 
 void Player::Grow() {
 	char typeland = Cell::getElement(PosX,PosY);
 	if (water > 0) {
 		if (typeland == '-') {
-			Cell::setElemet(PosX,posY,'#');
+			Cell::setElement(PosX,posY,'#');
 			water--;
 		}
 		else if (typeland == 'o') {
-			Cell::setElemet(PosX,posY,'*');
+			Cell::setElement(PosX,posY,'*');
 			water--;
 		}
 		else if (typeland == 'x') {
-			Cell::setElemet(PosX,posY,'@');
+			Cell::setElement(PosX,posY,'@');
 			water--;
 		}
 		else {
