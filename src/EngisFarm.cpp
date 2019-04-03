@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <iomanip>
 #include <string>
 
 #include "ayam.h"
@@ -13,69 +13,128 @@
 #include "Milkproducing.h"
 #include "Meatproducing.h"
 #include "FarmAnimal.h"
+#include "Facility.h"
 #include "Cell.h"
 #include "Renderable.h"
+#include "Player.h"
 
 using namespace std;
 
+/*
+ * Enum used to switch case the command as cpp does not allow
+ * switch case-ing a string.
+ */
+typedef enum {
+    Interact,
+    Move,
+    Kill,
+    Grow,
+    Mix,
+    Exit
+} commands;
+
+/*
+ * Print all the commands available in the game.
+ */
+void printCommandList() {
+    cout << endl << "Command List" << endl << endl;
+    cout << "0: Interact" << setw(20) << setiosflags(ios::right) << "3: Grow" << endl;
+    cout << "1: Move" << setw(23) << setiosflags(ios::right) << "4: Mix" << endl;
+    cout << "2: Kill" << setw(24) << setiosflags(ios::right) << "5: Exit" << endl;
+}
+
+/*
+ * Set all the facilities inside Cells.
+ */
+void setFacilities(Renderable &_r, Facility &_f) {
+    _r.setElement(_f.getWellx(), _f.getWelly(), 'W');
+    _r.setElement(_f.getMixerx(), _f.getMixery(), 'M');
+    _r.setElement(_f.getTruckx(), _f.getTrucky(), 'T');
+
+}
+
 int main(){
- 
-   //  //Farm
-    
-   //  ayam a (1,2);
-   //  kambing k(4,5);
-   //  babi b (9,12);
-   //  sapi s (4,8);
-   //  domba d (12,7);
-   //  bebek r (2,8);
-    
-   //  cout<<"jlh : "<< FarmAnimal::getcountAnimal()<<endl;
-   // //cout<<"jlh k : "<< k.getPosX()<<endl;
 
-   //  //k.talk();
-   // // k.getPosX();
-   //  k.move();
-   //  r.move();
-   //  //k.Print();
-   //  a.move();
-   //  d.move();
-   //  b.move();
-   //  s.move();
+    bool isRunning = true;
+    int command;
 
-   //  cout << k.getChar() << endl;
-   //  r.getChar();
-   //  //k.Print();
-   //  a.getChar();
-   //  d.getChar();
-   //  b.getChar();
-   //  s.getChar();
-    
-   //  s.eat();
-   //  r.eat();
-   //  a.eat();
-   //  a.eat();
-   //  ayam a1 (3,3);
-   //  a1.move();
-   //  a1.move();
-    
-   //  cout<<"a : "<< endl;
-   //   a.Print();
-   //  cout<<"a1 : "<< endl;
-   //   a1.Print();
-   //   cout<<"k : "<< endl;
-   //   k.Print();
-   //   cout<<"b : "<< endl;
-   //   b.Print();
-   //   cout<<"s : "<< endl;
-   //   s.Print();
-   //   cout<<"d : "<< endl;
-   //   d.Print();
-   //   cout<<"r: "<< endl;
-   //   r.Print();
-   //   cout<<"jlh : "<< FarmAnimal::getcountAnimal()<<endl;
+    Renderable r;
+    Facility f;
 
-    // Renderable r;
-    // r.render();
+    setFacilities(r, f);
+
+    // Initialized Player here
+    Player p = Player(13, 11);
+    r.setElement(p.getPosX(), p.getPosY(), 'P');
+
+
+    // Initialized Animals here
+
+    while (isRunning) {
+        r.render();
+        printCommandList();
+
+        cout << endl << "Enter you Command: ";
+        cin >> command;
+
+        if (cin.fail()) {
+            cout << "Invalid command" << endl;
+            cin.clear();
+            cin.ignore(10000, '\n');
+            continue;
+        }
+
+        switch (command) {
+            case Interact:
+                cout << "Interact" << endl;
+
+                // look for adjacent cells
+
+                // show list of adjacent objects
+
+                // choose which object to interact
+
+                p.interact(f);
+                p.print();
+
+                break;
+
+            case Move:
+                cout << "Move" << endl;
+
+                // show list of available cells to move into
+
+                // choose which direction to move
+
+                break;
+
+            case Kill:
+                cout << "Kill" << endl;
+
+                // show list of available objects to kill in adjacent cells.
+
+                // choose which object to kill
+                break;
+
+            case Grow:
+                cout << "Grow" << endl;
+                p.grow(r);
+                break;
+
+            case Mix:
+                cout << "Mix" << endl;
+                break;
+
+            case Exit:
+                cout << "Exit" << endl;
+                isRunning = false;
+                break;
+
+            default:
+                cout << "Invalid command" << endl;
+        }
+        // run the game tick
+    }
 
     return 0;
 }

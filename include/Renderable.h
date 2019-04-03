@@ -5,7 +5,7 @@
 #include "Cell.h"
 using namespace std;
 
-class Renderable:Cell {
+class Renderable: public Cell {
     /*menampilkan semua yang ada di GUI */
     public:
         void render();

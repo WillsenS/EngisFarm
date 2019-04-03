@@ -28,32 +28,32 @@
 
 using namespace std;
 
-int main(){
-    Player p (2,3);
-    Facility f();
-    // hewan
-    ayam a(1,5);
-    //ayam a1(1,1);
-    kambing k(4,5);
-    babi b (9,12);
-    sapi s (4,8);
-    domba d (12,7);
-    bebek r (2,8);
-    r.move();
+// int main(){
+    // Player p (2,3);
+    // Facility f();
+    // // hewan
+    // ayam a(1,5);
+    // //ayam a1(1,1);
+    // kambing k(4,5);
+    // babi b (9,12);
+    // sapi s (4,8);
+    // domba d (12,7);
+    // bebek r (2,8);
+    // r.move();
     
-    cout<<"Pos X ayam : "<<a.getPosX()<<endl;
-    a.move();
-    //a1.move();
-    a.Print();
-    cout<<"Pos X ayam move : "<<a.getPosX()<<endl;
+    // cout<<"Pos X ayam : "<<a.getPosX()<<endl;
+    // a.move();
+    // //a1.move();
+    // a.Print();
+    // cout<<"Pos X ayam move : "<<a.getPosX()<<endl;
 
-    a.eat();
-    p.move(4,5);
-    p.talk();
+    // a.eat();
+    // p.move(4,5);
+    // p.talk();
     
-    //p.Kill();
-    a.Print();
-}
+    // //p.Kill();
+    // a.Print();
+// }
 //Constructor
 
 

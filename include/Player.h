@@ -5,6 +5,8 @@
 #include <string>
 #include "LinkedList.h"
 #include "LivingThings.h"
+#include "Facility.h"
+#include "Renderable.h"
 
 class Player : public LivingThings {
     private:
@@ -12,7 +14,7 @@ class Player : public LivingThings {
         int posY;
         int water;
         int money;
-        LinkedList<string> inventory;
+        // LinkedList<string> inventory;
     public:
         //Constructor
         Player(int x, int y);
@@ -27,10 +29,15 @@ class Player : public LivingThings {
           Suara dihasilkan bergantung pada hewan*/
         void talk();
 
+        void print();
+
+        int getPosX();
+        int getPosY();
+
         /*Berinteraksi dengan objek di samping player
           Dapat berupa FarmAnimal atau Facility
           Untuk FarmAnimal, hanya dapat digunakan kepada EggProducingAnimal dan MilkProducingAnimal*/
-        //void Interact();
+        void interact(Facility &_f);
 
         /*Menyembelih hewan
           Hanya dapat digunakan kepada MeatProducingAnimal*/
@@ -44,6 +51,6 @@ class Player : public LivingThings {
         // //Menyiram land
         // //Menumbuhkan rumput ditempat player berdiri
         // //Water -1
-        // void Grow();
+        // void grow(Renderable _r);
 };
 #endif
