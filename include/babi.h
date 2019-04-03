@@ -13,6 +13,7 @@ class babi : public Meatproducing{
         void move ();
         void talk();
         void eat();
+        string getChar();
         string getProduct();
         //void setProduct(string pork);
         int getcountPork() const;

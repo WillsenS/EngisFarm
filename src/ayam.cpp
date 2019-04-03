@@ -61,6 +61,10 @@ void ayam::eat() {
     
 }
 
+string ayam::getChar() {
+    return "A";
+}
+
 string ayam::getProduct() {
     return "";
 }

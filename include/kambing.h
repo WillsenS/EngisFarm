@@ -15,6 +15,7 @@ class kambing : public Meatproducing,public Milkproducing{
         void move ();
         void talk();
         void eat();
+        string getChar();
         string getProduct();
         //void setProduct(string goatMilk);
         int getcountgoatMilk() const;

@@ -58,6 +58,10 @@ void babi::eat() {
 
 }
 
+string babi::getChar() {
+    return "B";
+}
+
 string babi::getProduct() {
     return "";
 }

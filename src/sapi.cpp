@@ -57,6 +57,10 @@ void sapi::eat(){
     }
 }
 
+string sapi::getChar() {
+    return "S";
+}
+
 string sapi::getProduct(){
     return "";
 }
