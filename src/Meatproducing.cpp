@@ -7,7 +7,7 @@ using namespace std;
 
 int Meatproducing::jlhMeatP =0;
 
-Meatproducing::Meatproducing(int x,int y) : FarmAnimal(x,y){
+Meatproducing::Meatproducing(int x, int y) : FarmAnimal(x,y){
     jlhMeatP++;
 }
 

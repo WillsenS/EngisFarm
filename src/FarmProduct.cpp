@@ -10,7 +10,7 @@ FarmProduct::~FarmProduct() {
 }
 
 int FarmProduct::getProductValue() {
-    return this->productValue;
+    return this->isExpire() ? 0 : this->productValue;
 }
 
 int FarmProduct::getExpireValue() {
