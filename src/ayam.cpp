@@ -7,9 +7,9 @@
 
 using namespace std;
 const int a = 4;
-const int b =4;
+const int b = 4;
 const int c = 4;
-const int d =4;
+const int d = 4;
 
 ayam::ayam(int posX, int posY):FarmAnimal(posX, posY), Eggproducing(posX, posY), Meatproducing(posX, posY) {
     Full = FULLMAX;

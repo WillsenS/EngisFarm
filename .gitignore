@@ -11,8 +11,6 @@ build/objects
 *.o
 *.so
 
-*.so
-
 # Packages #
 ############
 *.7z
