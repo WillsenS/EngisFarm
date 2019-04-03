@@ -3,15 +3,17 @@
 
 using namespace std;
 
-// int main(){
-//     LinkedList<int> x;
-//     x.print();
+int main(){
+    LinkedList<char> x;
+    x.print();
+
+    cout << x.getSize() << endl;
     
-//     x.add(1);
-//     x.add(2);
-//     x.remove(1);
-//     cout << x.getSize() << endl;
-//     x.print();
+    cout << x.get(3) << endl;
+
+    if(x.get(3)==0){
+        cout << "A" << endl;
+    }
     
-//     return 0;
-// }
+    return 0;
+}

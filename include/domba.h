@@ -13,6 +13,7 @@ class domba : public Meatproducing{
         void move ();
         void talk();
         void eat();
+        string getChar();
         string getProduct();
         //void setProduct(string lambMeat);
         int getcountlambMeat()const;

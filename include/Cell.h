@@ -23,11 +23,15 @@ class Cell {
         /*Mengembalikan value dari matriks map*/
         char getElement(int x, int y);
         /*Mengembalikan jenis land sesuai dengan value dari matriks map*/
-        //string getProperties(int value);
+        char getTypeLand(int x, int y);
         /*Mengecek cell terisi atau tidak*/
         bool isEmptyCell(int x, int y);
         /*Menentukan nilai value dari cell pada matriks*/
         void setElement(int x, int y, char e);
+        /*Menentukan petak rumput*/
+        void setRumput(int x, int y);
+        /*Mengembalikan nilai ada rumput atau tidak*/
+        char getRumput(int x, int y);
 
     private :
         /*ukuran map dalam x dan y*/
@@ -35,6 +39,6 @@ class Cell {
         int sizey; 
 
         /*Matriks Map*/
-        char **map;
+        char ***map;
 };
 #endif

@@ -1,9 +1,9 @@
-#include "Renderable.h"
+#include "../include/Renderable.h"
 #include <iostream>
 
 using namespace std;
 
-// int main(){
-
-//     return 0;
-// }
+int main(){
+    cout << "a" << endl;
+    return 0;
+}

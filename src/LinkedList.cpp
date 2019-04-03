@@ -1,5 +1,5 @@
 #include <iostream>
-#include "LinkedList.h"
+#include "../include/LinkedList.h"
 
 using namespace std;
 
@@ -94,6 +94,9 @@ void LinkedList<Type>::remove(Type element){
     }
 }
 
+//Membuang elemen pertama
+void revomeFirst();
+
 template<class Type>
 Type LinkedList<Type>::get(int indeks){
     int i = 0;
@@ -104,8 +107,6 @@ Type LinkedList<Type>::get(int indeks){
     }
     if(i == indeks){
         return p->data; 
-    }else{
-        cout << "Indeks tidak ada" << endl;
     }
 }
 

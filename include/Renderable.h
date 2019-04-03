@@ -8,6 +8,6 @@ using namespace std;
 class Renderable:Cell {
     /*menampilkan semua yang ada di GUI */
     public:
-        virtual void render() = 0; /* pure virtual */
+        void render(); /* pure virtual */
 };
 #endif

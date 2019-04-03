@@ -27,7 +27,7 @@ string Land::getProperties(char value) {
         return "Mixer";
     } else if (value == 'T') {
         return "Truck";
+    }else{
+        return "value salah";
     }
-
-    return "";
 }
