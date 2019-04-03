@@ -20,22 +20,26 @@ class Player : public LivingThings {
         //Destructor
         ~Player();
 
-        //Bergerak ke posX, posY
-        //Hanya dapat bergerak 1 petak per pemanggilan (?) ato enggak
+        /*Bergerak ke posX, posY*/
         void move (int posX, int posY);
 
-        // //Berbicara kepada hewan,
-        // //Suara dihasilkan bergantung pada hewan
-        // void Talk();
+        /*Berbicara kepada hewan,
+          Suara dihasilkan bergantung pada hewan*/
+        void talk();
 
-        // //Berinteraksi dengan objek di samping player
-        // //Dapat berupa FarmAnimal atau Facility
-        // //Untuk FarmAnimal, hanya dapat digunakan kepada EggProducingAnimal dan MilkProducingAnimal
-        // void Interact();
+        /*Berinteraksi dengan objek di samping player
+          Dapat berupa FarmAnimal atau Facility
+          Untuk FarmAnimal, hanya dapat digunakan kepada EggProducingAnimal dan MilkProducingAnimal*/
+        //void Interact();
 
-        // //Menyembelih hewan
-        // //Hanya dapat digunakan kepada MeatProducingAnimal
-        // void Kill();
+        /*Menyembelih hewan
+          Hanya dapat digunakan kepada MeatProducingAnimal*/
+        //void Kill();
+
+        /*Menyiram land
+          Menumbuhkan rumput ditempat player berdiri
+          Water -1*/
+        //void Grow();
 
         // //Menyiram land
         // //Menumbuhkan rumput ditempat player berdiri

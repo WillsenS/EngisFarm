@@ -23,6 +23,7 @@ class FarmAnimal : public LivingThings {
         static int getcountAnimal(); // Menghitung jumlah hewan yang masih hidup
         virtual void Print() = 0;
         virtual void setFull(int Full) = 0;
+        virtual void move() = 0;
         int getPosX();
         int getPosY();
         void setPosX(int x);

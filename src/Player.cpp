@@ -5,27 +5,32 @@ using namespace std;
 
 //Constructor
 Player::Player(int x, int y) {
+	//LinkedList<String> l = new LinkedList()<>;
+	//LinkedList<int> pl = new LinkedList()<>;
 	posX = x;
 	posY = y;
 	water = 0;	
 	money = 0;
 }
+Player::~Player(){
 
 Player::~Player() {
 	cout<<"THE END"<<endl;
 }
 
-void Player::Talk() {
+void Player::talk() {
 	cout<<"Player : Halo"<<endl;
+	cout<<"Player now in "<< posX << " " << posY <<endl;
+
 }
 
-// void Player::Interact() {
-// 	int WellX = Facility::getWellx();
-// 	int WellY = Facility::getWelly();
-// 	int MixerX = Facility::getMixerx();
-// 	int MixerY = Facility::getMixery();
-// 	int TruckX = Facility::getTruckx();
-// 	int TruckY = Facility::getTrucky();
+/*void Player::Interact() {
+	int WellX = Facility::getWellx();
+	int WellY = Facility::getWelly();
+	int MixerX = Facility::getMixerx();
+	int MixerY = Facility::getMixery();
+	int TruckX = Facility::getTruckx();
+	int TruckY = Facility::getTrucky();
 
 // 	//Interact dengan well
 // 	if((((posX + 1) == WellX) || ((posX - 1) == WellX)) && (((posY + 1) == WellY) || ((posY - 1) == WellY))) {
@@ -129,4 +134,4 @@ void Player::Grow() {
 	else {
 	//gaada air, sana pergi ke well
 	}
-}
+}*/

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "stdlib.h"
 #include "FarmAnimal.h"
 #include "Eggproducing.h"
 #include "Meatproducing.h"
@@ -28,22 +29,25 @@ ayam::~ayam() {
 }
 
 void ayam::move() {
+    int xa = FarmAnimal::getPosX();
     int x = rand()%(a+b-1);
     int y = rand()%(a+b-1);
     //cout<<" x , y "<<x<< " " <<y<<endl;
-    this->posX+=x;
+    xa+=x;
     this->posY +=y;
-    while(this->posX>a) {
+    while(xa>a) {
          x = rand()%(a+b-1);
         //cout<<" x "<<x<<endl;
         while (this->posY>b) {
             this->posY -=x;
         }
         this->posX -=x;
-        if (this->posX <a) {
-            this->posX = this->posX + a;
+        if (xa<a) {
+            xa = xa + a;
         }
     }
+    FarmAnimal::setPosX(xa);
+    cout<<"pos MOVE : "<< this->posX<<" " << this->posY<<endl;
     
     Full--;
 }
