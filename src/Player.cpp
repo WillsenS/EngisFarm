@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Facility.h"
 #include "Cell.h"
+#include "LinkedList.h"
 using namespace std;
 
 //Constructor
@@ -13,8 +14,6 @@ Player::Player(int x, int y) {
 }
 
 void Player::Move(int x, int y) {
-	//Cell.delElement(posX,posY); perlu ada di cell.h
-	//masih belum ada pengecekan bisa move ato gk
 	posX = x;
 	posY = y;
 }
@@ -65,15 +64,15 @@ void Player::Grow() {
 	char typeland = Cell::getElement(PosX,PosY);
 	if (water > 0) {
 		if (typeland == '-') {
-			Cell.setElemet(PosX,posY,'#');
+			Cell::setElemet(PosX,posY,'#');
 			water--;
 		}
 		else if (typeland == 'o') {
-			Cell.setElemet(PosX,posY,'*');
+			Cell::setElemet(PosX,posY,'*');
 			water--;
 		}
 		else if (typeland == 'x') {
-			Cell.setElemet(PosX,posY,'@');
+			Cell::setElemet(PosX,posY,'@');
 			water--;
 		}
 		else {
