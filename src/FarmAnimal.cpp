@@ -19,7 +19,7 @@ FarmAnimal::~FarmAnimal() {
     countAnimal--;
 }
 
-int FarmAnimal::getcountAnimal() {
+int FarmAnimal::getCountAnimal() {
     return countAnimal;
 }
 

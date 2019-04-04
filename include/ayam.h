@@ -11,7 +11,7 @@
 using namespace std;
 class ayam : public Eggproducing,public Meatproducing{
     public:
-        ayam(int posX ,int posY,Cell& _c);
+        ayam(int posX ,int posY);
         ~ayam();
         void move (Cell& _c);
         void talk();

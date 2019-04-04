@@ -13,13 +13,12 @@ const int b = 0;
 const int c = 5;
 const int d = 5;
 
-ayam::ayam(int posX, int posY, Cell& _c):FarmAnimal(posX, posY), Eggproducing(posX, posY), Meatproducing(posX, posY) {
+ayam::ayam(int posX, int posY):FarmAnimal(posX, posY), Eggproducing(posX, posY), Meatproducing(posX, posY) {
     Full = FULLMAX;
     countTelurA = 0;
     //cout<<"Full : "<< Full<<endl;
     this->posX = FarmAnimal::getPosX();
     this->posY = FarmAnimal::getPosY();
-    _c.setElement(posX,posY,'A') ;
 
 }
 
@@ -67,7 +66,7 @@ void ayam::eat(Cell&_c) {
         }
         Full =FULLMAX;
        // _c.setElement(posX,posY,'a');
-        _c.kosongRumput(this->posX,this->posY);
+        // _c.kosongRumput(this->posX,this->posY);
         cout<<"Ayam makannn"<<endl;
     }
     

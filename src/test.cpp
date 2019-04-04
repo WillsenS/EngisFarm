@@ -27,7 +27,7 @@
 //     domba d (12,7);
 //     bebek r (2,8);
     
-//  cout<<"jlh : "<< FarmAnimal::getcountAnimal()<<endl;
+//  cout<<"jlh : "<< FarmAnimal::getCountAnimal()<<endl;
 //    //cout<<"jlh k : "<< k.getPosX()<<endl;
 
 //     //k.talk();
@@ -70,6 +70,6 @@
 //      d.Print();
 //      cout<<"r: "<< endl;
 //      r.Print();
-//      cout<<"jlh : "<< FarmAnimal::getcountAnimal()<<endl;
+//      cout<<"jlh : "<< FarmAnimal::getCountAnimal()<<endl;
 //     return 0;
 // }

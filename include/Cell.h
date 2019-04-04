@@ -13,13 +13,13 @@ class Cell {
         ~Cell();
 
         /*Mengubah nilai sizex menjadi _x*/
-        void setSizex(int _x);
+        void setSizeX(int _x);
         /*Mengubah nilai sizey menjadi _y*/
-        void setSizey(int _y);
+        void setSizeY(int _y);
         /*Mengembalikan sizex map*/
-        int getSizex();
+        int getSizeX();
         /*Mengembalikan sizex map*/
-        int getSizey();
+        int getSizeY();
         /*Mengembalikan value dari matriks map*/
         char getElement(int x, int y);
         /*Mengembalikan jenis land sesuai dengan value dari matriks map*/
