@@ -24,7 +24,7 @@ class ayam : public Eggproducing,public Meatproducing{
         void setFull(int Full);
         /*int getPosX();
         int getPosY();
-         void setPosX(int x);
+        void setPosX(int x);
         void setPosY(int y);*/
         void Print();
 

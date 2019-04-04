@@ -63,12 +63,12 @@ using namespace std;
 }*/
 
 /*void Player::Interact() {
-	int WellX = f.getWellx();
-	int WellY = f.getWelly();
-	int MixerX = f::getMixerx();
-	int MixerY = f::getMixery();
-	int TruckX = f::getTruckx();
-	int TruckY = f::getTrucky();
+	int WellX = f.getWellX();
+	int WellY = f.getWellY();
+	int MixerX = f::getMixerX();
+	int MixerY = f::getMixerY();
+	int TruckX = f::getTruckX();
+	int TruckY = f::getTruckY();
 
 	//Interact dengan well
 	if((((posX + 1) == WellX) || ((posX - 1) == WellX)) && (((posY + 1) == WellY) || ((posY - 1) == WellY))) {

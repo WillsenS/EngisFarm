@@ -25,27 +25,50 @@ class Player : public LivingThings {
         /*Bergerak ke posX, posY*/
         void move (Cell& _c);
 
-        /*Berbicara kepada hewan,
-          Suara dihasilkan bergantung pada hewan*/
+        /*
+         * Berbicara kepada hewan,
+         * Suara dihasilkan bergantung pada hewan
+         */
         void talk();
 
         void print();
 
         int getPosX();
         int getPosY();
+        int getMoney();
+        int getWater();
 
-        /*Berinteraksi dengan objek di samping player
-          Dapat berupa FarmAnimal atau Facility
-          Untuk FarmAnimal, hanya dapat digunakan kepada EggProducingAnimal dan MilkProducingAnimal*/
+        /*
+         * Berinteraksi dengan objek di samping player
+         * Dapat berupa FarmAnimal atau Facility
+         * Untuk FarmAnimal, hanya dapat digunakan kepada EggProducingAnimal dan MilkProducingAnimal
+         */
         void interact(Facility &_f);
 
-        /*Menyembelih hewan
-          Hanya dapat digunakan kepada MeatProducingAnimal*/
+        /*
+         * Berinteraksi dengan facility.
+         */
+        void interactFacility(Facility &_f);
+
+        /*
+         * Mengembalikan jenis interaksi yang akan dilakukan oleh User.
+         * @return int Tupe interaksi; 0 untuk Facilitty, 1 untuk Animal.
+         */
+        int getInteractType(Facility &_f);
+
+        bool isAdjacent(int x, int y);
+
+        /*
+         * Menyembelih hewan
+         * Hanya dapat digunakan kepada MeatProducingAnimal
+         */
         //void Kill();
 
-        /*Menyiram land
-          Menumbuhkan rumput ditempat player berdiri
-          Water -1*/
+        /*
+         * Menyiram land
+         * Menumbuhkan rumput ditempat player berdiri
+         * Water -1
+         */
         void Grow(Cell &_c);
 
         // //Menyiram land

@@ -23,11 +23,11 @@
 
 using namespace std;
 
-vector<FarmAnimal*> animals;
-Renderable r;
-Facility f;
-bool isRunning;
-int command;
+vector<FarmAnimal*> animals; /*!< Vector for storing animal objects */
+Renderable r; /*!< The board */
+Facility f; /*!< The board facility */
+bool isRunning; /*!< Whether the game is running or not */
+int command; /*!< Command inputted by user */
 
 /*
  * Enum used to switch case the command as cpp does not allow
@@ -52,14 +52,25 @@ void printCommandList() {
     cout << "2: Kill" << setw(24) << setiosflags(ios::right) << "5: Exit" << endl;
 }
 
+/*
+ * Print player status.
+ */
+void printPlayerStatus(Player p) {
+    cout << endl << "Player Status" << endl << endl;
+    cout << "Money" << p.getMoney() << endl;
+    cout << "Water" << p.getWater() << endl;
+}
+
+/*
+ * Create Animal Object according to cell land type.
+ */
 void createAnimal(int x, int y) {
     char landType = r.getTypeLand(x, y);
     int prob;
     switch (landType) {
         case '-':
-            // cout << "Grass" << endl;
-            prob = rand() % 1;
-            if (prob) {
+            prob = rand() % 2 + 1;
+            if (prob == 1) {
                 animals.push_back(new kambing(x, y));
                 r.setElement(x, y, 'K');
             } else {
@@ -69,9 +80,8 @@ void createAnimal(int x, int y) {
             break;
 
         case 'o':
-            // cout << "Coop" << endl;
-            prob = rand() % 1;
-            if (prob) {
+            prob = rand() % 2 + 1;
+            if (prob == 1) {
                 animals.push_back(new ayam(x, y));
                 r.setElement(x, y, 'A');
             } else {
@@ -81,39 +91,47 @@ void createAnimal(int x, int y) {
             break;
 
         case 'x':
-            // cout << "Barn" << endl;
             prob = rand() % 5;
             switch (prob) {
                 case 0:
                     animals.push_back(new ayam(x, y));
+                    r.setElement(x, y, 'A');
                     break;
 
                 case 1:
                     animals.push_back(new bebek(x, y));
+                    r.setElement(x, y, 'B');
                     break;
 
                 case 2:
                     animals.push_back(new babi(x, y));
+                    r.setElement(x, y, 'p');
                     break;
 
                 case 3:
                     animals.push_back(new domba(x, y));
+                    r.setElement(x, y, 'D');
                     break;
 
                 case 4:
                     animals.push_back(new kambing(x, y));
+                    r.setElement(x, y, 'K');
                     break;
 
                 case 5:
                     animals.push_back(new sapi(x, y));
+                    r.setElement(x, y, 'S');
                     break;
             }
             break;
     }
 }
 
+/*
+ * Initialize all animal in the board
+ */
 void initializeAnimal() {
-    srand(time(NULL));
+    srand(static_cast<int>(time(0)));
     for (int i = 0; i < r.getSizeX(); i++) {
         for (int j = 0; j < r.getSizeY(); j++) {
             int prob = rand() % 10 + 1;
@@ -131,9 +149,9 @@ void tick() {
  * Set all the facilities inside Cells.
  */
 void setFacilities(Facility &_f) {
-    r.setElement(_f.getWellx(), _f.getWelly(), 'W');
-    r.setElement(_f.getMixerx(), _f.getMixery(), 'M');
-    r.setElement(_f.getTruckx(), _f.getTrucky(), 'T');
+    r.setElement(_f.getWellX(), _f.getWellY(), 'W');
+    r.setElement(_f.getMixerX(), _f.getMixerY(), 'M');
+    r.setElement(_f.getTruckX(), _f.getTruckY(), 'T');
 
 }
 
@@ -154,6 +172,7 @@ int main(){
     while (isRunning) {
         r.render();
         printCommandList();
+        printPlayerStatus(p);
 
         cout << endl << "Enter you Command: ";
         cin >> command;
