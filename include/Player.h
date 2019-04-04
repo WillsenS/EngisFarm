@@ -58,7 +58,6 @@ class Player : public LivingThings {
          */
         void interact(Facility &_f);
 
-<<<<<<< HEAD
         /*
          * Berinteraksi dengan facility.
          */
@@ -72,16 +71,9 @@ class Player : public LivingThings {
 
         bool isAdjacent(int x, int y);
 
-        /*
-         * Menyembelih hewan
-         * Hanya dapat digunakan kepada MeatProducingAnimal
-         */
-        //void Kill();
-=======
         /*Menyembelih hewan
           Hanya dapat digunakan kepada MeatProducingAnimal*/
         void Kill(Cell &_c, vector<FarmAnimal*>& animals);
->>>>>>> player
 
         /*
          * Menyiram land
