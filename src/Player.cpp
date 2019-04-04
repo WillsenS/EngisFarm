@@ -1,16 +1,18 @@
 #include <iostream>
 #include "LinkedList.h"
 #include "Player.h"
+#include "Cell.h"
+#include "Product.h"
 using namespace std;
 
 //Constructor
-Player::Player(int x, int y) {
-    //LinkedList<String> l = new LinkedList()<>;
-    //LinkedList<int> pl = new LinkedList()<>;
+Player::Player(int x, int y, Cell& _c) {
     posX = x;
     posY = y;
     water = 0;  
     money = 0;
+    _c.setElement(posX, posY, 'P');
+    LinkedList<char> inventory = new LinkedList<char>();
 }
 
 Player::~Player() {
@@ -36,6 +38,60 @@ int Player::getPosX() {
 
 int Player::getPosY() {
     return posY;
+}
+
+void Player::move (Cell& _c) {
+    char cc;
+    cout << "Select Move : ";
+    cin >> cc;
+    switch (cc){
+        case 'w' :  
+            if(posX-1>=0 && posX-1<15 && posY>=0 && posY<15){
+                if(_c.getElement(posX-1, posY)==' '){
+                    _c.setElement(posX, posY, ' ');
+                    posX--;
+                    _c.setElement(posX, posY, 'P');
+                }else{
+                    cout << "Ada Sesuatu" << endl;
+                }
+            }
+            break;
+        case 'a' :
+            if(posX>=0 && posX<15 && posY-1>=0 && posY-1<15){ 
+                if(_c.getElement(posX, posY-1)==' '){ 
+                    _c.setElement(posX, posY, ' ');
+                    posY--;
+                    _c.setElement(posX, posY, 'P');
+                }else{
+                    cout << "Ada Sesuatu" << endl;
+                }
+            }
+            break;
+        case 's' :  
+            if(posX+1>=0 && posX+1<15 && posY>=0 && posY<15){
+                if(_c.getElement(posX+1, posY)==' '){
+                    _c.setElement(posX, posY, ' ');
+                    posX++;
+                    _c.setElement(posX, posY, 'P');
+                }else{
+                    cout << "Ada Sesuatu" << endl;
+                }
+            }
+            break;
+        case 'd' :  
+            if(posX>=0 && posX<15 && posY+1>=0 && posY+1<15){
+                if(_c.getElement(posX, posY+1)==' '){
+                    _c.setElement(posX, posY, ' ');
+                    posY++;
+                    _c.setElement(posX, posY, 'P');
+                }else{
+                    cout << "Ada Sesuatu" << endl;
+                }
+            }
+            break;
+        default:
+            cout << "Invalid command" << endl;
+    }
 }
 
 void Player::interact(Facility &_f) {
@@ -127,29 +183,21 @@ void Player::interact(Facility &_f) {
 //          sapi::~sapi();
 // }
 
-// void Player::grow(Renderable _r) {
-//     char typeland = _r.getTypeLand(posX, posY);
-//     this->print();
-//     if (water > 0) {
-//         if (typeland == '-') {
-//             _r.setElement(posX,posY,'#');
-//             water--;
-//         }
-//         else if (typeland == 'o') {
-//             _r.setElement(posX,posY,'*');
-//             water--;
-//         }
-//         else if (typeland == 'x') {
-//             _r.setElement(posX,posY,'@');
-//             water--;
-//         }
-//         else {
-//             //udah ada rumput, jadi do nothing/pesen error
-//             cout << "Can't grow anymore!" << endl; 
-//         }
-//     }
-//     else {
-//         //gaada air, sana pergi ke well
-//         cout << "Sufficient water!" << endl;
-//     }
-// }
+void Player::Grow(Cell &_c) {
+    if (water > 0) {
+        //Mengisi petak cell dengan notasi rumput
+        if(_c.getRumput(posX, posY) == ' '){
+            _c.setRumput(posX, posY);
+            water--;
+        }
+        else {
+            //udah ada rumput, jadi do nothing/pesen error
+            cout << "Can't grow anymore!" << endl; 
+        }
+    }
+    else {
+        //gaada air, sana pergi ke well
+        cout << "Sufficient water!" << endl;
+    }
+    this->print();
+}

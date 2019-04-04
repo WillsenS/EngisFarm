@@ -17,13 +17,13 @@ class Player : public LivingThings {
         // LinkedList<string> inventory;
     public:
         //Constructor
-        Player(int x, int y);
+        Player(int x, int y, Cell& _c);
 
         //Destructor
         ~Player();
 
         /*Bergerak ke posX, posY*/
-        void move (int posX, int posY);
+        void move (Cell& _c);
 
         /*Berbicara kepada hewan,
           Suara dihasilkan bergantung pada hewan*/
@@ -46,7 +46,7 @@ class Player : public LivingThings {
         /*Menyiram land
           Menumbuhkan rumput ditempat player berdiri
           Water -1*/
-        //void Grow();
+        void Grow(Cell &_c);
 
         // //Menyiram land
         // //Menumbuhkan rumput ditempat player berdiri

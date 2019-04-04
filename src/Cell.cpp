@@ -13,7 +13,7 @@ Cell::Cell() {
         for(int j = 0; j < sizey; j++) {
             map[i][j] = new char[3];
                 map[i][j][0] = '-';
-                map[i][j][1] = '#';
+                map[i][j][1] = ' ';
                 map[i][j][2] = ' ';
         }
     }
@@ -81,7 +81,9 @@ void Cell::setElement(int x, int y, char e) {
     map[x][y][2] = e;
 }
 
-/*Menentukan petak rumput*/
+/*
+*Menentukan petak rumput sesuai dengan land
+*/
 void Cell::setRumput(int x, int y){
     if(map[x][y][0] == '-'){
         map[x][y][1] = '#';

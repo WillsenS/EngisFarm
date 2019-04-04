@@ -64,8 +64,8 @@ int main(){
     setFacilities(r, f);
 
     // Initialized Player here
-    Player p = Player(13, 11);
-    r.setElement(p.getPosX(), p.getPosY(), 'P');
+    Player p = Player(13, 11,r);
+    // r.setElement(p.getPosX(), p.getPosY(), 'P');
 
 
     // Initialized Animals here
@@ -102,6 +102,7 @@ int main(){
             case Move:
                 cout << "Move" << endl;
 
+                p.move(r);
                 // show list of available cells to move into
 
                 // choose which direction to move
@@ -118,7 +119,7 @@ int main(){
 
             case Grow:
                 cout << "Grow" << endl;
-                p.grow(r);
+                p.Grow(r);
                 break;
 
             case Mix:
