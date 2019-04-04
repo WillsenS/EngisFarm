@@ -4,6 +4,7 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
+#include <algorithm>
 
 #include "ayam.h"
 #include "bebek.h"
@@ -169,6 +170,10 @@ int main(){
     initializeAnimal();
     cout << "Size : " << animals.size() << endl; 
 
+    // vector<FarmAnimal*>::iterator it;
+    // for (it = animals.begin(); it != animals.end(); ++it)
+    //     (*it)->getStatus();
+
     while (isRunning) {
         r.render();
         printCommandList();
@@ -195,7 +200,6 @@ int main(){
                 // choose which object to interact
 
                 p.interact(f);
-                p.print();
 
                 break;
 
