@@ -3,10 +3,23 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include "LinkedList.h"
 #include "LivingThings.h"
 #include "Facility.h"
 #include "Renderable.h"
+#include "GoatMeat.h"
+#include "GoatMilk.h"
+#include "ChickenEgg.h"
+#include "ChickenMeat.h"
+#include "CowMeat.h"
+#include "CowMilk.h"
+#include "DuckEgg.h"
+#include "DuckMeat.h"
+#include "Pork.h"
+#include "Omelette.h"
+#include "Sausage.h"
+#include "FarmAnimal.h"
 
 class Player : public LivingThings {
     private:
@@ -14,7 +27,7 @@ class Player : public LivingThings {
         int posY;
         int water;
         int money;
-        // LinkedList<string> inventory;
+        LinkedList<string> inventory;
     public:
         //Constructor
         Player(int x, int y, Cell& _c);
@@ -45,6 +58,7 @@ class Player : public LivingThings {
          */
         void interact(Facility &_f);
 
+<<<<<<< HEAD
         /*
          * Berinteraksi dengan facility.
          */
@@ -63,6 +77,11 @@ class Player : public LivingThings {
          * Hanya dapat digunakan kepada MeatProducingAnimal
          */
         //void Kill();
+=======
+        /*Menyembelih hewan
+          Hanya dapat digunakan kepada MeatProducingAnimal*/
+        void Kill(Cell &_c, vector<FarmAnimal*>& animals);
+>>>>>>> player
 
         /*
          * Menyiram land
@@ -71,6 +90,8 @@ class Player : public LivingThings {
          */
         void Grow(Cell &_c);
 
+
+        void cekhewan(int x, int y, Cell &_c);
         // //Menyiram land
         // //Menumbuhkan rumput ditempat player berdiri
         // //Water -1

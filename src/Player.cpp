@@ -1,5 +1,6 @@
 #include <iostream>
-#include "LinkedList.h"
+#include <cstring>
+#include "LinkedList.cpp"
 #include "Player.h"
 #include "Cell.h"
 #include "Product.h"
@@ -12,7 +13,7 @@ Player::Player(int x, int y, Cell& _c) {
     water = 0;  
     money = 0;
     _c.setElement(posX, posY, 'P');
-    // LinkedList<char> inventory = new LinkedList<char>();
+    LinkedList<string> inventory;
 }
 
 Player::~Player() {
@@ -30,6 +31,7 @@ void Player::print() {
     cout << "Position: " << posX << ", " << posY << endl;
     cout << "Water: " << water << endl;
     cout << "Money: " << money << endl;
+    inventory.print();
 }
 
 int Player::getPosX() {
@@ -182,40 +184,74 @@ void Player::interactFacility(Facility &_f) {
 //  }
 // }
 
-// void Player::Kill() {
-//  //kill animalnya
-//  //dapeting dagingnya
-//      //ayam(A)
-//      if((Cell::getElement(posX+1,posY) == "A") || (Cell::getElement(posX-1,posY) == "A") || (Cell::getElement(posX,posY+1) == "A") || (Cell::getElement(posX,posY-1) == "A"))
-//          ChickenMeat::ChickenMeat();
-//          inventory.add("ChickenMeat");
-//          ayam::~ayam();
-//      //bebek(B)
-//      if((Cell::getElement(posX+1,posY) == "B") || (Cell::getElement(posX-1,posY) == "B") || (Cell::getElement(posX,posY+1) == "B") || (Cell::getElement(posX,posY-1) == "B"))
-//          DuckMeat::DuckMeat();
-//          inventory.add("DuckMeat");
-//          bebek::~bebek();
-//      //babi(b)
-//      if((Cell::getElement(posX+1,posY) == "b") || (Cell::getElement(posX-1,posY) == "b") || (Cell::getElement(posX,posY+1) == "b") || (Cell::getElement(posX,posY-1) == "b"))
-//          Pork::Pork();
-//          inventory.add("Pork");
-//          babi::~babi();
-//      //domba(D)
-//      if((Cell::getElement(posX+1,posY) == "D") || (Cell::getElement(posX-1,posY) == "D") || (Cell::getElement(posX,posY+1) == "D") || (Cell::getElement(posX,posY-1) == "D"))
-//          LambMeat::LambMeat();
-//          inventory.add("LambMeat");
-//          domba::~domba();
-//      //kambing(K)
-//      if((Cell::getElement(posX+1,posY) == "K") || (Cell::getElement(posX-1,posY) == "K") || (Cell::getElement(posX,posY+1) == "K") || (Cell::getElement(posX,posY-1) == "K"))
-//          GoatMeat::GoatMeat();
-//          inventory.add("GoatMeat");
-//          kambing::~kambing();
-//      //Sapi(S)
-//      if((Cell::getElement(posX+1,posY) == "S") || (Cell::getElement(posX-1,posY) == "S") || (Cell::getElement(posX,posY+1) == "S") || (Cell::getElement(posX,posY-1) == "S"))
-//          CowMeat::CowMeat();
-//          inventory.add("CowMeat");
-//          sapi::~sapi();
-// }
+void Player::Kill(Cell &_c, vector<FarmAnimal*>& animals) {
+ //kill animalnya
+ //dapeting dagingnya
+    int cc;
+    cout << "Select Side to Kill" << endl;
+    cout << "1. Atas    2. Bawah" << endl;
+    cout << "3. Kiri    4. Kanan" << endl;
+    cin >> cc;
+    switch(cc){
+        case 1 :
+            cekhewan(posX-1, posY, _c);
+            break;
+        case 2 :
+            cekhewan(posX+1, posY, _c);
+            break;
+        case 3 :
+            cekhewan(posX, posY-1, _c);
+            break;
+        case 4 :
+            cekhewan(posX, posY+1, _c);
+            break;
+        default :
+            cout << "Command Salah" << endl;
+    }
+     
+}
+
+void Player::cekhewan(int x, int y, Cell &_c){
+    //ayam(A)
+     if(_c.getElement(x,y) == 'A'){
+         ChickenMeat a = ChickenMeat();
+         inventory.add("ChickenMeat");
+        //  ayam::~ayam();
+     }
+     //bebek(B)
+     else if(_c.getElement(x,y) == 'B'){
+         DuckMeat a = DuckMeat();
+         inventory.add("DuckMeat");
+        //  bebek::~bebek();
+     } 
+     //babi(b)
+     else if(_c.getElement(x,y) == 'Z'){
+         Pork a = Pork();
+         inventory.add("Pork");
+        //  babi::~babi();
+     } 
+     //domba(D)
+     else if(_c.getElement(x,y) == 'D'){
+         DuckMeat a = DuckMeat();
+         inventory.add("LambMeat");
+        //  domba::~domba();
+     }
+     //kambing(G)
+     else if(_c.getElement(x,y) == 'G'){
+         GoatMeat a = GoatMeat();
+         inventory.add("GoatMeat");
+        //  kambing::~kambing();
+     }
+     //Sapi(C)
+     else if(_c.getElement(x,y) == 'C'){
+         CowMeat a = CowMeat();
+         inventory.add("CowMeat");
+        //  sapi::~sapi();
+     }else{
+         cout << "Kosong" << endl;
+     }   
+     this->print();
+}
 
 void Player::Grow(Cell &_c) {
     if (water > 0) {

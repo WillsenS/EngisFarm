@@ -117,7 +117,7 @@ int LinkedList<Type>::getSize(){
 
 template<class Type>
 void LinkedList<Type>::print(){
-    cout<<"[";
+    cout<<"Inventory : " << "[";
     node<Type>* p = this->first;
     if(p!=NULL){
         while(p->next!=NULL){
