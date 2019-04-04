@@ -2,42 +2,55 @@
 #define PLAYER_H
 
 #include <iostream>
+#include <string>
+#include "LinkedList.h"
 #include "LivingThings.h"
+#include "Facility.h"
+#include "Renderable.h"
 
-class Player: public LivingThings{
+class Player : public LivingThings {
     private:
         int posX;
         int posY;
         int water;
         int money;
-    
+        // LinkedList<string> inventory;
     public:
-        /*Constructor */
+        //Constructor
         Player(int x, int y);
 
-        /*Destructor*/
+        //Destructor
         ~Player();
 
         /*Bergerak ke posX, posY*/
-        void Move (int posX, int posY);
+        void move (int posX, int posY);
 
         /*Berbicara kepada hewan,
           Suara dihasilkan bergantung pada hewan*/
-        void Talk();
+        void talk();
+
+        void print();
+
+        int getPosX();
+        int getPosY();
 
         /*Berinteraksi dengan objek di samping player
           Dapat berupa FarmAnimal atau Facility
           Untuk FarmAnimal, hanya dapat digunakan kepada EggProducingAnimal dan MilkProducingAnimal*/
-        void Interact();
+        void interact(Facility &_f);
 
         /*Menyembelih hewan
           Hanya dapat digunakan kepada MeatProducingAnimal*/
-        void Kill();
+        //void Kill();
 
         /*Menyiram land
           Menumbuhkan rumput ditempat player berdiri
           Water -1*/
-        void Grow();
+        //void Grow();
 
+        // //Menyiram land
+        // //Menumbuhkan rumput ditempat player berdiri
+        // //Water -1
+        // void grow(Renderable _r);
 };
 #endif
