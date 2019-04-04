@@ -5,13 +5,17 @@
 #include "Eggproducing.h"
 #include "Meatproducing.h"
 #include "ayam.h"
-
+#include <ctime>
 
 using namespace std;
-const int a = 0;
-const int b = 0;
-const int c = 5;
-const int d = 5;
+
+const int randX =3;
+const int randY =3;
+
+const char t_rumput ='*';
+const char tempat ='o';
+const char produk ='O';
+
 
 ayam::ayam(int posX, int posY):FarmAnimal(posX, posY), Eggproducing(posX, posY), Meatproducing(posX, posY) {
     Full = FULLMAX;
@@ -20,9 +24,11 @@ ayam::ayam(int posX, int posY):FarmAnimal(posX, posY), Eggproducing(posX, posY),
     this->posX = FarmAnimal::getPosX();
     this->posY = FarmAnimal::getPosY();
 
+
 }
 
 ayam::~ayam() {
+   // _c.setElement(posX,posY,' ')
     this->posX =0;
     this->posY =0;
     Full =0;
@@ -32,21 +38,20 @@ ayam::~ayam() {
 
 void ayam::move(Cell&_c) {
     //int xa = FarmAnimal::getPosX();
-    int x = rand()%(a+b-1);
-    int y = rand()%(a+b-1);
+    srand(time(NULL));
+    int x = rand()%(randX) - 1;
+    int y = rand()%(randY) - 1;
     _c.setElement(posX,posY,' ');
-    //cout<<" x , y "<<x<< " " <<y<<endl;
-    this->posX+=x;
-    this->posY +=y;
-    while(this->posX>c || this->posY>d){
-         this->posX -=2;
-         this->posY -=1;
-    }
-    while (this->posX<a || this->posY<b){
-            this->posX +=1;
-            this->posY +=1;
-        }
+    cout<<" x , y "<<x<< " " <<y<<endl;
+     if(posX+x>=0 && posX+x<15 && posY+y>=0 && posY+y<15){
+             if(_c.getTypeLand(this->posX+x,this->posY+y)==tempat)
+                {
+                    this->posX+=x;
+                    this->posY+=y;
+                }
     
+     }
+
     //FarmAnimal::setPosX(xa);
     _c.setElement(posX,posY,'A');
     //cout<<"pos MOVE : "<< this->posX<<" " << this->posY<<endl;
@@ -59,15 +64,17 @@ void ayam::talk() {
 }
 
 void ayam::eat(Cell&_c) {
-    if (_c.getRumput(this->posX,this->posY) == '*' ){
+    if (_c.getRumput(this->posX,this->posY) == t_rumput){
         countTelurA++;
         if (countTelurA > MAX)  {
         countTelurA = MAX;
         }
         Full =FULLMAX;
        // _c.setElement(posX,posY,'a');
-        // _c.kosongRumput(this->posX,this->posY);
-        cout<<"Ayam makannn"<<endl;
+        _c.kosongRumput(this->posX,this->posY);
+        //cout<<"Ayam makannn"<<endl;
+    } else{
+        move(_c);
     }
     
 }

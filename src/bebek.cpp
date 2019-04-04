@@ -7,19 +7,22 @@
 
 using namespace std;
 
-const int a = 4;
-const int b = 4;
-const int c = 4;
-const int d = 4;
+const int randX =3;
+const int randY =3;
+const char t_rumput ='*';
+const char tempat ='o';
+const char produk ='L';//telur bebek
 
 bebek :: bebek(int posX, int posY): FarmAnimal(posX, posY), Eggproducing(posX, posY), Meatproducing(posX, posY) {
     Full = FULLMAX;
     countTelurB =0;
     this->posX = FarmAnimal::getPosX();
     this->posY = FarmAnimal::getPosY();
+    //_c.setElement(posX,posY,'B') ;
 }
 
 bebek:: ~bebek() {
+    //_c.setElement(posX,posY,' ')
     this->posX = 0;
     this->posY = 0;
     Full = 0;
@@ -29,27 +32,24 @@ bebek:: ~bebek() {
 }
 
 void bebek::move(Cell&_c) {
-    int xa = FarmAnimal::getPosX();
-    int x = rand()%(a+b-1);
-    int y = rand()%(a+b-1);
+     //int xa = FarmAnimal::getPosX();
+    srand(time(NULL));
+    int x = rand()%(randX) - 1;
+    int y = rand()%(randY) - 1;
     _c.setElement(posX,posY,' ');
-    //cout<<" x , y "<<x<< " " <<y<<endl;
-    xa+=x;
-    this->posY +=y;
-    while(xa>a) {
-         x = rand()%(a+b-1);
-        //cout<<" x "<<x<<endl;
-        while (this->posY>b) {
-            this->posY -=x;
-        }
-        this->posX -=x;
-        if (xa<a) {
-            xa = xa + a;
-        }
-    }
-    FarmAnimal::setPosX(xa);
-    _c.setElement(posX,posY,'A');
-    cout<<"pos MOVE : "<< this->posX<<" " << this->posY<<endl;
+    cout<<" x , y "<<x<< " " <<y<<endl;
+     if(posX+x>=0 && posX+x<15 && posY+y>=0 && posY+y<15){
+             if(_c.getTypeLand(this->posX+x,this->posY+y)==tempat)
+                {
+                    this->posX+=x;
+                    this->posY+=y;
+                }
+    
+     }
+
+    //FarmAnimal::setPosX(xa);
+    _c.setElement(posX,posY,'B');
+    //cout<<"pos MOVE : "<< this->posX<<" " << this->posY<<endl;
     
     Full--;
 }
@@ -60,13 +60,15 @@ void bebek::talk() {
 }
 
 void bebek::eat(Cell& _c) {
-    if (_c.getRumput(this->posX,this->posY)){
+    if ((_c.getRumput(this->posX,this->posY)==t_rumput)){
         countTelurB++;
         Full = FULLMAX;
         if (countTelurB > MAX)  {
         countTelurB = MAX;
         }
-        _c.setElement(posX,posY,' ');
+        _c.kosongRumput(this->posX,this->posY);
+    } else{
+        move(_c);
     }
 }
 
