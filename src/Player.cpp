@@ -12,7 +12,7 @@ Player::Player(int x, int y, Cell& _c) {
     water = 0;  
     money = 0;
     _c.setElement(posX, posY, 'P');
-    LinkedList<char> inventory = new LinkedList<char>();
+   // LinkedList<char> inventory = new LinkedList<char>();
 }
 
 Player::~Player() {
