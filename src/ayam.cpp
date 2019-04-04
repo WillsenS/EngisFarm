@@ -6,18 +6,21 @@
 #include "Meatproducing.h"
 #include "ayam.h"
 
-using namespace std;
-const int a = 4;
-const int b = 4;
-const int c = 4;
-const int d = 4;
 
-ayam::ayam(int posX, int posY):FarmAnimal(posX, posY), Eggproducing(posX, posY), Meatproducing(posX, posY) {
+using namespace std;
+const int a = 1;
+const int b = 1;
+const int c = 3;
+const int d = 3;
+
+ayam::ayam(int posX, int posY, Cell& _c):FarmAnimal(posX, posY), Eggproducing(posX, posY), Meatproducing(posX, posY) {
     Full = FULLMAX;
     countTelurA = 0;
     //cout<<"Full : "<< Full<<endl;
     this->posX = FarmAnimal::getPosX();
     this->posY = FarmAnimal::getPosY();
+    _c.setElement(posX,posY,'A') ;
+
 }
 
 ayam::~ayam() {
@@ -28,25 +31,28 @@ ayam::~ayam() {
    // cout<<"One of your chickens has died"<<endl;
 }
 
-void ayam::move() {
+void ayam::move(Cell&_c) {
     int xa = FarmAnimal::getPosX();
     int x = rand()%(a+b-1);
     int y = rand()%(a+b-1);
+    _c.setElement(posX,posY,' ');
     //cout<<" x , y "<<x<< " " <<y<<endl;
-    xa+=x;
+    this->posX+=x;
     this->posY +=y;
-    while(xa>a) {
-         x = rand()%(a+b-1);
+    while(this->posX>a) {
+         //x = rand()%(a+b-1);
+         this->posX -=1;
         //cout<<" x "<<x<<endl;
         while (this->posY>b) {
-            this->posY -=x;
+            this->posY -=1;
         }
-        this->posX -=x;
-        if (xa<a) {
-            xa = xa + a;
+        
+        if (this->posX<a) {
+            this->posX +=1;
         }
     }
     FarmAnimal::setPosX(xa);
+    _c.setElement(posX,posY,'A');
     cout<<"pos MOVE : "<< this->posX<<" " << this->posY<<endl;
     
     Full--;
@@ -56,12 +62,17 @@ void ayam::talk() {
     cout<<"Petok petokkk"<<endl;
 }
 
-void ayam::eat() {
-    countTelurA++;
-    if (countTelurA > MAX)  {
-	countTelurA = MAX;
+void ayam::eat(Cell&_c) {
+    if (_c.getRumput(this->posX,this->posY) == '*' ){
+        countTelurA++;
+        if (countTelurA > MAX)  {
+        countTelurA = MAX;
+        }
+        Full =FULLMAX;
+       // _c.setElement(posX,posY,'a');
+        _c.kosongRumput(this->posX,this->posY);
+        cout<<"Ayam makannn"<<endl;
     }
-    Full =FULLMAX;
     
 }
 

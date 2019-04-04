@@ -25,36 +25,49 @@ babi::~babi() {
     //cout<<"One of your pigs has died"<<endl;
 }
 
-void babi::move () {
-    int x = rand()%(a+c-1);
-    int y = rand()%(b+d-1);
+void babi::move(Cell&_c) {
+    int xa = FarmAnimal::getPosX();
+    int x = rand()%(a+b-1);
+    int y = rand()%(a+b-1);
+    _c.setElement(posX,posY,' ');
     //cout<<" x , y "<<x<< " " <<y<<endl;
-    this->posX+=x;
+    xa+=x;
     this->posY +=y;
-    while(this->posX>a) {
+    while(xa>a) {
          x = rand()%(a+b-1);
         //cout<<" x "<<x<<endl;
         while (this->posY>b) {
             this->posY -=x;
         }
-
         this->posX -=x;
-        if (this->posX <a) {
-            this->posX = this->posX + a;
+        if (xa<a) {
+            xa = xa + a;
         }
-    }    
+    }
+    FarmAnimal::setPosX(xa);
+    _c.setElement(posX,posY,'A');
+    cout<<"pos MOVE : "<< this->posX<<" " << this->posY<<endl;
+    
+    Full--;
 }
 
 void babi::talk() {
     cout<<"Nguikkk nguikk"<<endl;
 }
 
-void babi::eat() {
-    Full = FULLMAX;
-    countPork++;
-    if (countPork >MAX) {
-	countPork = MAX;
-	}
+void babi::eat(Cell& _c) {
+    //char a = _c.getElement(this->posX,this->posY);
+    if (_c.getRumput(this->posX,this->posY)){
+        Full = FULLMAX;
+        countPork++;
+        if (countPork >MAX) {
+        countPork = MAX;
+        }
+        _c.setElement(posX,posY,' ');
+    } else{
+        move(_c);
+    } 
+    
 
 }
 

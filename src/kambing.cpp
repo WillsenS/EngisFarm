@@ -26,33 +26,43 @@ kambing::~kambing() {
     //cout<<"One of your goats has died"<<endl;
 }
 
-void kambing::move () {
-    int x = rand()%(a+c-1);
-    int y = rand()%(b+d-1);
+void kambing::move(Cell&_c) {
+    int xa = FarmAnimal::getPosX();
+    int x = rand()%(a+b-1);
+    int y = rand()%(a+b-1);
+    _c.setElement(posX,posY,' ');
     //cout<<" x , y "<<x<< " " <<y<<endl;
-    this->posX+=x;
+    xa+=x;
     this->posY +=y;
-    while(this->posX>a) {
+    while(xa>a) {
          x = rand()%(a+b-1);
         //cout<<" x "<<x<<endl;
         while (this->posY>b) {
             this->posY -=x;
         }
         this->posX -=x;
-        if (this->posX <a) {
-            this->posX = this->posX + a;
+        if (xa<a) {
+            xa = xa + a;
         }
     }
+    FarmAnimal::setPosX(xa);
+    _c.setElement(posX,posY,'A');
+    cout<<"pos MOVE : "<< this->posX<<" " << this->posY<<endl;
+    
+    Full--;
 }
 void kambing::talk() {
     cout<<"Mbekkkk mbeek"<<endl;
 }
 
-void kambing::eat() {
-    Full = FULLMAX;
-    countgoatMilk++;
-    if (countgoatMilk > MAX) {
-        countgoatMilk = MAX;
+void kambing::eat(Cell& _c) {
+    if (_c.getRumput(this->posX,this->posY)){
+        Full = FULLMAX;
+        countgoatMilk++;
+        if (countgoatMilk > MAX) {
+            countgoatMilk = MAX;
+        }
+        _c.setElement(posX,posY,' ');
     }
 }
 

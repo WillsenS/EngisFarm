@@ -5,14 +5,15 @@
 #include <string>
 #include "FarmAnimal.h"
 #include "Meatproducing.h"
+#include "Cell.h"
 using namespace std;
 class babi : public Meatproducing{
     public:
         babi(int posX ,int posY);
         ~babi();
-        void move ();
+        void move (Cell& _c);
         void talk();
-        void eat();
+        void eat(Cell&_c);
         string getChar();
         string getProduct();
         //void setProduct(string pork);

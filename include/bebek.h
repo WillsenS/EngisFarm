@@ -6,15 +6,16 @@
 #include "FarmAnimal.h"
 #include "Eggproducing.h"
 #include "Meatproducing.h"
+#include "Cell.h"
 using namespace std;
 
 class bebek : public Eggproducing, public Meatproducing{
     public:
         bebek(int posX ,int posY);
         ~bebek();
-        void move ();
+        void move (Cell& _c);
         void talk();
-        void eat();
+        void eat(Cell&_c);
         string getChar();
         string getProduct();
         //void setProduct(string telur);

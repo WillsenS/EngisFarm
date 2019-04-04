@@ -5,14 +5,16 @@
 #include <string>
 #include "FarmAnimal.h"
 #include "Meatproducing.h"
+#include "Cell.h"
 using namespace std;
 class domba : public Meatproducing{
     public:
         domba(int posX ,int posY);
         ~domba();
-        void move ();
+        void move (Cell& _c);
+
         void talk();
-        void eat();
+        void eat(Cell&_c);
         string getChar();
         string getProduct();
         //void setProduct(string lambMeat);

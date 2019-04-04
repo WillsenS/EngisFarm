@@ -6,14 +6,15 @@
 #include "FarmAnimal.h"
 #include "Milkproducing.h"
 #include "Meatproducing.h"
+#include "Cell.h"
 using namespace std;
 class sapi : public Meatproducing,public Milkproducing{
     public:
         sapi(int posX ,int posY);
         ~sapi();
-        void move ();
+        void move (Cell& _c);
         void talk();
-        void eat();
+        void eat(Cell&_c);
         string getChar();
         string getProduct();
         //void setProduct(string cowMilk);
