@@ -5,46 +5,46 @@ using namespace std;
 
 int Facility::wellx = 14;
 int Facility::welly = 11;
-int Facility::Mixerx = 14;
-int Facility::Mixery = 13;
-int Facility::Truckx = 14;
-int Facility::Trucky = 14;
+int Facility::MixerX = 14;
+int Facility::MixerY = 13;
+int Facility::TruckX = 14;
+int Facility::TruckY = 14;
 
 /*Constructor untuk facility*/
 Facility::Facility() : Cell() {
-    Cell::setElement(getWellx(), getWelly(), 'W');
-    Cell::setElement(getMixerx(), getMixery(), 'M');
-    Cell::setElement(getTruckx(), getTrucky(), 'T');
+    Cell::setElement(getWellX(), getWellY(), 'W');
+    Cell::setElement(getMixerX(), getMixerY(), 'M');
+    Cell::setElement(getTruckX(), getTruckY(), 'T');
 }
 
 /*Mengembalikan letak x dari Well*/
-int Facility::getWellx() {
+int Facility::getWellX() {
     return wellx;
 }
 
 /*Mengembalikan letak y dari Well*/
-int Facility::getWelly() {
+int Facility::getWellY() {
     return welly;
 }
 
 /*Mengembalikan letak x dari Well*/
-int Facility::getMixerx() {
-    return Mixerx; 
+int Facility::getMixerX() {
+    return MixerX;
 }
 
 /*Mengembalikan letak y dari Mixer*/
-int Facility::getMixery() {
-    return Mixery;
+int Facility::getMixerY() {
+    return MixerY;
 }
 
 /*Mengembalikan letak x dari Mixer*/
-int Facility::getTruckx() {
-    return Truckx;
+int Facility::getTruckX() {
+    return TruckX;
 }
 
 /*Mengembalikan letak y dari Well*/
-int Facility::getTrucky() {
-    return Trucky;
+int Facility::getTruckY() {
+    return TruckY;
 }
 
 

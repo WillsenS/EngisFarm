@@ -16,7 +16,7 @@ Player::Player(int x, int y, Cell& _c) {
 }
 
 Player::~Player() {
-    cout<<"THE END"<<endl;
+    // cout<<"THE END"<<endl;
 }
 
 void Player::talk() {
@@ -38,6 +38,14 @@ int Player::getPosX() {
 
 int Player::getPosY() {
     return posY;
+}
+
+int Player::getMoney() {
+    return money;
+}
+
+int Player::getWater() {
+    return water;
 }
 
 void Player::move (Cell& _c) {
@@ -94,17 +102,43 @@ void Player::move (Cell& _c) {
     }
 }
 
-void Player::interact(Facility &_f) {
-    int WellX = _f.getWellx();
-    int WellY = _f.getWelly();
-    // int MixerX = _f.getMixerx();
-    // int MixerY = _f.getMixery();
-    // int TruckX = _f.getTruckx();
-    // int TruckY = _f.getTrucky();
+int Player::getInteractType(Facility &_f) {
+    if (isAdjacent(_f.getWellX(), _f.getWellY()) ||
+        isAdjacent(_f.getMixerX(), _f.getMixerY()) ||
+        isAdjacent(_f.getTruckX(), _f.getTruckY())) {
+        return 0;
+    }
 
-    //Interact dengan well
-    if((((posX + 1) == WellX) || ((posX - 1) == WellX)) || (((posY + 1) == WellY) || ((posY - 1) == WellY))) {
+    return 1;
+}
+
+bool Player::isAdjacent(int x, int y ) {
+    if (((posX + 1) == x) ||
+        ((posX - 1) == x) ||
+        ((posY + 1) == y) ||
+        ((posY - 1) == y)) {
+        return true;
+    }
+
+    return false;
+}
+
+void Player::interact(Facility &_f) {
+    int interactType = this->getInteractType(_f);
+    if (interactType == 0) {
+        this->interactFacility(_f);
+    } else {
+        // Interact Animal
+    }
+}
+
+void Player::interactFacility(Facility &_f) {
+    if (isAdjacent(_f.getWellX(), _f.getWellY())) {
         water = 10;
+    } else if (isAdjacent(_f.getMixerX(), _f.getMixerY())) {
+        // Interact Mixed
+    } else if (isAdjacent(_f.getTruckX(), _f.getTruckY())) {
+        // Interact Truck
     }
 }
 

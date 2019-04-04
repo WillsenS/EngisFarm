@@ -11,25 +11,25 @@ class Facility : public Cell {
         Facility();
 
         /*Mengembalikan letak x dari Well*/
-        int getWellx();
+        int getWellX();
         /*Mengembalikan letak y dari Well*/
-        int getWelly();
+        int getWellY();
         /*Mengembalikan letak x dari Well*/
-        int getMixerx();
+        int getMixerX();
         /*Mengembalikan letak y dari Mixer*/
-        int getMixery();
+        int getMixerY();
         /*Mengembalikan letak x dari Mixer*/
-        int getTruckx();
+        int getTruckX();
         /*Mengembalikan letak y dari Well*/
-        int getTrucky();
+        int getTruckY();
     private :
         /*Posisi facility yang ada*/
-        static int wellx; 
+        static int wellx;
         static int welly;
-        static int Mixerx; 
-        static int Mixery;
-        static int Truckx; 
-        static int Trucky;
+        static int MixerX;
+        static int MixerY;
+        static int TruckX;
+        static int TruckY;
         
 };
 #endif

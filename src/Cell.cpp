@@ -69,7 +69,11 @@ char Cell::getTypeLand(int x, int y){
 }
 /*Mengecek cell terisi atau tidak*/
 bool Cell::isEmptyCell(int x, int y) {
-    if(map[x][y][2] == ' ') {
+    if ((this->getElement(x, y) == ' ') ||
+        (this->getElement(x, y) == 'P') ||
+        (this->getElement(x, y) == 'M') ||
+        (this->getElement(x, y) == 'W') ||
+        (this->getElement(x, y) == 'T')) {
         return true;
     }else {
         return false;
