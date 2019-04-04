@@ -32,6 +32,7 @@ class Cell {
         void setRumput(int x, int y);
         /*Mengembalikan nilai ada rumput atau tidak*/
         char getRumput(int x, int y);
+        void kosongRumput(int x,int y);
 
     private :
         /*ukuran map dalam x dan y*/

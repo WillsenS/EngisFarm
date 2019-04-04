@@ -8,10 +8,10 @@
 
 
 using namespace std;
-const int a = 1;
-const int b = 1;
-const int c = 3;
-const int d = 3;
+const int a = 0;
+const int b = 0;
+const int c = 5;
+const int d = 5;
 
 ayam::ayam(int posX, int posY, Cell& _c):FarmAnimal(posX, posY), Eggproducing(posX, posY), Meatproducing(posX, posY) {
     Full = FULLMAX;
@@ -32,28 +32,25 @@ ayam::~ayam() {
 }
 
 void ayam::move(Cell&_c) {
-    int xa = FarmAnimal::getPosX();
+    //int xa = FarmAnimal::getPosX();
     int x = rand()%(a+b-1);
     int y = rand()%(a+b-1);
     _c.setElement(posX,posY,' ');
     //cout<<" x , y "<<x<< " " <<y<<endl;
     this->posX+=x;
     this->posY +=y;
-    while(this->posX>a) {
-         //x = rand()%(a+b-1);
-         this->posX -=1;
-        //cout<<" x "<<x<<endl;
-        while (this->posY>b) {
-            this->posY -=1;
-        }
-        
-        if (this->posX<a) {
-            this->posX +=1;
-        }
+    while(this->posX>c || this->posY>d){
+         this->posX -=2;
+         this->posY -=1;
     }
-    FarmAnimal::setPosX(xa);
+    while (this->posX<a || this->posY<b){
+            this->posX +=1;
+            this->posY +=1;
+        }
+    
+    //FarmAnimal::setPosX(xa);
     _c.setElement(posX,posY,'A');
-    cout<<"pos MOVE : "<< this->posX<<" " << this->posY<<endl;
+    //cout<<"pos MOVE : "<< this->posX<<" " << this->posY<<endl;
     
     Full--;
 }

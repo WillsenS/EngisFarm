@@ -94,6 +94,10 @@ void Cell::setRumput(int x, int y){
     }
 }
 
+void Cell::kosongRumput(int x,int y){
+    map[x][y][1] = ' ';
+}
+
 /*Mengembalikan nilai ada rumput atau tidak*/
 char Cell::getRumput(int x, int y){
     return map[x][y][1];
