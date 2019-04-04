@@ -1,6 +1,9 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
 
 #include "ayam.h"
 #include "bebek.h"
@@ -19,6 +22,12 @@
 #include "Player.h"
 
 using namespace std;
+
+vector<FarmAnimal*> animals;
+Renderable r;
+Facility f;
+bool isRunning;
+int command;
 
 /*
  * Enum used to switch case the command as cpp does not allow
@@ -43,32 +52,104 @@ void printCommandList() {
     cout << "2: Kill" << setw(24) << setiosflags(ios::right) << "5: Exit" << endl;
 }
 
+void createAnimal(int x, int y) {
+    char landType = r.getTypeLand(x, y);
+    int prob;
+    switch (landType) {
+        case '-':
+            // cout << "Grass" << endl;
+            prob = rand() % 1;
+            if (prob) {
+                animals.push_back(new kambing(x, y));
+                r.setElement(x, y, 'K');
+            } else {
+                animals.push_back(new sapi(x, y));
+                r.setElement(x, y, 'S');
+            }
+            break;
+
+        case 'o':
+            // cout << "Coop" << endl;
+            prob = rand() % 1;
+            if (prob) {
+                animals.push_back(new ayam(x, y));
+                r.setElement(x, y, 'A');
+            } else {
+                animals.push_back(new bebek(x, y));
+                r.setElement(x, y, 'B');
+            }
+            break;
+
+        case 'x':
+            // cout << "Barn" << endl;
+            prob = rand() % 5;
+            switch (prob) {
+                case 0:
+                    animals.push_back(new ayam(x, y));
+                    break;
+
+                case 1:
+                    animals.push_back(new bebek(x, y));
+                    break;
+
+                case 2:
+                    animals.push_back(new babi(x, y));
+                    break;
+
+                case 3:
+                    animals.push_back(new domba(x, y));
+                    break;
+
+                case 4:
+                    animals.push_back(new kambing(x, y));
+                    break;
+
+                case 5:
+                    animals.push_back(new sapi(x, y));
+                    break;
+            }
+            break;
+    }
+}
+
+void initializeAnimal() {
+    srand(time(NULL));
+    for (int i = 0; i < r.getSizeX(); i++) {
+        for (int j = 0; j < r.getSizeY(); j++) {
+            int prob = rand() % 10 + 1;
+            if (prob > 9 && r.isEmptyCell(i, j)) {
+                createAnimal(i , j);
+            }
+        }
+    }
+}
+
+void tick() {
+}
+
 /*
  * Set all the facilities inside Cells.
  */
-void setFacilities(Renderable &_r, Facility &_f) {
-    _r.setElement(_f.getWellx(), _f.getWelly(), 'W');
-    _r.setElement(_f.getMixerx(), _f.getMixery(), 'M');
-    _r.setElement(_f.getTruckx(), _f.getTrucky(), 'T');
+void setFacilities(Facility &_f) {
+    r.setElement(_f.getWellx(), _f.getWelly(), 'W');
+    r.setElement(_f.getMixerx(), _f.getMixery(), 'M');
+    r.setElement(_f.getTruckx(), _f.getTrucky(), 'T');
 
 }
 
 int main(){
 
-    bool isRunning = true;
-    int command;
-
-    Renderable r;
-    Facility f;
-
-    setFacilities(r, f);
+    isRunning = true;
+    
+    setFacilities(f);
 
     // Initialized Player here
-    Player p = Player(13, 11,r);
+    Player p = Player(13, 11, r);
     // r.setElement(p.getPosX(), p.getPosY(), 'P');
 
-
     // Initialized Animals here
+    initializeAnimal();
+    cout << "Size : " << animals.size() << endl; 
 
     while (isRunning) {
         r.render();

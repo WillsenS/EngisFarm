@@ -44,19 +44,19 @@ Cell::~Cell() {
 }
 
 /*Mengubah nilai sizex menjadi _x*/
-void Cell::setSizex(int _x) {
+void Cell::setSizeX(int _x) {
     sizex = _x;
 }
 /*Mengubah nilai sizey menjadi _y*/
-void Cell::setSizey(int _y) {
+void Cell::setSizeY(int _y) {
     sizey = _y;
 }
 /*Mengembalikan sizex map*/
-int Cell::getSizex() {
+int Cell::getSizeX() {
     return sizex;
 }
 /*Mengembalikan sizex map*/
-int Cell::getSizey() {
+int Cell::getSizeY() {
     return sizey;
 }
 /*Mengembalikan value dari matriks map*/
@@ -69,7 +69,7 @@ char Cell::getTypeLand(int x, int y){
 }
 /*Mengecek cell terisi atau tidak*/
 bool Cell::isEmptyCell(int x, int y) {
-    if(map[x][y][2] != ' ') {
+    if(map[x][y][2] == ' ') {
         return true;
     }else {
         return false;
