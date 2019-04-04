@@ -67,6 +67,10 @@ void domba::eat(Cell& _c) {
         _c.kosongRumput(this->posX,this->posY);
     } else {
         move(_c);
+        if (Full <= dead){
+            _c.setElement(posX,posY,' ');
+            cout<<"One of your lambs has died"<<endl;
+        }        
     }
 }
 

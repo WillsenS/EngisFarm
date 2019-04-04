@@ -75,6 +75,10 @@ void ayam::eat(Cell&_c) {
         //cout<<"Ayam makannn"<<endl;
     } else{
         move(_c);
+        if (Full <= dead){
+            _c.setElement(posX,posY,' ');
+            cout<<"One of your chickens has died"<<endl;
+        }
     }
     
 }

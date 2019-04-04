@@ -66,6 +66,10 @@ void sapi::eat(Cell& _c){
         _c.kosongRumput(this->posX,this->posY);
     } else {
         move(_c);
+        if (Full <= dead){
+            _c.setElement(posX,posY,' ');
+            cout<<"One of your cows has died"<<endl;
+        }
     }
 }
 

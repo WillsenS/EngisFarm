@@ -1,6 +1,7 @@
 #ifndef FARMANIMAL_H
 #define FARMANIMAL_H
 #define FULLMAX 5
+#define dead -5
 #define MAX 1
 
 #include <iostream>
