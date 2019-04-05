@@ -308,7 +308,7 @@ void Player::Kill(Cell &_c,  vector<FarmAnimal*>& animals) {
             cekhewan(posX+1, posY, _c);
             vector<FarmAnimal*>::iterator it;
             for(it = animals.begin(); it!=animals.end(); ++it){
-                if((*it)->getPosX() == this->posX-1 && (*it)->getPosY() == this->posY){
+                if((*it)->getPosX() == this->posX+1 && (*it)->getPosY() == this->posY){
                     (*it)->setStatus(false);
                 }
             }
@@ -319,9 +319,8 @@ void Player::Kill(Cell &_c,  vector<FarmAnimal*>& animals) {
             cekhewan(posX, posY-1, _c);
             vector<FarmAnimal*>::iterator it;
             for(it = animals.begin(); it!=animals.end(); ++it){
-                if((*it)->getPosX() == this->posX-1 && (*it)->getPosY() == this->posY){
+                if((*it)->getPosX() == this->posX-1 && (*it)->getPosY() == this->posY-1){
                     (*it)->setStatus(false);
-                    _c.setElement(posX, posY-1, ' ');
                 }
             }
             break;
@@ -331,7 +330,7 @@ void Player::Kill(Cell &_c,  vector<FarmAnimal*>& animals) {
             cekhewan(posX, posY+1, _c);
             vector<FarmAnimal*>::iterator it;
             for(it = animals.begin(); it!=animals.end(); ++it){
-                if((*it)->getPosX() == this->posX-1 && (*it)->getPosY() == this->posY){
+                if((*it)->getPosX() == this->posX && (*it)->getPosY() == this->posY+1){
                     (*it)->setStatus(false);
                 }
             }

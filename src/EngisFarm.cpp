@@ -40,6 +40,7 @@ typedef enum {
     Kill,
     Grow,
     Mix,
+    Talk,
     Exit
 } commands;
 
@@ -159,21 +160,12 @@ void setFacilities(Facility &_f) {
  * Check animal.
  */
 void cekAnimal(){
-<<<<<<< HEAD
 
-    /*for (auto it = animals.begin();it!=animals.end();it++){
-
-            cout<<"sbelum :"<<(*it)->getStatus()<<endl;
-            (*it)->setStatus(false);
-            cout<<(*it)->getStatus()<<endl;*/
-    //} 
-=======
     //bool cek = true;
     // cout<<animals[0]->getStatus()<<endl;
     // for (auto it = animals.begin();it!=animals.end();it++){
     //         cout<<animals[it]->getStatus()<<endl;
     // } 
->>>>>>> kill udh bisa
     // for (int i =0;i<animals.size();i++){
     //     cout<<animals[i]->getStatus()<<endl;
     // } 
@@ -227,7 +219,6 @@ int main(){
                 p.interact(f);
 
                 break;
-
             case Move:
                 cout << "Move" << endl;
 
@@ -237,7 +228,6 @@ int main(){
                 // choose which direction to move
 
                 break;
-
             case Kill:
                 cout << "Kill" << endl;
 
@@ -246,27 +236,44 @@ int main(){
 
                 // choose which object to kill
                 break;
-
             case Grow:
                 cout << "Grow" << endl;
                 p.Grow(r);
                 break;
-
             case Mix:
                 cout << "Mix" << endl;
                 break;
-
+            case Talk:
+            {
+                cout << "Talk" << endl;
+                p.talk();
+                vector<FarmAnimal*>::iterator it;
+                for(it = animals.begin(); it!=animals.end(); ++it){
+                    if((*it)->getPosX() == p.getPosX()-1 && (*it)->getPosY() == p.getPosY()){
+                        (*it)->talk();
+                    }
+                    if((*it)->getPosX() == p.getPosX()+1 && (*it)->getPosY() == p.getPosY()){
+                        (*it)->talk();
+                    }
+                    if((*it)->getPosX() == p.getPosX() && (*it)->getPosY() == p.getPosY()+1){
+                        (*it)->talk();
+                    }
+                    if((*it)->getPosX() == p.getPosX() && (*it)->getPosY() == p.getPosY()-1){
+                        (*it)->talk();
+                    }
+                }
+                break;
+            }
             case Exit:
                 cout << "Exit" << endl;
                 isRunning = false;
                 break;
-
             default:
                 cout << "Invalid command" << endl;
         }
         // run the game tick
         //bool hidup = isRunning;
-         isRunning = all_of(animals.begin(),animals.end(),[](bool v ){return !v;});
+        //  isRunning = all_of(animals.begin(),animals.end(),[](bool v ){return !v;});
         //cout<<isRunning<<endl;
     }
 
