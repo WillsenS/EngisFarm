@@ -58,8 +58,8 @@ void printCommandList() {
  */
 void printPlayerStatus(Player p) {
     cout << endl << "Player Status" << endl << endl;
-    cout << "Money" << p.getMoney() << endl;
-    cout << "Water" << p.getWater() << endl;
+    cout << "Money = " << p.getMoney() << endl;
+    cout << "Water = " << p.getWater() << endl;
 }
 
 /*
@@ -159,10 +159,12 @@ void setFacilities(Facility &_f) {
  * Check animal.
  */
 void cekAnimal(){
+    
     //bool cek = true;
-    cout<<animals[0]->getStatus()<<endl;
+   // cout<<(*it)->setStatus(false)<<endl;
     for (auto it = animals.begin();it!=animals.end();it++){
-            cout<<animals[it]->getStatus()<<endl;
+            cout<<(*it)->getStatus()<<endl;
+            //cout<<(*it)->setStatus(false)<<endl;
     } 
     // for (int i =0;i<animals.size();i++){
     //     cout<<animals[i]->getStatus()<<endl;
@@ -253,6 +255,7 @@ int main(){
                 cout << "Invalid command" << endl;
         }
         // run the game tick
+        cekAnimal();
     }
 
     return 0;

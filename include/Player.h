@@ -76,6 +76,7 @@ class Player : public LivingThings {
           Hanya dapat digunakan kepada MeatProducingAnimal*/
         void Kill(Cell &_c/*, vector<FarmAnimal*>& animals*/);
 
+
         /*
          * Menyiram land
          * Menumbuhkan rumput ditempat player berdiri

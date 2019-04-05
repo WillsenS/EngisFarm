@@ -218,7 +218,7 @@ void Player::interactFacility(Facility &_f) {
 //  }
 // }
 
-void Player::Kill(Cell &_c/*,  vector<FarmAnimal*>& animals*/) {
+void Player::Kill(Cell &_c){//,vector<FarmAnimal*>& animals) {
  //kill animalnya
  //dapeting dagingnya
     int cc;
@@ -229,16 +229,13 @@ void Player::Kill(Cell &_c/*,  vector<FarmAnimal*>& animals*/) {
     switch(cc){
         case 1 :
             cekhewan(posX-1, posY, _c);
-<<<<<<< HEAD
-            animals.setStatus(false);
-=======
             // vector<FarmAnimal*>::iterator it;
             // for(it = animals.begin(); it!=animals.end(); ++it){
             //     if(animals.posX == this->posX-1 && animals.posY == this->posY){
             //         (*it)->setStatus(0);
             //     }
             // }
->>>>>>> truck, kill belum bisa
+            //animals.setStatus(false);
             break;
         case 2 :
             cekhewan(posX+1, posY, _c);
