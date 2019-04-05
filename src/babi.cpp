@@ -82,8 +82,8 @@ string babi::getChar() {
     return "Z";
 }
 
-string babi::getProduct() {
-    return "";
+void babi::getProduct() {
+    countPork = 0;
 }
 
 //void setProduct(string pork);

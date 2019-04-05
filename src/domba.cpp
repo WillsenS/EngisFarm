@@ -80,12 +80,12 @@ string domba::getChar() {
     return "D";
 }
 
-string domba::getProduct() {
-    return "";
+void domba::getProduct() {
+    countlambMeat = 0;
 }
 
 //void setProduct(string lambMeat);
-int domba::getcountlambMeat() const {
+int domba::getCountLambMeat() const {
     return countlambMeat;
 }
 

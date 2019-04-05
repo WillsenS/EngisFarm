@@ -80,12 +80,12 @@ string sapi::getChar() {
     return "S";
 }
 
-string sapi::getProduct(){
-    return "";
+void sapi::getProduct(){
+    countcowMilk = 0;
 }
 
 //void setProduct(string cowMilk);
-int sapi::getcountcowMilk() const{
+int sapi::getCountCowMilk() const{
     return countcowMilk;
 }
 

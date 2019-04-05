@@ -89,11 +89,11 @@ string ayam::getChar() {
     return "A";
 }
 
-string ayam::getProduct() {
-    return "";
+void ayam::getProduct() {
+    countTelurA = 0;
 }
 
-int ayam::getcountTelurA()const {
+int ayam::getCountTelur()const {
     return countTelurA;
 }
 

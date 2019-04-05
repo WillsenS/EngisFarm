@@ -82,12 +82,12 @@ string bebek::getChar() {
     return "b";
 }
 
-string bebek::getProduct() {
-    return "";
+void bebek::getProduct() {
+    countTelurB = 0;
 }
 
 //void setProduct(string telur);
-int bebek::getcountTelurB()const {
+int bebek::getCountTelur()const {
     return countTelurB;
 }
 

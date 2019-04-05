@@ -12,6 +12,7 @@ FarmAnimal::FarmAnimal(int x, int y) {
     posY = y;
     //cout<<" pos awal : "<<posX<<" "<<posY<<endl;
     countAnimal++;   
+    this->status = true;
 }
 
 FarmAnimal::~FarmAnimal() {

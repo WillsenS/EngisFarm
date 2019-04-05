@@ -17,9 +17,9 @@ class ayam : public Eggproducing,public Meatproducing{
         void talk();
         void eat(Cell&_c);
         string getChar();
-        string getProduct();
+        void getProduct();
         //void setProduct(string telur);
-        int getcountTelurA() const ;
+        int getCountTelur() const ;
         int getFull();
         void setFull(int Full);
         /*int getPosX();

@@ -17,9 +17,9 @@ class kambing : public Meatproducing,public Milkproducing{
         void talk();
         void eat(Cell&_c);
         string getChar();
-        string getProduct();
+        void getProduct();
         //void setProduct(string goatMilk);
-        int getcountgoatMilk() const;
+        int getCountGoatMilk() const;
         int getFull();
         void setFull(int Full);
         /*int getPosX();

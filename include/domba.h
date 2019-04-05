@@ -16,9 +16,9 @@ class domba : public Meatproducing{
         void talk();
         void eat(Cell&_c);
         string getChar();
-        string getProduct();
+        void getProduct();
         //void setProduct(string lambMeat);
-        int getcountlambMeat()const;
+        int getCountLambMeat()const;
         int getFull();
         void setFull(int Full);
         void Print();

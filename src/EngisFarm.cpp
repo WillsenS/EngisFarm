@@ -159,13 +159,13 @@ void setFacilities(Facility &_f) {
  * Check animal.
  */
 void cekAnimal(){
-    
-    //bool cek = true;
-   // cout<<(*it)->setStatus(false)<<endl;
-    for (auto it = animals.begin();it!=animals.end();it++){
-            cout<<(*it)->getStatus()<<endl;
-            //cout<<(*it)->setStatus(false)<<endl;
-    } 
+
+    /*for (auto it = animals.begin();it!=animals.end();it++){
+
+            cout<<"sbelum :"<<(*it)->getStatus()<<endl;
+            (*it)->setStatus(false);
+            cout<<(*it)->getStatus()<<endl;*/
+    //} 
     // for (int i =0;i<animals.size();i++){
     //     cout<<animals[i]->getStatus()<<endl;
     // } 
@@ -255,8 +255,12 @@ int main(){
                 cout << "Invalid command" << endl;
         }
         // run the game tick
-        cekAnimal();
+        //bool hidup = isRunning;
+         isRunning = all_of(animals.begin(),animals.end(),[](bool v ){return !v;});
+        //cout<<isRunning<<endl;
     }
+
+
 
     return 0;
 }

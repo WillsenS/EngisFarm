@@ -16,9 +16,9 @@ class sapi : public Meatproducing,public Milkproducing{
         void talk();
         void eat(Cell&_c);
         string getChar();
-        string getProduct();
+        void getProduct();
         //void setProduct(string cowMilk);
-        int getcountcowMilk()const;
+        int getCountCowMilk()const;
         int getFull();
         void setFull(int Full);
         void Print();

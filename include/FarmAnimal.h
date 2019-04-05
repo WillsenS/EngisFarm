@@ -20,7 +20,7 @@ class FarmAnimal : public LivingThings {
         //void talk();
         virtual void eat(Cell& _c) = 0;
         virtual string getChar() = 0;
-        //virtual string getProduct()=0;
+        virtual void getProduct()=0;
         //virtual void setProduct(string produk)=0;
         static int getCountAnimal(); // Menghitung jumlah hewan yang masih hidup
         virtual void Print() = 0;

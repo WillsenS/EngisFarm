@@ -80,12 +80,12 @@ string kambing::getChar() {
     return "K";
 }
 
-string kambing::getProduct() {
-    return "";
+void kambing::getProduct() {
+    countgoatMilk = 0;
 }
 
 //void setProduct(string goatMilk);
-int kambing::getcountgoatMilk() const {
+int kambing::getCountGoatMilk() const {
     return countgoatMilk;
 }
 
