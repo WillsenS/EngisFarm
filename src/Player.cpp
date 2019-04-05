@@ -154,6 +154,7 @@ void Player::interactFacility(Facility &_f) {
                     cout<<"Gaada DuckEgg"<<endl;
                 }
                 else {
+                    Omelette a = new Omelette();
                     inventory.add("Omelette");
                     inventory.remove("ChickenEgg");
                     inventory.remove("DuckEgg");
@@ -171,6 +172,7 @@ void Player::interactFacility(Facility &_f) {
                     cout<<"Gaada LambMeat"<<endl;
                 }
                 else {
+                    BBQ a = new BBQ();
                     inventory.add("BBQ");
                     inventory.remove("Pork");
                     inventory.remove("LambMeat");
@@ -188,6 +190,7 @@ void Player::interactFacility(Facility &_f) {
                     cout<<"Gaada GoatMeat"<<endl;
                 }
                 else {
+                    Sausage a = new Sausage();
                     inventory.add("Sausage");
                     inventory.remove("CowMeat");
                     inventory.remove("GoatMeat");
