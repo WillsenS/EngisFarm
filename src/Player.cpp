@@ -32,6 +32,7 @@ void Player::print() {
     cout << "Water: " << water << endl;
     cout << "Money: " << money << endl;
     inventory.print();
+    cout << posX << ", " << posY << endl;
 }
 
 int Player::getPosX() {
@@ -115,10 +116,10 @@ int Player::getInteractType(Facility &_f) {
 }
 
 bool Player::isAdjacent(int x, int y ) {
-    if (((posX + 1) == x) ||
-        ((posX - 1) == x) ||
-        ((posY + 1) == y) ||
-        ((posY - 1) == y)) {
+    if (((posX + 1) == x && posY == y) ||
+        ((posX - 1) == x && posY == y) ||
+        ((posY + 1) == y && posX == x) ||
+        ((posY - 1) == y && posX == x)) {
         return true;
     }
 
@@ -137,6 +138,7 @@ void Player::interact(Facility &_f) {
 void Player::interactFacility(Facility &_f) {
     if (isAdjacent(_f.getWellX(), _f.getWellY())) {
         water = 10;
+        // cout << "Interact Well" << endl;
     } else if (isAdjacent(_f.getMixerX(), _f.getMixerY())) {
         cout<< "Bahan yang ingin dibuat : ";
         string Bahan;
@@ -196,6 +198,7 @@ void Player::interactFacility(Facility &_f) {
             cout<<"Gaada SideProduct yang itu"<<endl;
         }
     } else if (isAdjacent(_f.getTruckX(), _f.getTruckY())) {
+        // cout << "Interact Truck" << endl;
         if(inventory.isEmpty()){
             cout << "Inventory Kosong" << endl;
         }else{
@@ -226,6 +229,8 @@ void Player::interactFacility(Facility &_f) {
                 }else if(strcmp(isi.c_str(), "Pork") == 0){
                     money += 5;
                 }else if(strcmp(isi.c_str(), "Sausage") == 0){
+                    money += 5;
+                }else if(strcmp(isi.c_str(), "BBQ") == 0){
                     money += 5;
                 }
             }
@@ -274,7 +279,8 @@ void Player::interactFacility(Facility &_f) {
 //  }
 // }
 
-void Player::Kill(Cell &_c){//,vector<FarmAnimal*>& animals) {
+
+void Player::Kill(Cell &_c,  vector<FarmAnimal*>& animals) {
  //kill animalnya
  //dapeting dagingnya
     int cc;
@@ -284,26 +290,53 @@ void Player::Kill(Cell &_c){//,vector<FarmAnimal*>& animals) {
     cin >> cc;
     switch(cc){
         case 1 :
+        {
             cekhewan(posX-1, posY, _c);
-            // vector<FarmAnimal*>::iterator it;
-            // for(it = animals.begin(); it!=animals.end(); ++it){
-            //     if(animals.posX == this->posX-1 && animals.posY == this->posY){
-            //         (*it)->setStatus(0);
-            //     }
-            // }
-            //animals.setStatus(false);
+            vector<FarmAnimal*>::iterator it;
+            for(it = animals.begin(); it!=animals.end(); ++it){
+                if((*it)->getPosX() == this->posX-1 && (*it)->getPosY() == this->posY){
+                    (*it)->setStatus(false);
+                }
+            }
             break;
+        }
         case 2 :
+        {
             cekhewan(posX+1, posY, _c);
+            vector<FarmAnimal*>::iterator it;
+            for(it = animals.begin(); it!=animals.end(); ++it){
+                if((*it)->getPosX() == this->posX-1 && (*it)->getPosY() == this->posY){
+                    (*it)->setStatus(false);
+                }
+            }
             break;
+        }
         case 3 :
+        {   
             cekhewan(posX, posY-1, _c);
+            vector<FarmAnimal*>::iterator it;
+            for(it = animals.begin(); it!=animals.end(); ++it){
+                if((*it)->getPosX() == this->posX-1 && (*it)->getPosY() == this->posY){
+                    (*it)->setStatus(false);
+                    _c.setElement(posX, posY-1, ' ');
+                }
+            }
             break;
+        }
         case 4 :
+        {
             cekhewan(posX, posY+1, _c);
+            vector<FarmAnimal*>::iterator it;
+            for(it = animals.begin(); it!=animals.end(); ++it){
+                if((*it)->getPosX() == this->posX-1 && (*it)->getPosY() == this->posY){
+                    (*it)->setStatus(false);
+                }
+            }
             break;
-        default :
+        }
+        default :{
             cout << "Command Salah" << endl;
+        }   
     }
      
 }
@@ -313,36 +346,42 @@ void Player::cekhewan(int x, int y, Cell &_c){
      if(_c.getElement(x,y) == 'A'){
          ChickenMeat a = ChickenMeat();
          inventory.add("ChickenMeat");
+         _c.setElement(x, y, ' ');
         //  ayam::~ayam();
      }
      //bebek(B)
      else if(_c.getElement(x,y) == 'B'){
          DuckMeat a = DuckMeat();
          inventory.add("DuckMeat");
+         _c.setElement(x, y, ' ');
         //  bebek::~bebek();
      } 
      //babi(b)
      else if(_c.getElement(x,y) == 'Z'){
          Pork a = Pork();
          inventory.add("Pork");
+         _c.setElement(x, y, ' ');
         //  babi::~babi();
      } 
      //domba(D)
-     else if(_c.getElement(x,y) == 'D'){
+     else if(_c.getElement(x,y) == 'K'){
          LambMeat a = LambMeat();
          inventory.add("LambMeat");
+         _c.setElement(x, y, ' ');
         //  domba::~domba();
      }
      //kambing(G)
-     else if(_c.getElement(x,y) == 'G'){
+     else if(_c.getElement(x,y) == 'D'){
          GoatMeat a = GoatMeat();
          inventory.add("GoatMeat");
+         _c.setElement(x, y, ' ');
         //  kambing::~kambing();
      }
      //Sapi(C)
-     else if(_c.getElement(x,y) == 'C'){
+     else if(_c.getElement(x,y) == 'S'){
          CowMeat a = CowMeat();
          inventory.add("CowMeat");
+         _c.setElement(x, y, ' ');
         //  sapi::~sapi();
      }else{
          cout << "Kosong" << endl;

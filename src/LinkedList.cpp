@@ -79,8 +79,7 @@ void LinkedList<Type>::remove(Type element){
     }
 }
 
-//Membuang elemen pertama
-void revomeFirst();
+
 
 template<class Type>
 Type LinkedList<Type>::get(int indeks){

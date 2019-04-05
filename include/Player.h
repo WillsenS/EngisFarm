@@ -74,7 +74,7 @@ class Player : public LivingThings {
 
         /*Menyembelih hewan
           Hanya dapat digunakan kepada MeatProducingAnimal*/
-        void Kill(Cell &_c/*, vector<FarmAnimal*>& animals*/);
+        void Kill(Cell &_c, vector<FarmAnimal*>& animals);
 
 
         /*

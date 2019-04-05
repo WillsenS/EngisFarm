@@ -106,7 +106,7 @@ void createAnimal(int x, int y) {
 
                 case 2:
                     animals.push_back(new babi(x, y));
-                    r.setElement(x, y, 'p');
+                    r.setElement(x, y, 'Z');
                     break;
 
                 case 3:
@@ -159,6 +159,7 @@ void setFacilities(Facility &_f) {
  * Check animal.
  */
 void cekAnimal(){
+<<<<<<< HEAD
 
     /*for (auto it = animals.begin();it!=animals.end();it++){
 
@@ -166,6 +167,13 @@ void cekAnimal(){
             (*it)->setStatus(false);
             cout<<(*it)->getStatus()<<endl;*/
     //} 
+=======
+    //bool cek = true;
+    // cout<<animals[0]->getStatus()<<endl;
+    // for (auto it = animals.begin();it!=animals.end();it++){
+    //         cout<<animals[it]->getStatus()<<endl;
+    // } 
+>>>>>>> kill udh bisa
     // for (int i =0;i<animals.size();i++){
     //     cout<<animals[i]->getStatus()<<endl;
     // } 
@@ -194,6 +202,7 @@ int main(){
         r.render();
         printCommandList();
         printPlayerStatus(p);
+        p.print();
 
         cout << endl << "Enter you Command: ";
         cin >> command;
@@ -232,6 +241,7 @@ int main(){
             case Kill:
                 cout << "Kill" << endl;
 
+                p.Kill(r, animals);
                 // show list of available objects to kill in adjacent cells.
 
                 // choose which object to kill
