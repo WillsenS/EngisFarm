@@ -141,7 +141,7 @@ void Player::interactFacility(Facility &_f) {
         cout<< "Bahan yang ingin dibuat : ";
         string Bahan;
         cin >> Bahan;
-        if (Bahan == "Omelette") {
+        if (Bahan == "Omelette") { //ChickenEgg + DuckEgg
             int Bahan1 = inventory.find("ChickenEgg");
             if (Bahan1 == -1) {
                 cout<<"Gaada ChickenEgg"<<endl;
@@ -158,7 +158,7 @@ void Player::interactFacility(Facility &_f) {
                 }
             }
         }
-        else if (Bahan == "BBQ") {
+        else if (Bahan == "BBQ") { //Pork + LambMeat
             int Bahan1 = inventory.find("Pork");
             if (Bahan1 == -1) {
                 cout<<"Gaada Pork"<<endl;
@@ -175,7 +175,7 @@ void Player::interactFacility(Facility &_f) {
                 }
             }
         }
-        else if (Bahan == "Sausage") {
+        else if (Bahan == "Sausage") { //CowMeat + GoatMeat
             int Bahan1 = inventory.find("CowMeat");
             if (Bahan1 == -1) {
                 cout<<"Gaada CowMeat"<<endl;
