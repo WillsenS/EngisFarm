@@ -138,7 +138,63 @@ void Player::interactFacility(Facility &_f) {
     if (isAdjacent(_f.getWellX(), _f.getWellY())) {
         water = 10;
     } else if (isAdjacent(_f.getMixerX(), _f.getMixerY())) {
-        // Interact Mixed
+        cout<< "Bahan yang ingin dibuat : ";
+        string Bahan;
+        cin >> Bahan;
+        if (Bahan == "Omelette") {
+            int Bahan1 = inventory.find("ChickenEgg");
+            if (Bahan1 == -1) {
+                cout<<"Gaada ChickenEgg"<<endl;
+            }
+            else {
+                int Bahan2 = inventory.find("DuckEgg");
+                if (Bahan2 == -1) {
+                    cout<<"Gaada DuckEgg"<<endl;
+                }
+                else {
+                    inventory.remove(inventory.get(Bahan1));
+                    inventory.remove(inventory.get(Bahan2));
+                    inventory.add("Omelette");
+                }
+            }
+        }
+        else if (Bahan == "BBQ") {
+            int Bahan1 = inventory.find("Pork");
+            if (Bahan1 == -1) {
+                cout<<"Gaada Pork"<<endl;
+            }
+            else {
+                int Bahan2 = inventory.find("LambMeat");
+                if (Bahan2 == -1) {
+                    cout<<"Gaada LambMeat"<<endl;
+                }
+                else {
+                    inventory.remove(inventory.get(Bahan1));
+                    inventory.remove(inventory.get(Bahan2));
+                    inventory.add("BBQ");
+                }
+            }
+        }
+        else if (Bahan == "Sausage") {
+            int Bahan1 = inventory.find("CowMeat");
+            if (Bahan1 == -1) {
+                cout<<"Gaada CowMeat"<<endl;
+            }
+            else {
+                int Bahan2 = inventory.find("GoatMeat");
+                if (Bahan2 == -1) {
+                    cout<<"Gaada GoatMeat"<<endl;
+                }
+                else {
+                    inventory.remove(inventory.get(Bahan1));
+                    inventory.remove(inventory.get(Bahan2));
+                    inventory.add("Sausage");
+                }
+            }
+        }
+        else {
+            cout<<"Gaada SideProduct yang itu"<<endl;
+        }
     } else if (isAdjacent(_f.getTruckX(), _f.getTruckY())) {
         if(inventory.isEmpty()){
             cout << "Inventory Kosong" << endl;
