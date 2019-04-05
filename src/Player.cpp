@@ -141,7 +141,7 @@ void Player::interactFacility(Facility &_f) {
         cout<< "Bahan yang ingin dibuat : ";
         string Bahan;
         cin >> Bahan;
-        if (Bahan == "Omelette") { //ChickenEgg + DuckEgg
+        if (Bahan == "Omelette") {
             int Bahan1 = inventory.find("ChickenEgg");
             if (Bahan1 == -1) {
                 cout<<"Gaada ChickenEgg"<<endl;
@@ -152,13 +152,13 @@ void Player::interactFacility(Facility &_f) {
                     cout<<"Gaada DuckEgg"<<endl;
                 }
                 else {
-                    inventory.remove(inventory.get(Bahan1));
-                    inventory.remove(inventory.get(Bahan2));
                     inventory.add("Omelette");
+                    inventory.remove("ChickenEgg");
+                    inventory.remove("DuckEgg");
                 }
             }
         }
-        else if (Bahan == "BBQ") { //Pork + LambMeat
+        else if (Bahan == "BBQ") {
             int Bahan1 = inventory.find("Pork");
             if (Bahan1 == -1) {
                 cout<<"Gaada Pork"<<endl;
@@ -169,13 +169,13 @@ void Player::interactFacility(Facility &_f) {
                     cout<<"Gaada LambMeat"<<endl;
                 }
                 else {
-                    inventory.remove(inventory.get(Bahan1));
-                    inventory.remove(inventory.get(Bahan2));
                     inventory.add("BBQ");
+                    inventory.remove("Pork");
+                    inventory.remove("LambMeat");
                 }
             }
         }
-        else if (Bahan == "Sausage") { //CowMeat + GoatMeat
+        else if (Bahan == "Sausage") {
             int Bahan1 = inventory.find("CowMeat");
             if (Bahan1 == -1) {
                 cout<<"Gaada CowMeat"<<endl;
@@ -186,9 +186,9 @@ void Player::interactFacility(Facility &_f) {
                     cout<<"Gaada GoatMeat"<<endl;
                 }
                 else {
-                    inventory.remove(inventory.get(Bahan1));
-                    inventory.remove(inventory.get(Bahan2));
                     inventory.add("Sausage");
+                    inventory.remove("CowMeat");
+                    inventory.remove("GoatMeat");
                 }
             }
         }
