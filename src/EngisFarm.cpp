@@ -155,6 +155,20 @@ void setFacilities(Facility &_f) {
     r.setElement(_f.getTruckX(), _f.getTruckY(), 'T');
 
 }
+/*
+ * Check animal.
+ */
+void cekAnimal(){
+    //bool cek = true;
+    cout<<animals[0]->getStatus()<<endl;
+    for (auto it = animals.begin();it!=animals.end();it++){
+            cout<<animals[it]->getStatus()<<endl;
+    } 
+    // for (int i =0;i<animals.size();i++){
+    //     cout<<animals[i]->getStatus()<<endl;
+    // } 
+
+}
 
 int main(){
 

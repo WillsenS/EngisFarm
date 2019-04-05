@@ -23,6 +23,7 @@ ayam::ayam(int posX, int posY):FarmAnimal(posX, posY), Eggproducing(posX, posY),
     //cout<<"Full : "<< Full<<endl;
     this->posX = FarmAnimal::getPosX();
     this->posY = FarmAnimal::getPosY();
+    status =true;
 
 
 }
@@ -43,7 +44,7 @@ void ayam::move(Cell&_c) {
     int y = rand()%(randY) - 1;
     _c.setElement(posX,posY,' ');
     cout<<" x , y "<<x<< " " <<y<<endl;
-     if(posX+x>=0 && posX+x<15 && posY+y>=0 && posY+y<15){
+     if(posX+x>=0 && posX+x<15 && posY+y>=0 && posY+y<15&&status){
              if(_c.getTypeLand(this->posX+x,this->posY+y)==tempat)
                 {
                     this->posX+=x;
@@ -76,6 +77,7 @@ void ayam::eat(Cell&_c) {
     } else{
         move(_c);
         if (Full <= dead){
+            status =false;
             _c.setElement(posX,posY,' ');
             cout<<"One of your chickens has died"<<endl;
         }

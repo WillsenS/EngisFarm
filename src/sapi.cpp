@@ -18,6 +18,7 @@ sapi::sapi(int posX, int posY):FarmAnimal(posX, posY), Meatproducing(posX, posY)
     countcowMilk=0;
     this->posX = FarmAnimal::getPosX();
     this->posY = FarmAnimal::getPosY();
+    status = true;
    // _c.setElement(posX,posY,'C') ;
 }
 
@@ -27,6 +28,7 @@ sapi::~sapi(){
     this->posY = 0;
     Full = 0;
     countcowMilk = 0;
+    status = false;
     
     //cout<<"One of your cows has died"<<endl;
 }
@@ -38,7 +40,7 @@ void sapi::move(Cell&_c) {
     int y = rand()%(randY) - 1;
     _c.setElement(posX,posY,' ');
     cout<<" x , y "<<x<< " " <<y<<endl;
-     if(posX+x>=0 && posX+x<15 && posY+y>=0 && posY+y<15){
+     if(posX+x>=0 && posX+x<15 && posY+y>=0 && posY+y<15 &&status){
              if(_c.getTypeLand(this->posX+x,this->posY+y)==tempat)
                 {
                     this->posX+=x;
@@ -67,6 +69,7 @@ void sapi::eat(Cell& _c){
     } else {
         move(_c);
         if (Full <= dead){
+            status = false;
             _c.setElement(posX,posY,' ');
             cout<<"One of your cows has died"<<endl;
         }

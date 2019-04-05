@@ -195,6 +195,7 @@ void Player::Kill(Cell &_c, vector<FarmAnimal*>& animals) {
     switch(cc){
         case 1 :
             cekhewan(posX-1, posY, _c);
+            animals.setStatus(false);
             break;
         case 2 :
             cekhewan(posX+1, posY, _c);
@@ -267,7 +268,7 @@ void Player::Grow(Cell &_c) {
     }
     else {
         //gaada air, sana pergi ke well
-        cout << "Sufficient water!" << endl;
+        cout << "insufficient water!" << endl;
     }
     this->print();
 }

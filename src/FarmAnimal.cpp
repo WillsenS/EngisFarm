@@ -38,3 +38,9 @@ int FarmAnimal::getPosX() {
 int FarmAnimal::getPosY() {
     return posY;
 }
+bool FarmAnimal::getStatus(){
+    return status;
+}
+void FarmAnimal::setStatus(bool cek){
+    this->status = cek;
+}

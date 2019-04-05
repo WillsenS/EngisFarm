@@ -30,14 +30,18 @@ class FarmAnimal : public LivingThings {
         int getPosY();
         void setPosX(int x);
         void setPosY(int y);
+        bool getStatus();
+        void setStatus(bool cek);
         
     private:
         static int countAnimal;
         int posX;
         int posY;
+        
        
     protected:
         int Full;
+        bool status;
         
 
 
