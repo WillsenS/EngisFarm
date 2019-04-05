@@ -9,21 +9,6 @@ LinkedList<Type>::LinkedList(){
         size = 0;
 }
 
-// template<class Type>
-// LinkedList<Type>::LinkedList(Type element){
-//         node<Type>* p;
-//         p.add(element);
-//         this->first = p->first;
-//         size = 1;
-//         cout<<"create"<<endl;
-// }
-
-// template<class Type>
-// Type& LinkedList<Type>::operator=(const Type p){
-//     this->first = p->first;
-//     return *this;
-// }
-
 template<class Type>
 int LinkedList<Type>::find(Type element){
     node<Type>* p = this->first;
@@ -107,6 +92,8 @@ Type LinkedList<Type>::get(int indeks){
     }
     if(i == indeks){
         return p->data; 
+    }else{
+        return NULL;
     }
 }
 
@@ -117,14 +104,14 @@ int LinkedList<Type>::getSize(){
 
 template<class Type>
 void LinkedList<Type>::print(){
-    cout<<"Inventory : " << "[";
+    cout << "Inventory : " << "[";
     node<Type>* p = this->first;
     if(p!=NULL){
         while(p->next!=NULL){
         cout<<p->data<<", ";
         p = p->next;
         }
-        cout<<p->data;
+        cout << p->data;
     }
     cout<<"]"<<endl;
 }

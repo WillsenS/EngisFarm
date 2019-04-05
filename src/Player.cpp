@@ -140,7 +140,41 @@ void Player::interactFacility(Facility &_f) {
     } else if (isAdjacent(_f.getMixerX(), _f.getMixerY())) {
         // Interact Mixed
     } else if (isAdjacent(_f.getTruckX(), _f.getTruckY())) {
-        // Interact Truck
+        if(inventory.isEmpty()){
+            cout << "Inventory Kosong" << endl;
+        }else{
+            string isi;
+            while(!inventory.isEmpty()){
+                isi = inventory.get(0);
+                inventory.remove(isi);
+                if ( strcmp(isi.c_str(),"ChickenMeat")==0 ){
+                    money += 4;
+                }else if(strcmp(isi.c_str(), "ChickenEgg") == 0){
+                    money += 3;
+                }else if(strcmp(isi.c_str(), "DuckMeat") == 0){
+                    money += 5;
+                }else if(strcmp(isi.c_str(), "DuckEgg") == 0){
+                    money += 4;
+                }else if(strcmp(isi.c_str(), "CowMeat") == 0){
+                    money += 6;
+                }else if(strcmp(isi.c_str(), "CowMilk") == 0){
+                    money += 4;
+                }else if(strcmp(isi.c_str(), "GoatMeat") == 0){
+                    money += 5;
+                }else if(strcmp(isi.c_str(), "GoatMilk") == 0){
+                    money += 3;
+                }else if(strcmp(isi.c_str(), "LambMeat") == 0){
+                    money += 5;
+                }else if(strcmp(isi.c_str(), "Omelette") == 0){
+                    money += 3;
+                }else if(strcmp(isi.c_str(), "Pork") == 0){
+                    money += 5;
+                }else if(strcmp(isi.c_str(), "Sausage") == 0){
+                    money += 5;
+                }
+            }
+            cout << "Truck Succes" << endl;
+        }
     }
 }
 
@@ -184,7 +218,7 @@ void Player::interactFacility(Facility &_f) {
 //  }
 // }
 
-void Player::Kill(Cell &_c, vector<FarmAnimal*>& animals) {
+void Player::Kill(Cell &_c/*,  vector<FarmAnimal*>& animals*/) {
  //kill animalnya
  //dapeting dagingnya
     int cc;
@@ -195,7 +229,16 @@ void Player::Kill(Cell &_c, vector<FarmAnimal*>& animals) {
     switch(cc){
         case 1 :
             cekhewan(posX-1, posY, _c);
+<<<<<<< HEAD
             animals.setStatus(false);
+=======
+            // vector<FarmAnimal*>::iterator it;
+            // for(it = animals.begin(); it!=animals.end(); ++it){
+            //     if(animals.posX == this->posX-1 && animals.posY == this->posY){
+            //         (*it)->setStatus(0);
+            //     }
+            // }
+>>>>>>> truck, kill belum bisa
             break;
         case 2 :
             cekhewan(posX+1, posY, _c);
@@ -233,7 +276,7 @@ void Player::cekhewan(int x, int y, Cell &_c){
      } 
      //domba(D)
      else if(_c.getElement(x,y) == 'D'){
-         DuckMeat a = DuckMeat();
+         LambMeat a = LambMeat();
          inventory.add("LambMeat");
         //  domba::~domba();
      }

@@ -16,6 +16,7 @@
 #include "CowMilk.h"
 #include "DuckEgg.h"
 #include "DuckMeat.h"
+#include "LambMeat.h"
 #include "Pork.h"
 #include "Omelette.h"
 #include "Sausage.h"
@@ -73,7 +74,7 @@ class Player : public LivingThings {
 
         /*Menyembelih hewan
           Hanya dapat digunakan kepada MeatProducingAnimal*/
-        void Kill(Cell &_c, vector<FarmAnimal*>& animals);
+        void Kill(Cell &_c/*, vector<FarmAnimal*>& animals*/);
 
         /*
          * Menyiram land

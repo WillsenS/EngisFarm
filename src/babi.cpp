@@ -46,7 +46,7 @@ void babi::move(Cell&_c) {
      }
 
     //FarmAnimal::setPosX(xa);
-    _c.setElement(posX,posY,'P');
+    _c.setElement(posX,posY,'Z');
     //cout<<"pos MOVE : "<< this->posX<<" " << this->posY<<endl;
     
     Full--;
@@ -79,7 +79,7 @@ void babi::eat(Cell& _c) {
 }
 
 string babi::getChar() {
-    return "B";
+    return "Z";
 }
 
 string babi::getProduct() {
