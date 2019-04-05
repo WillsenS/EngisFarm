@@ -20,6 +20,7 @@
 #include "Pork.h"
 #include "Omelette.h"
 #include "Sausage.h"
+#include "BBQ.h"
 #include "FarmAnimal.h"
 
 class Player : public LivingThings {

@@ -51,7 +51,7 @@ void printCommandList() {
     cout << endl << "Command List" << endl << endl;
     cout << "0: Interact" << setw(20) << setiosflags(ios::right) << "3: Grow" << endl;
     cout << "1: Move" << setw(23) << setiosflags(ios::right) << "4: Mix" << endl;
-    cout << "2: Kill" << setw(24) << setiosflags(ios::right) << "5: Exit" << endl;
+    cout << "2: Kill" << setw(24) << setiosflags(ios::right) << "5: Talk" << setw(24) << setiosflags(ios::right) << "6: Exit"<< endl;
 }
 
 /*
@@ -250,16 +250,24 @@ int main(){
                 vector<FarmAnimal*>::iterator it;
                 for(it = animals.begin(); it!=animals.end(); ++it){
                     if((*it)->getPosX() == p.getPosX()-1 && (*it)->getPosY() == p.getPosY()){
-                        (*it)->talk();
+                        if((*it)->getStatus()==true){
+                            (*it)->talk();
+                        }
                     }
                     if((*it)->getPosX() == p.getPosX()+1 && (*it)->getPosY() == p.getPosY()){
-                        (*it)->talk();
+                        if((*it)->getStatus()==true){
+                            (*it)->talk();
+                        }
                     }
                     if((*it)->getPosX() == p.getPosX() && (*it)->getPosY() == p.getPosY()+1){
-                        (*it)->talk();
+                        if((*it)->getStatus()==true){
+                            (*it)->talk();
+                        }
                     }
                     if((*it)->getPosX() == p.getPosX() && (*it)->getPosY() == p.getPosY()-1){
-                        (*it)->talk();
+                        if((*it)->getStatus()==true){
+                            (*it)->talk();
+                        }
                     }
                 }
                 break;

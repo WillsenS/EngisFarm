@@ -32,7 +32,6 @@ void Player::print() {
     cout << "Water: " << water << endl;
     cout << "Money: " << money << endl;
     inventory.print();
-    cout << posX << ", " << posY << endl;
 }
 
 int Player::getPosX() {
@@ -154,7 +153,7 @@ void Player::interactFacility(Facility &_f) {
                     cout<<"Gaada DuckEgg"<<endl;
                 }
                 else {
-                    Omelette a = new Omelette();
+                    Omelette a();
                     inventory.add("Omelette");
                     inventory.remove("ChickenEgg");
                     inventory.remove("DuckEgg");
@@ -172,7 +171,7 @@ void Player::interactFacility(Facility &_f) {
                     cout<<"Gaada LambMeat"<<endl;
                 }
                 else {
-                    BBQ a = new BBQ();
+                    BBQ a();
                     inventory.add("BBQ");
                     inventory.remove("Pork");
                     inventory.remove("LambMeat");
@@ -190,7 +189,7 @@ void Player::interactFacility(Facility &_f) {
                     cout<<"Gaada GoatMeat"<<endl;
                 }
                 else {
-                    Sausage a = new Sausage();
+                    Sausage a();
                     inventory.add("Sausage");
                     inventory.remove("CowMeat");
                     inventory.remove("GoatMeat");
