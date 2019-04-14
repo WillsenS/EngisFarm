@@ -3,7 +3,7 @@ import java.util.concurrent.ThreadLocalRandom;
 // nextInt is normally exclusive of the top value,
 // so add 1 to make it inclusive
 
-public class kambing extends FarmAnimal implements LivingThings{
+public class Kambing extends FarmAnimal implements LivingThings{
    char t_rumput ='#';
    char tempat ='-';
    char produk ='M';
@@ -18,7 +18,7 @@ public class kambing extends FarmAnimal implements LivingThings{
 
     //Renderable c;
 
-    public kambing (int posX ,int posY,Renderable c){
+    public Kambing (int posX ,int posY,Renderable c){
        
         super(posX,posY);
        // c.setElement(posX,posY)
