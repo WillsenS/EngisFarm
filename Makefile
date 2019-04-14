@@ -18,15 +18,15 @@ APP_DIR  := $(BUILD)/apps
 TARGET   := engisfarm
 
 # Add the `include` pathname to the include file search path
-INCLUDE  := -Iinclude/
+INCLUDE  := -I cpp/include/
 
 # Wildcard to all the source file
 # Module folder can be changed to our EngisFarm module
 SRC      :=                      \
-	$(wildcard src/module1/*.cpp) \
-	$(wildcard src/module2/*.cpp) \
-	$(wildcard src/module3/*.cpp) \
-	$(wildcard src/*.cpp)         \
+	$(wildcard cpp/src/module1/*.cpp) \
+	$(wildcard cpp/src/module2/*.cpp) \
+	$(wildcard cpp/src/module3/*.cpp) \
+	$(wildcard cpp/src/*.cpp)         \
 
 # Target dependency on objects files
 OBJECTS := $(SRC:%.cpp=$(OBJ_DIR)/%.o)

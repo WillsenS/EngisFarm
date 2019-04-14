@@ -3,10 +3,9 @@ import java.util.concurrent.ThreadLocalRandom;
 // nextInt is normally exclusive of the top value,
 // so add 1 to make it inclusive
 
-public class sapi extends FarmAnimal implements LivingThings{
-   char t_rumput ='#';
-   char tempat ='-';
-   char produk ='U';
+public class Babi extends FarmAnimal implements LivingThings{
+   char t_rumput ='@';
+   char tempat ='x';
 
     final int randX =1;
     final int randY =1;
@@ -14,17 +13,17 @@ public class sapi extends FarmAnimal implements LivingThings{
     //private int Full;
     private int posX;
     private int posY;
-    private int countcowMilk;
+    private int countPork;
 
     //Renderable c;
 
-    public sapi (int posX ,int posY,Renderable c){
+    public Babi (int posX ,int posY,Renderable c){
        
         super(posX,posY);
        // c.setElement(posX,posY)
         //Cell c = new Cell();
-        c.setElement(posX,posY,'S');
-        this.countcowMilk =0;
+        c.setElement(posX,posY,'Z');
+        this.countPork =0;
         this.posX = posX;
         this.posY = posY;
         //this.Full = FULLMAX;
@@ -36,53 +35,50 @@ public class sapi extends FarmAnimal implements LivingThings{
         int y =ThreadLocalRandom.current().nextInt(-randX, randY);
         //System.out.println("x : " + x);
         //System.out.println("y : " +y);
-        
+
         if (this.posX+x>=0 && this.posY+y>=0 && this.posY +y <15 && hidup() && c.getElement(this.posX+x,this.posY+y)== ' '){
-            
-            if (c.getTypeLand(this.posX+x,this.posY+y)==tempat){
+            if (c.getTypeLand(this.posX+x,this.posY+y)==tempat && hidup()){
                 c.setElement(posX,posY,' ');
                 this.posX+=x;
                 this.posY +=y;
-                c.setElement(this.posX,this.posY,'S');
+                c.setElement(this.posX,this.posY,'Z');
                 setFull(getFull()-1);
                 
             } 
-            
-            //System.out.println(getFull());
-            //c.setElement(this.posX,this.posY,'S');
         } else {
-            if (!hidup()){
+            if(!hidup()) {
                 c.setElement(this.posX,this.posY,' ');
-            }
-            
         }
     }
+    }
     public void talk(){
-        System.out.println("MOO MOO");
+        System.out.println("Nguikk nguikk");
     }
     public void eat(Renderable c){
         if (!hidup()){
                 //setStatus(false);
                 c.setElement(this.posX,this.posY,' ');
         } else {
-            if(c.getRumput(this.posX,this.posY)==t_rumput){
-                this.countcowMilk =MAX;
+                if(c.getRumput(this.posX,this.posY)==t_rumput){
+                this.countPork= MAX;
                 setFull(FULLMAX);
                 c.kosongRumput(this.posX,this.posY);
-         } else move(c);
-        
-        }
-       
+            } else {
+                move(c);
+            }
+
+        }        
+
     }
     public String getChar(){
-        return "S";
+        return "Z";
     }
 
     public void getProduct(){
-        this.countcowMilk =0;
+        this.countPork =0;
     }
     public Integer getCountProduct(){
-        return countcowMilk;
+        return countPork;
     }
     /*public Integer getFull(){
         return Full;
@@ -92,6 +88,6 @@ public class sapi extends FarmAnimal implements LivingThings{
         this.Full = Full;
     }*/
     public void Print(){
-        System.out.println("sapi " + countcowMilk + " Full : "+ getFull()+"pos :  "+ posX +" "+ posY);
+        System.out.println("babi " + countPork + " Full : "+ getFull()+"pos :  "+ posX +" "+ posY);
     }
 }

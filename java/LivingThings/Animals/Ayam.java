@@ -3,10 +3,10 @@ import java.util.concurrent.ThreadLocalRandom;
 // nextInt is normally exclusive of the top value,
 // so add 1 to make it inclusive
 
-public class bebek extends FarmAnimal implements LivingThings{
+public class Ayam extends FarmAnimal implements LivingThings{
    char t_rumput ='*';
    char tempat ='o';
-   char produk ='L';
+   char produk ='O';
 
     final int randX =1;
     final int randY =1;
@@ -14,17 +14,17 @@ public class bebek extends FarmAnimal implements LivingThings{
     //private int Full;
     private int posX;
     private int posY;
-    private int countTelurB;
+    private int countTelurA;
 
     //Renderable c;
 
-    public bebek (int posX ,int posY,Renderable c){
+    public Ayam (int posX ,int posY,Renderable c){
        
         super(posX,posY);
        // c.setElement(posX,posY)
         //Cell c = new Cell();
-        c.setElement(posX,posY,'B');
-        this.countTelurB =0;
+        c.setElement(posX,posY,'A');
+        this.countTelurA =0;
         this.posX = posX;
         this.posY = posY;
         //this.Full = FULLMAX;
@@ -38,25 +38,27 @@ public class bebek extends FarmAnimal implements LivingThings{
         //System.out.println("y : " +y);
         
         if (this.posX+x>=0 && this.posY+y>=0 && this.posY +y <15 && hidup() && c.getElement(this.posX+x,this.posY+y)== ' '){
+            
             if (c.getTypeLand(this.posX+x,this.posY+y)==tempat){
                 c.setElement(posX,posY,' ');
                 this.posX+=x;
                 this.posY +=y;
-                c.setElement(this.posX,this.posY,'B');
+                c.setElement(this.posX,this.posY,'A');
                 setFull(getFull()-1);
                 
-            }
-           // System.out.println(getFull());
-            c.setElement(this.posX,this.posY,'B');
+            } 
+            
+            //System.out.println(getFull());
+            //c.setElement(this.posX,this.posY,'A');
         } else {
-            if(!hidup()){
+            if (!hidup()){
                 c.setElement(this.posX,this.posY,' ');
             }
             
         }
     }
     public void talk(){
-        System.out.println("Qwekk qwekk");
+        System.out.println("Petok petokkkkkk");
     }
     public void eat(Renderable c){
         if (!hidup()){
@@ -64,25 +66,23 @@ public class bebek extends FarmAnimal implements LivingThings{
                 c.setElement(this.posX,this.posY,' ');
         } else {
             if(c.getRumput(this.posX,this.posY)==t_rumput){
-                this.countTelurB = MAX;
+                this.countTelurA =MAX;
                 setFull(FULLMAX);
                 c.kosongRumput(this.posX,this.posY);
-            } else {
-                move(c);
-        }
-
-        }        
+         } else move(c);
         
+        }
+       
     }
     public String getChar(){
-        return "b";
+        return "A";
     }
 
     public void getProduct(){
-        this.countTelurB =0;
+        this.countTelurA =0;
     }
     public Integer getCountProduct(){
-        return countTelurB;
+        return countTelurA;
     }
     /*public Integer getFull(){
         return Full;
@@ -92,6 +92,6 @@ public class bebek extends FarmAnimal implements LivingThings{
         this.Full = Full;
     }*/
     public void Print(){
-        System.out.println("bebek " + countTelurB + " Full : "+ getFull()+"pos :  "+ posX +" "+ posY);
+        System.out.println("Ayam " + countTelurA + " Full : "+ getFull()+"pos :  "+ posX +" "+ posY);
     }
 }
