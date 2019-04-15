@@ -181,42 +181,38 @@ class Player implements LivingThings {
 
     public void cekAnimal(Cell _c, int x, int y, Vector<FarmAnimal> animals) {
         if(_c.getElement(x,y) == 'A'){
-            Iterator it = animals.iterator();
-            while(it.hasNext()){
-                if((it)->getPosX() == x && (it)->getPosY() == y && (it)->getCountProduct()>0){
-                    System.out.println("ayam " << (it)->getCountProduct());
-                    (it).getProduct();
+            for(int i=0; i<animals.size(); i++){
+                if(animals.get(i).getPosX() == x && animals.get(i).getPosY() == y && animals.get(i).getCountProduct()>0){
+                    System.out.println("ayam " + animals.get(i).getCountProduct());
+                    animals.get(i).getProduct();
                     inventory.add("ChickenEgg");
                 }
             }
          }
          //bebek(B)
          else if(_c.getElement(x,y) == 'B'){
-            Iterator it = animals.iterator();
-            while(it.hasNext()){
-                if((it)->getPosX() == x && (it)->getPosY() == y && (it)->getCountProduct()>0){
-                    System.out.println("bebek " << (it)->getCountProduct());
-                    (it).getProduct();
+            for(int i=0; i<animals.size(); i++){
+                if(animals.get(i).getPosX() == x && animals.get(i).getPosY() == y && animals.get(i).getCountProduct()>0){
+                    System.out.println("bebek " + animals.get(i).getCountProduct());
+                    animals.get(i).getProduct();
                     inventory.add("DuckEgg");
                 }
             }
          } 
          //kambing(G)
          else if(_c.getElement(x,y) == 'D'){
-            Iterator it = animals.iterator();
-            while(it.hasNext()){
-                if((it)->getPosX() == x && (it)->getPosY() == y && (it)->getCountProduct()>0){
-                    (it).getProduct();
+            for(int i=0; i<animals.size(); i++){
+                if(animals.get(i).getPosX() == x && animals.get(i).getPosY() == y && animals.get(i).getCountProduct()>0){
+                    animals.get(i).getProduct();
                     inventory.add("GoatMilk");
                 }
             }
          }
          //Sapi(C)
          else if(_c.getElement(x,y) == 'S'){
-            Iterator it = animals.iterator();
-            while(it.hasNext()){
-                if((it)->getPosX() == x && (it)->getPosY() == y && (it)->getCountProduct()>0){
-                    (it).getProduct();
+            for(int i=0; i<animals.size(); i++){
+                if(animals.get(i).getPosX() == x && animals.get(i).getPosY() == y && animals.get(i).getCountProduct()>0){
+                    animals.get(i).getProduct();
                     inventory.add("CowMilk");
                 }
             }
@@ -243,7 +239,7 @@ class Player implements LivingThings {
                         System.out.println("Gaada DuckEgg");
                     }
                     else {
-                        Omelette a = new Omelete();
+                        Omelette a = new Omelette();
                         inventory.add("Omelette");
                         inventory.remove("ChickenEgg");
                         inventory.remove("DuckEgg");
@@ -343,10 +339,10 @@ class Player implements LivingThings {
                case 1 :
                {
                    cekhewan(posX-1, posY, _c);
-                   Iterator it = animals.iterator();
-                   while(it.hasNext()){
-                       if((it)->getPosX() == this.posX-1 && (it).getPosY() == this.posY){
-                           (it).setStatus(false);
+    
+                   for(int i=0; i<animals.size(); i++){
+                       if(animals.get(i).getPosX() == this.posX-1 && animals.get(i).getPosY() == this.posY){
+                           animals.get(i).setStatus(false);
                        }
                    }
                    break;
@@ -354,10 +350,10 @@ class Player implements LivingThings {
                case 2 :
                {
                    cekhewan(posX+1, posY, _c);
-                   Iterator it = animals.iterator();
-                   while(it.hasNext()){
-                       if((it).getPosX() == this.posX+1 && (it).getPosY() == this.posY){
-                           (it).setStatus(false);
+    
+                   for(int i=0; i<animals.size(); i++){
+                       if(animals.get(i).getPosX() == this.posX+1 && animals.get(i).getPosY() == this.posY){
+                           animals.get(i).setStatus(false);
                        }
                    }
                    break;
@@ -365,10 +361,10 @@ class Player implements LivingThings {
                case 3 :
                {   
                    cekhewan(posX, posY-1, _c);
-                   Iterator it = animals.iterator();
-                   while(it.hasNext()){
-                       if((it).getPosX() == this.posX-1 && (it).getPosY() == this.posY-1){
-                           (it).setStatus(false);
+    
+                   for(int i=0; i<animals.size(); i++){
+                       if(animals.get(i).getPosX() == this.posX-1 && animals.get(i).getPosY() == this.posY-1){
+                           animals.get(i).setStatus(false);
                        }
                    }
                    break;
@@ -376,10 +372,10 @@ class Player implements LivingThings {
                case 4 :
                {
                    cekhewan(posX, posY+1, _c);
-                   Iterator it = animals.iterator();
-                   while(it.hasNext()){
-                       if((it).getPosX() == this.posX && (it).getPosY() == this.posY+1){
-                           (it).setStatus(false);
+    
+                   for(int i=0; i<animals.size(); i++){
+                       if(animals.get(i).getPosX() == this.posX && animals.get(i).getPosY() == this.posY+1){
+                           animals.get(i).setStatus(false);
                        }
                    }
                    break;
@@ -394,42 +390,42 @@ class Player implements LivingThings {
        public void cekhewan(int x, int y, Cell _c){
            //ayam(A)
             if(_c.getElement(x,y) == 'A'){
-                ChickenMeat a = ChickenMeat();
+                ChickenMeat a = new ChickenMeat();
                 inventory.add("ChickenMeat");
                 _c.setElement(x, y, ' ');
                //  ayam::~ayam();
             }
             //bebek(B)
             else if(_c.getElement(x,y) == 'B'){
-                DuckMeat a = DuckMeat();
+                DuckMeat b = new DuckMeat();
                 inventory.add("DuckMeat");
                 _c.setElement(x, y, ' ');
                //  bebek::~bebek();
             } 
             //babi(b)
             else if(_c.getElement(x,y) == 'Z'){
-                Pork a = Pork();
+                Pork c = new Pork();
                 inventory.add("Pork");
                 _c.setElement(x, y, ' ');
                //  babi::~babi();
             } 
             //domba(D)
             else if(_c.getElement(x,y) == 'K'){
-                LambMeat a = LambMeat();
+                LambMeat d = new LambMeat();
                 inventory.add("LambMeat");
                 _c.setElement(x, y, ' ');
                //  domba::~domba();
             }
             //kambing(G)
             else if(_c.getElement(x,y) == 'D'){
-                GoatMeat a = GoatMeat();
+                GoatMeat e = new GoatMeat();
                 inventory.add("GoatMeat");
                 _c.setElement(x, y, ' ');
                //  kambing::~kambing();
             }
             //Sapi(C)
             else if(_c.getElement(x,y) == 'S'){
-                CowMeat a = CowMeat();
+                CowMeat f = new CowMeat();
                 inventory.add("CowMeat");
                 _c.setElement(x, y, ' ');
                //  sapi::~sapi();
