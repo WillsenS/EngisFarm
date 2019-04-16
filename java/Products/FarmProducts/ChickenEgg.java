@@ -5,9 +5,8 @@
  * @since 2019.04.14
  */
 public class ChickenEgg extends FarmProduct {
-    public:
-        ChickenEgg(){
-            this->productValue = 3;
-            this->expireValue = 10;
-        };
-};
+    public ChickenEgg(){
+            this.productValue = 3;
+            this.expireValue = 10;
+        }
+}

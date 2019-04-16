@@ -36,7 +36,7 @@ public class Domba extends FarmAnimal implements LivingThings{
         //System.out.println("x : " + x);
         //System.out.println("y : " +y);
         
-        if (this.posX+x>=0 && this.posY+y>=0 && this.posY +y <15 && hidup() && c.getElement(this.posX+x,this.posY+y)== ' '){
+        if (this.posX+x>=0 && this.posX+x<15&& this.posY+y>=0 && this.posY +y <15 && hidup() && c.getElement(this.posX+x,this.posY+y)== ' '){
             
             if (c.getTypeLand(this.posX+x,this.posY+y)==tempat){
                 c.setElement(posX,posY,' ');

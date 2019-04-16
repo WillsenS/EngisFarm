@@ -9,5 +9,5 @@ public class BBQ extends SideProduct {
         this.portion = portion;
         this.productValue = 10;
         this.expireValue = 5;
-    };
-};
+    }
+}

@@ -5,9 +5,8 @@
  * @since 2019.04.14
  */
 public class Pork extends FarmProduct {
-    public:
-        Pork() {
-            this->productValue = 5;
-            this->expireValue = 7;
-        };
-};
+    public Pork() {
+            this.productValue = 5;
+            this.expireValue = 7;
+        }
+}

@@ -6,9 +6,19 @@
  */
 
 public class FarmProduct implements Product {
+    /**
+     * @var int The money value of product.
+     */
+    public int productValue;
+
+    /**
+     * @var int The number of ticks available before the product expire.
+     */
+    public int expireValue;
+
 
     public FarmProduct(){
-    };
+    }
 
     /**
      * Get the product value.
@@ -16,7 +26,7 @@ public class FarmProduct implements Product {
      */
     public int getProductValue() {
         return this.productValue;
-    };
+    }
 
     /**
      * Get the expire value of the product.
@@ -24,20 +34,20 @@ public class FarmProduct implements Product {
      */
     public int getExpireValue() {
         return this.expireValue;
-    };
+    }
 
     /**
      * Reduce the expire value of the product by 1.
      */
     public void setExpireValue() {
         this.expireValue--;
-    };
+    }
 
     /**
      * Get the product expire condition.
-     * @return bool expire condition.
+     * @return boolean expire condition.
      */
-    public bool isExpire() {
+    public boolean isExpire() {
         return this.expireValue <= 0 ? true : false;
-    };
-};
+    }
+}

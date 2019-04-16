@@ -9,5 +9,5 @@ public class Sausage extends SideProduct {
         this.portion = portion;
         this.productValue = 7;
         this.expireValue = 5;
-    };
-};
+    }
+}

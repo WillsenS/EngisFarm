@@ -44,6 +44,9 @@ class Player implements LivingThings {
     public int getPosY(){
         return posY;
     }
+    public int getMoney() {
+        return money;
+    }
     
     public int getWater(){
         return water;
@@ -239,7 +242,7 @@ class Player implements LivingThings {
                         System.out.println("Gaada DuckEgg");
                     }
                     else {
-                        Omelette a = new Omelette();
+                        Omelette a = new Omelette(1);
                         inventory.add("Omelette");
                         inventory.remove("ChickenEgg");
                         inventory.remove("DuckEgg");
@@ -257,7 +260,7 @@ class Player implements LivingThings {
                         System.out.println("Gaada LambMeat");
                     }
                     else {
-                        BBQ a = new BBQ();
+                        BBQ a = new BBQ(1);
                         inventory.add("BBQ");
                         inventory.remove("Pork");
                         inventory.remove("LambMeat");
@@ -275,7 +278,7 @@ class Player implements LivingThings {
                         System.out.println("Gaada GoatMeat");
                     }
                     else {
-                        Sausage a = new Sausage();
+                        Sausage a = new Sausage(1);
                         inventory.add("Sausage");
                         inventory.remove("CowMeat");
                         inventory.remove("GoatMeat");
