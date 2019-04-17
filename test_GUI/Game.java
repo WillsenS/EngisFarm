@@ -27,7 +27,7 @@ public class Game extends JFrame implements Runnable
 
 	private SpriteSheet sheet;
 	private SpriteSheet playerSheet;
-	//private SpriteSheet cSheet;
+	private SpriteSheet cSheet;
 
 	private int selectedTileID = 2;
 	private int selectedLayer = 0;
@@ -42,7 +42,7 @@ public class Game extends JFrame implements Runnable
 	private MouseEventListener mouseListener = new MouseEventListener(this);
 
 	private Player player;
-	//private Chic c;
+	private Chic c;
 
 	private int xZoom = 3;
 	private int yZoom = 3;
@@ -79,13 +79,13 @@ public class Game extends JFrame implements Runnable
 		playerSheet = new SpriteSheet(playerSheetImage);
 		playerSheet.loadSprites(20, 26);
 
-		// BufferedImage p = loadImage("c2.png");
-		// cSheet = new SpriteSheet(p);
-		// cSheet.loadSprites(20, 26);
+		BufferedImage p = loadImage("c2.png");
+		cSheet = new SpriteSheet(p);
+		cSheet.loadSprites(20, 26);
 
 		//Player Animated Sprites
-		AnimatedSprite playerAnimations = new AnimatedSprite(playerSheet, 5);
-		// AnimatedSprite chickenAnimations = new AnimatedSprite(cSheet, 5);
+		AnimatedSprite playerAnimations = new AnimatedSprite(playerSheet, 10);
+		AnimatedSprite chickenAnimations = new AnimatedSprite(cSheet, 4);
 
 		//Load Tiles
 		tiles = new Tiles(new File("Tiles.txt"),sheet);
