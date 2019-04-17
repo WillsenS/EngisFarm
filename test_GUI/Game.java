@@ -79,7 +79,7 @@ public class Game extends JFrame implements Runnable
 		playerSheet = new SpriteSheet(playerSheetImage);
 		playerSheet.loadSprites(20, 26);
 
-		// BufferedImage p = loadImage("chicken.png");
+		// BufferedImage p = loadImage("c2.png");
 		// cSheet = new SpriteSheet(p);
 		// cSheet.loadSprites(20, 26);
 
