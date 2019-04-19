@@ -1,51 +1,91 @@
-class Facility extends Cell{
+/**
+ * Facility Class.
+ */
+class Facility extends Cell {
+    /** Well X position */
     int wellx = 14;
+    /** Well Y position */
     int welly = 11;
+    /** Mixer X position */
     int MixerX = 14;
+    /** Mixer Y position */
     int MixerY = 13;
+    /** Truck X position */
     int TruckX = 14;
+    /** Truck Y position */
     int TruckY = 14;
 
-    /*Constructor untuk facility*/
+    /**
+     * Ctor.
+     */
     public Facility() {
         super.setElement(getWellX(), getWellY(), 'W');
         super.setElement(getMixerX(), getMixerY(), 'M');
         super.setElement(getTruckX(), getTruckY(), 'T');
     }
 
+    /**
+     * Ctor with param.
+     *
+     * @param c The Cell the Facility refer to.
+     */
     public Facility(Cell c) {
         c.setElement(getWellX(), getWellY(), 'W');
         c.setElement(getMixerX(), getMixerY(), 'M');
         c.setElement(getTruckX(), getTruckY(), 'T');
     }
-    /*Mengembalikan letak x dari Well*/
+
+    /**
+     * Return the X position of the Well.
+     *
+     * @return int Well X position
+     */
     public int getWellX() {
         return wellx;
     }
 
-    /*Mengembalikan letak y dari Well*/
+    /**
+     * Return the Y position of the Well.
+     *
+     * @return int Well Y position
+     */
     public int getWellY() {
         return welly;
     }
 
-    /*Mengembalikan letak x dari Well*/
+    /**
+     * Return the X position of the Mixer.
+     *
+     * @return int Mixer X position
+     */
     public int getMixerX() {
         return MixerX;
     }
 
-    /*Mengembalikan letak y dari Mixer*/
+    /**
+     * Return the Y position of the Mixer.
+     *
+     * @return int Mixer Y position
+     */
     public int getMixerY() {
         return MixerY;
     }
 
-    /*Mengembalikan letak x dari Mixer*/
+    /**
+     * Return the X position of the Truck.
+     *
+     * @return int Truck X position
+     */
     public int getTruckX() {
         return TruckX;
     }
 
-    /*Mengembalikan letak y dari Well*/
+    /**
+     * Return the Y position of the Truck.
+     *
+     * @return int Truck Y position
+     */
     public int getTruckY() {
         return TruckY;
     }
-
 }

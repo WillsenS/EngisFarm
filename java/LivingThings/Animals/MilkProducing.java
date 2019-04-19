@@ -1,9 +1,9 @@
-public class Milkproducing {
+public class MilkProducing {
     private static int jlhMilkP =0;
 
-    public Milkproducing(int x,int y){
+    public MilkProducing(int x,int y){
         //super(x,y);
-        this.jlhMilkP++;
+        MilkProducing.jlhMilkP++;
     }
     public static Integer getjlhMilkP(){
         return jlhMilkP;
