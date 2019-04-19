@@ -17,9 +17,9 @@ public abstract class FarmAnimal{
         this.posX = x;
         this.posY=y;
         //p.setElement(x,y);
-        this.countAnimal++;
+        FarmAnimal.countAnimal++;
         this.status = true;
-        this.id = this.countAnimal;
+        this.id = FarmAnimal.countAnimal;
         this.Full =FULLMAX;
     }
 

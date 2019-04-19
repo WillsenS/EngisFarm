@@ -3,12 +3,12 @@ class test{
     Cell c = new Cell();
 	Renderable p = new Renderable();
 	Facility f = new Facility(p);
-	ayam a = new ayam(1,3,p);
-	babi b = new babi(8,9,p);
-	kambing k = new kambing(2,3,p);
-	bebek d = new bebek(6,7,p);
-	sapi w = new sapi(4,5,p);
-	domba r = new domba(12,3,p);
+	Ayam a = new Ayam(1,3,p);
+	Babi b = new Babi(8,9,p);
+	Kambing k = new Kambing(2,3,p);
+	Bebek d = new Bebek(6,7,p);
+	Sapi w = new Sapi(4,5,p);
+	Domba r = new Domba(12,3,p);
 	p.render();
 	//p.setElement(1,3,'A');
 	a.Print();

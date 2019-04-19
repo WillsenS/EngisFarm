@@ -1,9 +1,9 @@
-public class Meatproducing {
+public class MeatProducing {
     private static int jlhMeatP =0;
 
-    public Meatproducing(int x,int y){
+    public MeatProducing(int x,int y){
         //super(x,y);
-        this.jlhMeatP++;
+        MeatProducing.jlhMeatP++;
     }
     public static Integer getjlhMeatP(){
         return jlhMeatP;
