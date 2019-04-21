@@ -32,6 +32,7 @@
         <mkdir dir="${obj.dir}" />
         <mkdir dir="${obj.dir}/gui" />
         <mkdir dir="${docs.dir}" />
+        <mkdir dir="${docs.dir}/gui" />
         <mkdir dir="${report.dir}" />
     </target>
 
@@ -50,19 +51,25 @@
     </target>
 
     <!-- Creates Javadoc -->
-    <target name="docs" depends="makedir, compile">
+    <target name="docs" depends="compile">
         <javadoc packagenames="src" sourcepath="${src.dir}" destdir="${docs.dir}">
             <!-- Define which files / directory should get included, we include all -->
              <fileset dir="${src.dir}">
                 <include name="**" />
              </fileset>
         </javadoc>
+        <javadoc packagenames="src" sourcepath="${src.dir}" destdir="${docs.dir}/gui">
+            <!-- Define which files / directory should get included, we include all -->
+             <fileset dir="${gui.dir}">
+                <include name="**/*.java" />
+             </fileset>
+        </javadoc>
     </target>
 
     <path id="junit.class.path">
-        <pathelement location = "/usr/share/java/junit-3.8.2.jar" />
-        <path location="${obj.dir}"/>
-        <path location="${test.dir}"/>
+        <pathelement path = "lib/junit4-4.12.jar" />
+        <pathelement path ="${obj.dir}"/>
+        <pathelement path ="${test.dir}"/>
     </path>
 
     <target name="test-compile" depends="compile">
@@ -72,7 +79,7 @@
     </target>
 
     <target name="junit" depends="test-compile">
-      <junit printsummary="yes" haltonfailure="no">
+      <junit printsummary="yes" haltonfailure="no" showoutput="true">
     
         <classpath refid="junit.class.path" />
             
@@ -88,11 +95,25 @@
 
     <!--Creates the deployable jar file  -->
     <target name="jar" depends="compile">
-        <jar destfile="${dist.dir}\de.vogella.build.test.ant.jar" basedir="${build.dir}">
+        <jar destfile="${bin.dir}\Main.jar" basedir="${build.dir}">
             <manifest>
-                <attribute name="Main-Class" value="test.Main" />
+                <attribute name="Main-Class" value="engisfarm"/>
             </manifest>
         </jar>
+    </target>
+
+    <target name="metrics" depends="jar">
+        <jdepend outputfile="docs/metrics/jdepend.xml" fork="yes" format="xml">
+            <sourcespath>
+                <pathelement location="java/src:test_GUI"/>
+            </sourcespath>
+            <classpath>
+                <pathelement location="${obj.dir}"/>
+                <pathelement location="${obj.dir}/gui"/>
+                <pathelement location="lib/jdepend-2.9.jar"/>
+                <pathelement location="${bin.dir}/Main.jar"/>
+            </classpath>
+        </jdepend>
     </target>
 
     <target name="main" depends="compile, jar, docs">

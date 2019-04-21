@@ -10,7 +10,7 @@ import org.junit.Test;
 public class ChickenEggTest {
     private ChickenEgg chickenEgg;
 
-    @Before
+    
     public void setUp() {
         chickenEgg = new ChickenEgg();
     }
@@ -32,8 +32,8 @@ public class ChickenEggTest {
     @Test
     public void testSetExpireValue() {
         final int expected = 9;
-
-        assertEquals(chickenEgg.setExpireValue(), expected);
+        chickenEgg.setExpireValue();
+        assertEquals(chickenEgg.getExpireValue(), expected);
     }
 
     @Test

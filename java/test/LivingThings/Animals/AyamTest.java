@@ -13,17 +13,16 @@ public class AyamTest {
     private Ayam ayam;
     private Renderable r;
 
-    @Before
+    
     public void setUp() {
         r.render();
         ayam = new Ayam(0, 0, r);
         System.setOut(new PrintStream(outContent));
     }
 
-    @After
+    
     public void restoreStreams() {
         System.setOut(originalOut);
-        System.setErr(originalErr);
     }
 
     @Test
@@ -46,14 +45,14 @@ public class AyamTest {
     public void testGetCountProduct() {
         final int expected = 0;
 
-        assertEquals(ayam.getCountProduct(), expected);
+        assertEquals((int) ayam.getCountProduct(), expected);
     }
 
     @Test
     public void testGetProduct() {
         final int expected = 0;
 
-        assertEquals(ayam.getCountProduct(), expected);
+        assertEquals((int) ayam.getCountProduct(), expected);
     }
 
     @Test

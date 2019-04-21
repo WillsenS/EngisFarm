@@ -10,9 +10,9 @@ import org.junit.Test;
 public class PorkTest {
     private Pork pork;
 
-    @Before
+    
     public void setUp() {
-        porkMeat = new Pork();
+        pork = new Pork();
     }
 
     @Test
@@ -32,8 +32,8 @@ public class PorkTest {
     @Test
     public void testSetExpireValue() {
         final int expected = 6;
-
-        assertEquals(pork.setExpireValue(), expected);
+        pork.setExpireValue();
+        assertEquals(pork.getExpireValue(), expected);
     }
 
     @Test

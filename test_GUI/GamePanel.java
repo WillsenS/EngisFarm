@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 
-public class GamePanel extends JPanel implements Runnable,KeyListener{
+public class GamePanel extends JPanel implements Runnable, KeyListener {
     private static final long serialVersionUID = 1L;
     public static int alpha = 0xFFFF00B3;
     public static final int w = 320;
@@ -109,7 +109,7 @@ public class GamePanel extends JPanel implements Runnable,KeyListener{
         gsm.keyPressed(key.getKeyCode());
     }
     public void keyReleased(KeyEvent key){
-		gsm.keyReleased(key.getKeyCode());
+        gsm.keyReleased(key.getKeyCode());
     }
 
 

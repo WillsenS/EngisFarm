@@ -10,7 +10,6 @@ import org.junit.Test;
 public class CellTest {
     private Cell cell;
 
-    @Before
     public void setUp() {
         cell = new Cell();
     }
