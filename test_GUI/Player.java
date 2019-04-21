@@ -20,6 +20,7 @@ public class Player extends MapObject{
     public boolean interact;
     public boolean talk;
     public boolean sell;
+    public boolean fillingCan;
 
 
     private ArrayList<BufferedImage[]> sprites;
@@ -61,6 +62,7 @@ public class Player extends MapObject{
         grow = false;
         interact = false;
         talk = false;
+        fillingCan=false;
 
         // load sprite
         try {
@@ -110,6 +112,12 @@ public class Player extends MapObject{
     public void setTalk (boolean i) {
         talk = i;
     }
+
+    public void setfillCan(boolean i){
+        fillingCan =i;
+    }
+
+
 
     public void getNextPosition() {
         //if (getX()>=10 && getY>=0)
@@ -302,5 +310,13 @@ public class Player extends MapObject{
                 }
             // }
         }
+    }
+
+    public void fillCan(){
+        if (this.water == 0 && fillingCan ){
+            this.water+=10;
+            fillingCan = false;
+        }
+
     }
 }

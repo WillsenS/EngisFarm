@@ -73,6 +73,7 @@ public class PlayingState extends GameState {
         player.checkKill(farmAnimal);
 	    player.checkMix();
     	player.checkSell();
+        player.fillCan();
 
         for(int i=0;i<farmAnimal.size();i++){
             farmAnimal.get(i).update();
@@ -129,6 +130,7 @@ public class PlayingState extends GameState {
     	if(k == KeyEvent.VK_M) player.setMix(true);
         if(k == KeyEvent.VK_T) player.setTalk(true);
 	if(k == KeyEvent.VK_S) player.setSell(true);
+        if(k == KeyEvent.VK_C) player.setfillCan(true);
     }
 
 	public  void keyReleased(int k) {
@@ -141,5 +143,6 @@ public class PlayingState extends GameState {
     	if(k == KeyEvent.VK_M) player.setMix(false);
         if(k == KeyEvent.VK_T) player.setTalk(false);
 	if(k == KeyEvent.VK_S) player.setSell(false);
+        if(k == KeyEvent.VK_C) player.setfillCan(false);
     }
 }

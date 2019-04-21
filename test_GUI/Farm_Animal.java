@@ -10,7 +10,7 @@ public abstract class Farm_Animal extends MapObject{
     protected final int MAX =1;
     protected final double FULLMAX =100;
     protected final int dead = 0;
-    protected final int HUNGRY = -1;
+    protected final int HUNGRY = 1;
 
     protected final int randX =1;
     protected final int randY =1;
