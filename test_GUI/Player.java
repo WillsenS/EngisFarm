@@ -19,6 +19,7 @@ public class Player extends MapObject{
     public boolean grow;
     public boolean interact;
     public boolean talk;
+    public boolean sell;
 
 
     private ArrayList<BufferedImage[]> sprites;
@@ -91,7 +92,9 @@ public class Player extends MapObject{
     public void setKill(boolean k) {
         kill = k;
     }
-
+    public void setSell(boolean k) {
+        sell = k;
+    }
     public void setGrow(boolean g) {
         grow = g;
     }
@@ -248,6 +251,55 @@ public class Player extends MapObject{
     			inventory.remove("CowMeat");
     			inventory.remove("GoatMeat");
     		}
+        }
+    }
+    
+    public void checkSell(){
+        if(sell){
+            // if(isAdjacent(facility.getTruckX(),facility.getTruckY())){
+                while(!inventory.isEmpty()){
+                    if (inventory.contains("ChickenMeat")) {
+                        money += 4;
+                        inventory.remove("ChickenMeat");
+                    } if(inventory.contains("ChickenEgg")) {
+                        money += 3;
+                        inventory.remove("ChickenEgg");
+                    } if (inventory.contains("DuckMeat")) {
+                        money += 4;
+                        inventory.remove("DuckMeat");
+                    } if(inventory.contains("DuckEgg")) {
+                        money += 3;
+                        inventory.remove("DuckEgg");
+                    } if (inventory.contains("CowMeat")) {
+                        money += 4;
+                        inventory.remove("CowMeat");
+                    } if(inventory.contains("CowMilk")) {
+                        money += 3;
+                        inventory.remove("CowMilk");
+                    } if (inventory.contains("GoatMeat")) {
+                        money += 4;
+                        inventory.remove("GoatMeat");
+                    } if(inventory.contains("GoatMilk")) {
+                        money += 3;
+                        inventory.remove("GoatMilk");
+                    } if (inventory.contains("LambMeat")) {
+                        money += 4;
+                        inventory.remove("LambMeat");
+                    } if(inventory.contains("Pork")) {
+                        money += 4;
+                        inventory.remove("Pork");
+                    } if (inventory.contains("Sausage")) {
+                        money += 10;
+                        inventory.remove("Sausage");
+                    } if(inventory.contains("BBQ")) {
+                        money += 10;
+                        inventory.remove("BBQ");
+                    }if (inventory.contains("Omelette")) {
+                        money += 10;
+                        inventory.remove("Omelette");
+                    }
+                }
+            // }
         }
     }
 }
