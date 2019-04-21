@@ -67,6 +67,7 @@ public class PlayingState extends GameState{
         
         // check killing 
         player.checkKill(farmAnimal);
+	player.checkMix();
 
         for(int i=0;i<farmAnimal.size();i++){
             farmAnimal.get(i).update();
@@ -98,6 +99,7 @@ public class PlayingState extends GameState{
 		if(k == KeyEvent.VK_DOWN) player.setDown(true);
         if(k == KeyEvent.VK_K) player.setKill(true);
         if(k == KeyEvent.VK_I) player.setInteract(true);
+	if(k == KeyEvent.VK_M) player.setMix(true);
         
 
 
@@ -109,5 +111,7 @@ public class PlayingState extends GameState{
 		if(k == KeyEvent.VK_DOWN) player.setDown(false);
         if(k == KeyEvent.VK_K) player.setKill(false);
         if(k == KeyEvent.VK_I) player.setInteract(false);
+	if(k == KeyEvent.VK_M) player.setMix(false);
+		
     }
 }
