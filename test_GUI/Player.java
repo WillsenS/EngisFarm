@@ -98,7 +98,7 @@ public class Player extends MapObject{
         grow = g;
     }
     public void setMix(boolean m){
-        mix = m;
+        this.mix = m;
     }
 
     public void setInteract (boolean i){
@@ -223,10 +223,26 @@ public class Player extends MapObject{
         }
 
         }
-        
-    
-    
-
+    }
+    public void checkMix() {
+    	if(mix){
+    		System.out.println("MIXX!");
+        	if (inventory.contains("ChickenEgg") && inventory.contains("DuckEgg")) {
+    			inventory.add("Omelette");
+    			inventory.remove("ChickenEgg");
+    			inventory.remove("DuckEgg");
+    		}
+    		if (inventory.contains("Pork") && inventory.contains("LambMeat")) {
+    			inventory.add("BBQ");
+    			inventory.remove("Pork");
+    			inventory.remove("LambMeat");
+    		}
+    		if (inventory.contains("CowMeat") && inventory.contains("GoatMeat")) {
+    			inventory.add("Sausage");
+    			inventory.remove("CowMeat");
+    			inventory.remove("GoatMeat");
+    		}
+        }
     }
 	// private BufferedImage loadImage(String path)
 	// {
