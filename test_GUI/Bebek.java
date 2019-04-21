@@ -50,12 +50,12 @@ public class Bebek extends Farm_Animal {
         int x = ThreadLocalRandom.current().nextInt(-randX, randY + 1);
         int y =ThreadLocalRandom.current().nextInt(-randX, randY);
         if(!nothidup()){
-            if(getx()+x>30 &&getx()+x<GamePanel.w-30&&gety()+y>10&&gety()+y<GamePanel.h-30){
+            if(getX()+x>30 &&getX()+x<GamePanel.w-30&&getY()+y>10&&getY()+y<GamePanel.h-30){
                 //dx += moveSpeed;
-                setPosition(getx()+x,gety()+x);
+                setPosition(getX()+x,getY()+x);
             }
             // } else {
-            //     setPosition(getx()-x*2,gety()-x*2);
+            //     setPosition(getX()-x*2,getY()-x*2);
             // }
             setFull(getFull()-0.01); 
         }
@@ -108,12 +108,12 @@ public class Bebek extends Farm_Animal {
         if(notOnScreen()) return;
         setMapPosition();
         // if (eat){
-        //     g.setRGB(getx(),gety(),30,30,Color.WHITE);
+        //     g.setRGB(getX(),getY(),30,30,Color.WHITE);
         // }
         super.draw(g);
     }
 
     public void Print(){
-        System.out.println("Bebek " + countTelurB + " Full : "+ getFull()+" pos :  "+ getx() +" "+gety());
+        System.out.println("Bebek " + countTelurB + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
     }
 }

@@ -1,6 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-
+import java.io.*;
 /**
  * BebekTest Class.
  *
@@ -30,7 +30,7 @@ public class BebekTest {
     public void testTalk() {
         final String expected = "Qwekk qwekk";
 
-        bebek.talk()
+        bebek.talk();
 
         assertEquals(outContent.toString(), expected);
     }

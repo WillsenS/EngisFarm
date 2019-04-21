@@ -5,6 +5,7 @@
     <property name="build.dir" location="build" />
     <property name="bin.dir" location="${build.dir}/apps/java" />
     <property name="obj.dir" location="${build.dir}/objects/java" />
+    <property name="gui.dir" location="test_GUI" />
     <property name="src.dir" location="java/src" />
     <property name="test.dir" location="java/test" />
     <property name="report.dir" location="${build.dir}/docs/junit" />
@@ -18,11 +19,18 @@
         <delete dir="${report.dir}" />
     </target>
 
+    <target name="clean-gui">
+        <delete>
+            <fileset dir="${obj.dir}/gui" includes="**/*.class"/>
+        </delete>
+    </target>
+
     <!-- Creates the build, docs and dist directory-->
     <target name="makedir">
         <mkdir dir="${build.dir}" />
         <mkdir dir="${bin.dir}" />
         <mkdir dir="${obj.dir}" />
+        <mkdir dir="${obj.dir}/gui" />
         <mkdir dir="${docs.dir}" />
         <mkdir dir="${report.dir}" />
     </target>
@@ -30,6 +38,13 @@
     <!-- Compiles the java code (including the usage of library for JUnit -->
     <target name="compile" depends="clean, makedir">
         <javac srcdir="${src.dir}" destdir="${obj.dir}">
+            <compilerarg line="-g -Xlint -verbose" />
+        </javac>
+    </target>
+
+    <!-- Compiles the java code (including the usage of library for JUnit -->
+    <target name="compile-gui" depends="clean-gui">
+        <javac srcdir="${gui.dir}" destdir="${obj.dir}/gui">
             <compilerarg line="-g -Xlint -verbose" />
         </javac>
     </target>
@@ -45,11 +60,18 @@
     </target>
 
     <path id="junit.class.path">
+        <pathelement location = "/usr/share/java/junit-3.8.2.jar" />
         <path location="${obj.dir}"/>
         <path location="${test.dir}"/>
     </path>
 
-    <target name="junit" depends="compile">
+    <target name="test-compile" depends="compile">
+      <javac srcdir="${test.dir}" destdir="${obj.dir}" includeantruntime="false">
+          <classpath refid="junit.class.path"/>
+      </javac>
+    </target>
+
+    <target name="junit" depends="test-compile">
       <junit printsummary="yes" haltonfailure="no">
     
         <classpath refid="junit.class.path" />

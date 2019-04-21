@@ -1,6 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-
+import java.io.*;
 /**
  * DombaTest Class.
  *
@@ -30,7 +30,7 @@ public class DombaTest {
     public void testTalk() {
         final String expected = "Mbekkkk~~~";
 
-        domba.talk()
+        domba.talk();
 
         assertEquals(outContent.toString(), expected);
     }

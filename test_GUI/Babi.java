@@ -49,12 +49,12 @@ public class Babi extends Farm_Animal{
         int x = ThreadLocalRandom.current().nextInt(-randX, randY + 1);
         int y =ThreadLocalRandom.current().nextInt(-randX, randY);
         if(!nothidup()){
-            if(getx()+x>30 &&getx()+x<GamePanel.w-30&&gety()+y>10&&gety()+y<GamePanel.h-30){
+            if(getX()+x>30 &&getX()+x<GamePanel.w-30&&getY()+y>10&&getY()+y<GamePanel.h-30){
                 //dx += moveSpeed;
-                setPosition(getx()+x,gety()+x);
+                setPosition(getX()+x,getY()+x);
             }
             // } else {
-            //     setPosition(getx()-x*2,gety()-x*2);
+            //     setPosition(getX()-x*2,getY()-x*2);
             // }
             setFull(getFull()-0.01); 
         }
@@ -69,9 +69,9 @@ public class Babi extends Farm_Animal{
             countPork =MAX;
         } 
 
-        //g.drawImage(image,0,0,getx(),gety(),null);
+        //g.drawImage(image,0,0,getX(),getY(),null);
        // g.setColor(Color.RED);
-        //g.fillRect(0,0,getx(),gety());
+        //g.fillRect(0,0,getX(),getY());
         //System.out.println("eat");
 
 
@@ -84,6 +84,10 @@ public class Babi extends Farm_Animal{
 
     public void talk(){
         System.out.println(PIG);
+    }
+
+    public String getTalk(){
+        return PIG;
     }
 
     public void getProduct(){
@@ -113,6 +117,6 @@ public class Babi extends Farm_Animal{
     }
 
     public void Print(){
-        System.out.println("Babi " + countPork + " Full : "+ getFull()+" pos :  "+ getx() +" "+gety());
+        System.out.println("Babi " + countPork + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
     }
 }
