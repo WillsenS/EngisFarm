@@ -94,7 +94,12 @@ public class PlayingState extends GameState{
     }
 
 	public  void draw(Graphics2D g) {
-        g.setColor(Color.RED);
+        int R = 200;
+        int G = 128;
+        int B = 100;
+        Color randomColor = new Color(R, G, B);
+        g.setColor(randomColor);
+        //g.setColor(Color.LIGHTGRAY);
         g.fillRect(0,0,GamePanel.w,GamePanel.h);
         map.draw(g);
         player.draw(g);
