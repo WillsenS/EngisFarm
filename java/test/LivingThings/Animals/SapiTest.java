@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import java.io.*;
 import org.junit.Test;
 
 /**
@@ -30,7 +31,7 @@ public class SapiTest {
     public void testTalk() {
         final String expected = "MOO MOO";
 
-        sapi.talk()
+        sapi.talk();
 
         assertEquals(outContent.toString(), expected);
     }

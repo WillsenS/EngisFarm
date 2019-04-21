@@ -1,6 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-
+import java.io.*;
 /**
  * BabiTest Class.
  *
@@ -30,7 +30,7 @@ public class BabiTest {
     public void testTalk() {
         final String expected = "Nguikk nguikk";
 
-        babi.talk()
+        babi.talk();
 
         assertEquals(outContent.toString(), expected);
     }

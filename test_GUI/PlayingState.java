@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-public class PlayingState extends GameState{
+public class PlayingState extends GameState {
     private FarmMap map;
     private Player player;
 
@@ -59,11 +59,10 @@ public class PlayingState extends GameState{
         farmAnimal.add(k);
 
         stuff = new Stuff(player);
-
     }
 
-    public  void update(){
-        player.update();
+    public  void update() {
+        player.update(farmAnimal);
         
         // check killing 
         player.checkKill(farmAnimal);
@@ -76,9 +75,9 @@ public class PlayingState extends GameState{
                 i--;
             }
         }
-
     }
-	public  void draw(Graphics2D g){
+
+	public  void draw(Graphics2D g) {
         g.setColor(Color.GREEN);
         g.fillRect(0,0,GamePanel.w,GamePanel.h);
         map.draw(g);
@@ -92,26 +91,26 @@ public class PlayingState extends GameState{
         //draw stuff
         stuff.draw(g);
     }
-	public  void keyPressed(int k){
+
+	public  void keyPressed(int k) {
 		if(k == KeyEvent.VK_LEFT) player.setLeft(true);
 		if(k == KeyEvent.VK_RIGHT) player.setRight(true);
 		if(k == KeyEvent.VK_UP) player.setUp(true);
 		if(k == KeyEvent.VK_DOWN) player.setDown(true);
         if(k == KeyEvent.VK_K) player.setKill(true);
         if(k == KeyEvent.VK_I) player.setInteract(true);
-	if(k == KeyEvent.VK_M) player.setMix(true);
-        
-
-
+    	if(k == KeyEvent.VK_M) player.setMix(true);
+        if(k == KeyEvent.VK_T) player.setTalk(true);
     }
-	public  void keyReleased(int k){
+
+	public  void keyReleased(int k) {
         if(k == KeyEvent.VK_LEFT) player.setLeft(false);
 		if(k == KeyEvent.VK_RIGHT) player.setRight(false);
 		if(k == KeyEvent.VK_UP) player.setUp(false);
 		if(k == KeyEvent.VK_DOWN) player.setDown(false);
         if(k == KeyEvent.VK_K) player.setKill(false);
         if(k == KeyEvent.VK_I) player.setInteract(false);
-	if(k == KeyEvent.VK_M) player.setMix(false);
-		
+    	if(k == KeyEvent.VK_M) player.setMix(false);
+        if(k == KeyEvent.VK_T) player.setTalk(false);
     }
 }

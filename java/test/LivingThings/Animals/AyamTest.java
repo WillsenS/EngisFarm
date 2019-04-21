@@ -1,6 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-
+import java.io.*;
 /**
  * AyamTest Class.
  *
@@ -30,7 +30,7 @@ public class AyamTest {
     public void testTalk() {
         final String expected = "Petok petokkkkkk";
 
-        ayam.talk()
+        ayam.talk();
 
         assertEquals(outContent.toString(), expected);
     }

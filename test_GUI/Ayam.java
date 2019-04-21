@@ -50,12 +50,12 @@ public class Ayam extends Farm_Animal {
         double x = ThreadLocalRandom.current().nextDouble(-randX, randY + 1);
         double y =ThreadLocalRandom.current().nextDouble(-randX, randY);
         if(!nothidup()){
-            if(getx()+x>30 &&getx()+x<GamePanel.w-30&&gety()+y>10&&gety()+y<GamePanel.h-30){
+            if(getX()+x>30 &&getX()+x<GamePanel.w-30&&getY()+y>10&&getY()+y<GamePanel.h-30){
                 //dx += moveSpeed;
-                setPosition(getx()+x,gety()+x);
+                setPosition(getX()+x,getY()+x);
             }
             // } else {
-            //     setPosition(getx()-x*2,gety()-x*2);
+            //     setPosition(getX()-x*2,getY()-x*2);
             // }
             setFull(getFull()-HUNGRY); 
         }
@@ -79,6 +79,10 @@ public class Ayam extends Farm_Animal {
 
     public void talk(){
         System.out.println(CHICKEN);
+    }
+
+    public String getTalk(){
+        return CHICKEN;
     }
 
     public void getProduct(){
@@ -110,6 +114,6 @@ public class Ayam extends Farm_Animal {
     }
 
     public void Print(){
-        System.out.println("Ayam " + countTelurA + " Full : "+ getFull()+" pos :  "+ getx() +" "+gety());
+        System.out.println("Ayam " + countTelurA + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
     }
 }
