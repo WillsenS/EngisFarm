@@ -121,58 +121,58 @@ public abstract class MapObject{
         }         
 
     }
-	public int getX() { return (int)x; }
-	public int getY() { return (int)y; }
-	public int getWidth() { return width; }
-	public int getHeight() { return height; }
-	public int getCWidth() { return cwidth; }
-	public int getCHeight() { return cheight; }
-	public void setPosition(double x, double y) {
-		this.x = x;
-		this.y = y;
-	}
-	public void setVector(double dx, double dy) {
-		this.dx = dx;
-		this.dy = dy;
-	}
-	
-	public void setMapPosition() {
-		xmap = farmMap.getX();
-		ymap = farmMap.getY();
-	}
+    public int getX() { return (int)x; }
+    public int getY() { return (int)y; }
+    public int getWidth() { return width; }
+    public int getHeight() { return height; }
+    public int getCWidth() { return cwidth; }
+    public int getCHeight() { return cheight; }
+    public void setPosition(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+    public void setVector(double dx, double dy) {
+        this.dx = dx;
+        this.dy = dy;
+    }
+    
+    public void setMapPosition() {
+        xmap = farmMap.getX();
+        ymap = farmMap.getY();
+    }
 
-	
-	public void setLeft(boolean b) { left = b; }
-	public void setRight(boolean b) { right = b; }
-	public void setUp(boolean b) { up = b; }
-	public void setDown(boolean b) { down = b; }
+    
+    public void setLeft(boolean b) { left = b; }
+    public void setRight(boolean b) { right = b; }
+    public void setUp(boolean b) { up = b; }
+    public void setDown(boolean b) { down = b; }
 
-	public boolean notOnScreen() {
-		return x + xmap + width < 0 ||
-			x + xmap - width > GamePanel.w ||
-			y + ymap + height < 0 ||
-			y + ymap - height > GamePanel.h;
-	}
-	public void draw(java.awt.Graphics2D g) {
-		if(facingRight) {
-			g.drawImage(
-				animation.getImage(),
-				(int)(x + xmap - width / 2),
-				(int)(y + ymap - height / 2),
-				null
-			);
-		}
-		else {
-			g.drawImage(
-				animation.getImage(),
-				(int)(x + xmap - width / 2 + width),
-				(int)(y + ymap - height / 2),
-				-width,
-				height,
-				null
-			);
-		}
-	}
-	
+    public boolean notOnScreen() {
+        return x + xmap + width < 0 ||
+            x + xmap - width > GamePanel.w ||
+            y + ymap + height < 0 ||
+            y + ymap - height > GamePanel.h;
+    }
+    public void draw(java.awt.Graphics2D g) {
+        if(facingRight) {
+            g.drawImage(
+                animation.getImage(),
+                (int)(x + xmap - width / 2),
+                (int)(y + ymap - height / 2),
+                null
+            );
+        }
+        else {
+            g.drawImage(
+                animation.getImage(),
+                (int)(x + xmap - width / 2 + width),
+                (int)(y + ymap - height / 2),
+                -width,
+                height,
+                null
+            );
+        }
+    }
+    
 
 }

@@ -65,45 +65,45 @@ public class FarmMap {
             e.printStackTrace();
         }
     }
-	public void loadMap(String s) {
-		
-		try {
-			
-			InputStream in = getClass().getResourceAsStream(s);
-			BufferedReader br = new BufferedReader(
-						new InputStreamReader(in)
-					);
-			
-			col = Integer.parseInt(br.readLine());
-			row = Integer.parseInt(br.readLine());
+    public void loadMap(String s) {
+        
+        try {
+            
+            InputStream in = getClass().getResourceAsStream(s);
+            BufferedReader br = new BufferedReader(
+                        new InputStreamReader(in)
+                    );
+            
+            col = Integer.parseInt(br.readLine());
+            row = Integer.parseInt(br.readLine());
             System.out.println(col + " " + row);
-			map = new int[row][col];
-			width = col * grassSize;
-			height = row * grassSize;
-			
-			xmin = GamePanel.w - width;
-			xmax = 0;
-			ymin = GamePanel.h - height;
-			ymax = 0;
-			
-			String delims = "\\s+";
-			for(int ro = 0; ro < row; ro++) {
+            map = new int[row][col];
+            width = col * grassSize;
+            height = row * grassSize;
+            
+            xmin = GamePanel.w - width;
+            xmax = 0;
+            ymin = GamePanel.h - height;
+            ymax = 0;
+            
+            String delims = "\\s+";
+            for(int ro = 0; ro < row; ro++) {
                 System.out.println("read file");
-				String line = br.readLine();
-				String[] tokens = line.split(delims);
-				for(int co = 0; co < col; co++) {
-					map[ro][co] = Integer.parseInt(tokens[co]);
-				}
-			}
+                String line = br.readLine();
+                String[] tokens = line.split(delims);
+                for(int co = 0; co < col; co++) {
+                    map[ro][co] = Integer.parseInt(tokens[co]);
+                }
+            }
             System.out.println("syccess load Map");
-			
-		}
-		catch(Exception e) {
+            
+        }
+        catch(Exception e) {
             System.out.println("failed load map");
-			e.printStackTrace();
-		}
-		
-	}
+            e.printStackTrace();
+        }
+        
+    }
 
     public int getGrassSize(){
         return grassSize;
@@ -146,39 +146,39 @@ public class FarmMap {
         if(y>ymax) y = ymax;
     }
 
-	public void draw(Graphics2D g) {
-		
-		for(
-			int ro = startRow;
-			ro < startRow + numRowDraw;
-			ro++) {
-			
-			if(ro >= row) break;
-			
-			for(
-				int co = startCol;
-				co < startCol + numColDraw;
-				co++) {
-				
-				if(co >= col) break;
-				
-				if(map[ro][co] == 0) continue;
-				
-				int rc = map[ro][co];
-				int r = rc / numGrass;
-				int c = rc % numGrass;
-				
-				g.drawImage(
-					grasses[r][c].getImage(),
-					(int)x + co * grassSize,
-					(int)y + ro * grassSize,
-					null
-				);
-				
-			}
-			
-		}
+    public void draw(Graphics2D g) {
+        
+        for(
+            int ro = startRow;
+            ro < startRow + numRowDraw;
+            ro++) {
+            
+            if(ro >= row) break;
+            
+            for(
+                int co = startCol;
+                co < startCol + numColDraw;
+                co++) {
+                
+                if(co >= col) break;
+                
+                if(map[ro][co] == 0) continue;
+                
+                int rc = map[ro][co];
+                int r = rc / numGrass;
+                int c = rc % numGrass;
+                
+                g.drawImage(
+                    grasses[r][c].getImage(),
+                    (int)x + co * grassSize,
+                    (int)y + ro * grassSize,
+                    null
+                );
+                
+            }
+            
+        }
     }
-		
-	
+        
+    
 }

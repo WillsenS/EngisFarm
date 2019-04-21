@@ -2,20 +2,33 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.swing.Timer;
 
-public class Animation{
+/**
+ * Animation Class.
+ */
+public class Animation {
+    /** Animation's frames buffer. */
     private BufferedImage[] frames;
+    /** Animetion's current frame. */
     private int currentFrame;
-
+    /** Start time */
     private long start;
+    /** Update delay. */
     private long delay;
 
     private boolean playedOnce;
     int[][] arr = new int[12][8];
 
+    /**
+     * Ctor
+     */
     public Animation(){
         playedOnce =false;
     }
 
+    /**
+     * Set buffered frames.
+     * @param frames Buffered frames.
+     */
     public void setFrames(BufferedImage[] frames){
         this.frames = frames;
         currentFrame=0;
@@ -23,28 +36,60 @@ public class Animation{
         playedOnce=false;
     }
 
+    /**
+     * Set delay.
+     * @param d Delay input.
+     */
     public void setDelay(long d){delay =d;}
+
+    /**
+     * Set current frame.
+     * @param i frames index.
+     */
     public void setFrame(int i){currentFrame =i;}
-	public void update() {
-		
-		if(delay == -1) return;
-		
-		long elapsed = (System.nanoTime() - start) / 1000000;
-		if(elapsed > delay) {
-			currentFrame++;
-			start = System.nanoTime();
-		}
-		if(currentFrame == frames.length) {
-			currentFrame = 0;
-			playedOnce = true;
+
+    /**
+     * Updates animation frame.
+     */
+    public void update() {
+        if(delay == -1) return;
+        
+        long elapsed = (System.nanoTime() - start) / 1000000;
+        if(elapsed > delay) {
+            currentFrame++;
+            start = System.nanoTime();
         }
-	}
-	
-	public int getFrame() { return currentFrame; }
-	public BufferedImage getImage() { return frames[currentFrame]; }
+        if(currentFrame == frames.length) {
+            currentFrame = 0;
+            playedOnce = true;
+        }
+    }
+
+    /**
+     * Get current frame index.
+     * @return Frame index.
+     */
+    public int getFrame() { return currentFrame; }
+
+    /**
+     * Return current frame.
+     * @return Current frame.
+     */
+    public BufferedImage getImage() { return frames[currentFrame]; }
+
+    /**
+     * Check whether framse has played once.
+     * @return True if 
+     */
     public boolean hasPlayedOnce() { return playedOnce; }
 
-    public void gg(int x, int y, int p){
+    /**
+     * Grow grass according to external file.
+     * @param x
+     * @param y
+     * @param p
+     */
+    public void growGrass(int x, int y, int p){
         String fileName = "level1-1.map";
 
         arr[x][y] = p;
@@ -76,6 +121,9 @@ public class Animation{
         }
     }
 
+    /**
+     * Clean on exit
+     */
     public void exit(){
         String fileName = "level1-1.map";
 

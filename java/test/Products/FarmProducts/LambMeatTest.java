@@ -10,7 +10,7 @@ import org.junit.Test;
 public class LambMeatTest {
     private LambMeat lambMeat;
 
-    @Before
+    
     public void setUp() {
         lambMeat = new LambMeat();
     }
@@ -32,8 +32,8 @@ public class LambMeatTest {
     @Test
     public void testSetExpireValue() {
         final int expected = 6;
-
-        assertEquals(lambMeat.setExpireValue(), expected);
+        lambMeat.setExpireValue();
+        assertEquals(lambMeat.getExpireValue(), expected);
     }
 
     @Test

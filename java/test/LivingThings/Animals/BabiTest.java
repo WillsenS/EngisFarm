@@ -13,17 +13,16 @@ public class BabiTest {
     private Babi babi;
     private Renderable r;
 
-    @Before
+    
     public void setUp() {
         r.render();
         babi = new Babi(0, 0, r);
         System.setOut(new PrintStream(outContent));
     }
 
-    @After
+    
     public void restoreStreams() {
         System.setOut(originalOut);
-        System.setErr(originalErr);
     }
 
     @Test
@@ -46,14 +45,14 @@ public class BabiTest {
     public void testGetCountProduct() {
         final int expected = 0;
 
-        assertEquals(babi.getCountProduct(), expected);
+        assertEquals((int) babi.getCountProduct(), expected);
     }
 
     @Test
     public void testGetProduct() {
         final int expected = 0;
 
-        assertEquals(babi.getCountProduct(), expected);
+        assertEquals((int) babi.getCountProduct(), expected);
     }
 
     @Test

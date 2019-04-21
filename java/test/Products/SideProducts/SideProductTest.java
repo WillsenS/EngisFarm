@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import junit.framework.TestCase;
 
 /**
  * SideProductTest Class.
@@ -7,10 +8,10 @@ import org.junit.Test;
  * @author Ghazwan S. M.
  * @since 2019.04.19
  */
-public class SideProductTest {
+public class SideProductTest extends TestCase {
     private SideProduct sideProduct;
 
-    @Before
+    
     public void setUp() {
         sideProduct = new SideProduct();
     }
@@ -39,8 +40,8 @@ public class SideProductTest {
     @Test
     public void testSetExpireValue() {
         final int expected = 0;
-
-        assertEquals(sideProduct.setExpireValue(), expected);
+        sideProduct.setExpireValue();
+        assertEquals(sideProduct.getExpireValue(), expected);
     }
 
     @Test

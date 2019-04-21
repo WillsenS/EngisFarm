@@ -1,4 +1,3 @@
-
 import java.util.*;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
@@ -8,15 +7,25 @@ import java.awt.image.BufferStrategy;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Ayam extends Farm_Animal implements LivingThings{
+/**
+ * Ayam Class.
+ */
+public class Ayam extends Farm_Animal implements LivingThings {
+    /** Ayam Sprites. */
     private BufferedImage[] sprites;
+    /** Chicken Egg Counter. */
     private int countTelurA;
+    /** Is Currenty Ayam Talking. */
     private boolean isTalk;
-
+    /** Canvas. */
     private Graphics2D g;
-
+    /** Buffered image for sprites frames. */
     private BufferedImage image;
 
+    /**
+     * Ctor.
+     * @param  fm The Farm Map.
+     */
     public Ayam(FarmMap fm) {
         super(fm);
 
@@ -47,18 +56,16 @@ public class Ayam extends Farm_Animal implements LivingThings{
 
     }
 
+    /**
+     * Move Action.
+     */
     public void move() {
         int x = ThreadLocalRandom.current().nextInt(-randX, randY + 1);
         int y =ThreadLocalRandom.current().nextInt(-randX, randY);
         if(!nothidup()) {
             if(getX()+x>30 &&getX()+x<GamePanel.w-30&&getY()+y>10&&getY()+y<GamePanel.h-30) {
-                //dx += moveSpeed;
-
                 setPosition(getX()+x,getY()+x);
             }
-            // } else {
-            //     setPosition(getX()-x*2,getY()-x*2);
-            // }
             setFull(getFull()-HUNGRY); 
         }
         
@@ -84,6 +91,10 @@ public class Ayam extends Farm_Animal implements LivingThings{
         setFull(getFull()-0.); 
     }
 
+    /**
+     * Eat Action.
+     * @param g Canvas.
+     */
     public void eat(Graphics2D g) {
         if(getFull()==HUNGRY) {
              setFull(FULLMAX);
@@ -91,53 +102,94 @@ public class Ayam extends Farm_Animal implements LivingThings{
         }
     }
 
+    /**
+     * Get Ayam char.
+     * @return Ayam char.
+     */
     public String getChar() {
         return "A";
     }
 
+    /**
+     * Talk action.
+     */
     public void talk() {
         System.out.println(CHICKEN);
     }
 
+    /**
+     * Get ayam talk string.
+     * @return Ayam talk string.
+     */
     public String getTalk() {
         return CHICKEN;
     }
 
+    /**
+     * Get whether ayam is talking or not.
+     * @return [description]
+     */
     public boolean isTalk() {
         return isTalk;
     }
 
+    /**
+     * Set ayam talking condition.
+     * @param val Condition to be applied.
+     */
     public void setIsTalk(boolean val) {
         isTalk = val;
     }
 
+    /**
+     * Get ayam product.
+     */
     public void getProduct() {
         this.countTelurA =0;
     }
 
+    /**
+     * Update ayam status.
+     */
     public void update() {
         move();
         eat(g);
-        //talk();
         Print();
 
-        //eat(g);
         checkFarmMapCollision();
         setPosition(xtemp,ytemp);
         animation.update();
     }
+
+    /**
+     * Get ayam product when killed.
+     * @return [description]
+     */
     public String nameProduct() {
         return "ChickenMeat";
     }
+
+    /**
+     * Get ayam product when being interacted.
+     * @return [description]
+     */
     public String getEggandMilk() {
         return "ChickenEgg";
     }
+
+    /**
+     * Draw ayam.
+     * @param g Canvas to draw into.
+     */
     public void draw(Graphics2D g) {
         if(notOnScreen()) return;
         setMapPosition();
         super.draw(g);
     }
 
+    /**
+     * Print ayam status.
+     */
     public void Print() {
         System.out.println("Ayam " + countTelurA + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
     }

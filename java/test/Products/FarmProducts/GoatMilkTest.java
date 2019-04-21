@@ -10,7 +10,7 @@ import org.junit.Test;
 public class GoatMilkTest {
     private GoatMilk goatMilk;
 
-    @Before
+    
     public void setUp() {
         goatMilk = new GoatMilk();
     }
@@ -32,8 +32,8 @@ public class GoatMilkTest {
     @Test
     public void testSetExpireValue() {
         final int expected = 4;
-
-        assertEquals(goatMilk.setExpireValue(), expected);
+        goatMilk.setExpireValue();
+        assertEquals(goatMilk.getExpireValue(), expected);
     }
 
     @Test

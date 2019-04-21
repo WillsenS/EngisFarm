@@ -10,7 +10,7 @@ import org.junit.Test;
 public class BarbequeTest {
     private Barbeque barbeque;
 
-    @Before
+    
     public void setUp() {
         barbeque = new Barbeque(5);
     }
@@ -39,8 +39,8 @@ public class BarbequeTest {
     @Test
     public void testSetExpireValue() {
         final int expected = 4;
-
-        assertEquals(barbeque.setExpireValue(), expected);
+        barbeque.setExpireValue();
+        assertEquals(barbeque.getExpireValue(), expected);
     }
 
     @Test

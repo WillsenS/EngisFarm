@@ -56,7 +56,7 @@ public abstract class Farm_Animal extends MapObject{
          else return false;
                 
     }
-	public void update() {}
+    public void update() {}
     abstract void eat(Graphics2D g);
     abstract String getChar();
     abstract void getProduct();

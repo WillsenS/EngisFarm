@@ -10,7 +10,7 @@ import org.junit.Test;
 public class FacilityTest {
     private Facility facility;
 
-    @Before
+    
     public void setUp() {
         facility = new Facility();
     }

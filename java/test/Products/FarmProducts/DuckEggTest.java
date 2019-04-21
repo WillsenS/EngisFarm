@@ -10,7 +10,7 @@ import org.junit.Test;
 public class DuckEggTest {
     private DuckEgg duckEgg;
 
-    @Before
+    
     public void setUp() {
         duckEgg = new DuckEgg();
     }
@@ -32,8 +32,8 @@ public class DuckEggTest {
     @Test
     public void testSetExpireValue() {
         final int expected = 9;
-
-        assertEquals(duckEgg.setExpireValue(), expected);
+        duckEgg.setExpireValue();
+        assertEquals(duckEgg.getExpireValue(), expected);
     }
 
     @Test

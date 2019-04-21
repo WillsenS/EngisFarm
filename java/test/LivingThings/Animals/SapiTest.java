@@ -14,17 +14,16 @@ public class SapiTest {
     private Sapi sapi;
     private Renderable r;
 
-    @Before
+    
     public void setUp() {
         r.render();
         sapi = new Sapi(0, 0, r);
         System.setOut(new PrintStream(outContent));
     }
 
-    @After
+    
     public void restoreStreams() {
         System.setOut(originalOut);
-        System.setErr(originalErr);
     }
 
     @Test
@@ -47,14 +46,14 @@ public class SapiTest {
     public void testGetCountProduct() {
         final int expected = 0;
 
-        assertEquals(sapi.getCountProduct(), expected);
+        assertEquals((int) sapi.getCountProduct(), expected);
     }
 
     @Test
     public void testGetProduct() {
         final int expected = 0;
 
-        assertEquals(sapi.getCountProduct(), expected);
+        assertEquals((int) sapi.getCountProduct(), expected);
     }
 
     @Test

@@ -13,17 +13,16 @@ public class BebekTest {
     private Bebek bebek;
     private Renderable r;
 
-    @Before
+    
     public void setUp() {
         r.render();
         bebek = new Bebek(0, 0, r);
         System.setOut(new PrintStream(outContent));
     }
 
-    @After
+    
     public void restoreStreams() {
         System.setOut(originalOut);
-        System.setErr(originalErr);
     }
 
     @Test
@@ -46,14 +45,14 @@ public class BebekTest {
     public void testGetCountProduct() {
         final int expected = 0;
 
-        assertEquals(bebek.getCountProduct(), expected);
+        assertEquals((int) bebek.getCountProduct(), expected);
     }
 
     @Test
     public void testGetProduct() {
         final int expected = 0;
 
-        assertEquals(bebek.getCountProduct(), expected);
+        assertEquals((int) bebek.getCountProduct(), expected);
     }
 
     @Test

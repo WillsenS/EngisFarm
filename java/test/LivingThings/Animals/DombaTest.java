@@ -13,17 +13,16 @@ public class DombaTest {
     private Domba domba;
     private Renderable r;
 
-    @Before
+    
     public void setUp() {
         r.render();
         domba = new Domba(0, 0, r);
         System.setOut(new PrintStream(outContent));
     }
 
-    @After
+    
     public void restoreStreams() {
         System.setOut(originalOut);
-        System.setErr(originalErr);
     }
 
     @Test
@@ -46,14 +45,14 @@ public class DombaTest {
     public void testGetCountProduct() {
         final int expected = 0;
 
-        assertEquals(domba.getCountProduct(), expected);
+        assertEquals((int) domba.getCountProduct(), expected);
     }
 
     @Test
     public void testGetProduct() {
         final int expected = 0;
 
-        assertEquals(domba.getCountProduct(), expected);
+        assertEquals((int) domba.getCountProduct(), expected);
     }
 
     @Test
