@@ -15,6 +15,7 @@ public abstract class Farm_Animal extends MapObject{
     protected final int randX =1;
     protected final int randY =1;
 
+    protected BufferedImage image;
 
     protected final String CHICKEN ="Petok -petokkk";
     protected final String COW ="MOOOOO";
@@ -30,7 +31,6 @@ public abstract class Farm_Animal extends MapObject{
         super(fm);
         Full = FULLMAX;
         status = false;
-
     }
 
     public boolean isDead(){

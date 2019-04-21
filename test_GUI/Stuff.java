@@ -40,7 +40,6 @@ public class Stuff{
                 int x =10;
                 g.drawString(player.getInventory().get(a) ,20,pos+=x);
             }
-
         }
     }
 }
