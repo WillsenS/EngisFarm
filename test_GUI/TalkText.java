@@ -15,9 +15,9 @@ public class TalkText {
         }
     }
 
-    public void draw(Graphics2D g, String text, Farm_Animal animal) {
+    public void draw(Graphics2D g, Farm_Animal animal) {
         g.setFont(font);
         g.setColor(Color.WHITE);
-        g.drawString("" , animal.getX(), animal.getY());
+        g.drawString(animal.getTalk() , animal.getX(), animal.getY());
     }
 }

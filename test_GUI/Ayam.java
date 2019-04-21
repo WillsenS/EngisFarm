@@ -11,6 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Ayam extends Farm_Animal {
     private BufferedImage[] sprites;
     private int countTelurA;
+    private boolean isTalk;
 
     private Graphics2D g;
 
@@ -22,10 +23,12 @@ public class Ayam extends Farm_Animal {
         moveSpeed =10;
         maxSpeed =10;
 
-        width =30;
-        height =30;
-        cwidth =20;
-        cheight =20;
+        width = 30;
+        height = 30;
+        cwidth = 20;
+        cheight = 20;
+
+        isTalk = false;
 
         // load sprite
         try{
@@ -43,7 +46,6 @@ public class Ayam extends Farm_Animal {
         animation.setDelay(300);
 
         left = true;
-
     }
 
     public void move(){
@@ -69,10 +71,7 @@ public class Ayam extends Farm_Animal {
         if(getFull()==HUNGRY){
              setFull(FULLMAX);
              countTelurA =MAX;
-
         }
-
-
     }
 
     public String getChar(){
@@ -85,6 +84,14 @@ public class Ayam extends Farm_Animal {
 
     public String getTalk(){
         return CHICKEN;
+    }
+
+    public boolean isTalk() {
+        return isTalk;
+    }
+
+    public void setIsTalk(boolean val) {
+        isTalk = val;
     }
 
     public void getProduct(){

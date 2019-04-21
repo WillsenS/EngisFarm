@@ -11,6 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Domba extends Farm_Animal {
     private BufferedImage[] sprites;
     private int countLambMeat;
+    private boolean isTalk;
 
     private BufferedImage image;
     private Graphics2D g;
@@ -26,6 +27,7 @@ public class Domba extends Farm_Animal {
         cwidth =20;
         cheight =20;
 
+        isTalk = false;
         // load sprite
         try{
             BufferedImage sheet = ImageIO.read(getClass().getResourceAsStream("sheep.png"));
@@ -83,6 +85,19 @@ public class Domba extends Farm_Animal {
     public void talk(){
         System.out.println(SHEEP);
     }
+
+    public String getTalk(){
+        return SHEEP;
+    }
+
+    public boolean isTalk() {
+        return isTalk;
+    }
+
+    public void setIsTalk(boolean val) {
+        isTalk = val;
+    }
+
 
     public void getProduct(){
         this.countLambMeat =0;

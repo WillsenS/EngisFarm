@@ -11,6 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Bebek extends Farm_Animal {
     private BufferedImage[] sprites;
     private int countTelurB;
+    private boolean isTalk;
 
     private Graphics2D g;
 
@@ -27,6 +28,7 @@ public class Bebek extends Farm_Animal {
         cwidth =20;
         cheight =20;
 
+        isTalk = false;
         // load sprite
         try{
             BufferedImage sheet = ImageIO.read(getClass().getResourceAsStream("duck.png"));
@@ -82,6 +84,19 @@ public class Bebek extends Farm_Animal {
     public void talk(){
         System.out.println(DUCK);
     }
+
+    public String getTalk(){
+        return DUCK;
+    }
+
+    public boolean isTalk() {
+        return isTalk;
+    }
+
+    public void setIsTalk(boolean val) {
+        isTalk = val;
+    }
+
 
     public void getProduct(){
         this.countTelurB =0;
