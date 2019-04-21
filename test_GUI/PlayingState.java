@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class PlayingState extends GameState {
+public class PlayingState extends GameState{
     private FarmMap map;
     private Player player;
 
@@ -14,15 +14,14 @@ public class PlayingState extends GameState {
 
     private ArrayList<Farm_Animal> farmAnimal;
 
-    public PlayingState (GameStateManager gsm){
+    public PlayingState (GameStateManager gsm) {
         this.gsm = gsm;
         init();
     }
 
-    public void init(){
+    public void init() {
         map = new FarmMap(30);
-        map.loadGrass("g.gif");
-        System.out.println("loadGrasss");
+        map.loadGrass("Grass.jpg");
         map.loadMap("level1-1.map");
         map.setPosition(0,0);
 
@@ -67,6 +66,10 @@ public class PlayingState extends GameState {
     }
 
     public  void update() {
+
+        map.loadGrass("Grass.jpg");
+        map.loadMap("level1-1.map");
+
         player.update(farmAnimal);
         
         // check killing 
@@ -74,25 +77,26 @@ public class PlayingState extends GameState {
 	    player.checkMix();
     	player.checkSell();
         player.fillCan();
+        player.checkgrow();
+        player.exit();
 
-        for(int i=0;i<farmAnimal.size();i++){
+        for(int i=0;i<farmAnimal.size();i++) {
             farmAnimal.get(i).update();
-            if(farmAnimal.get(i).isDead()){
+            if(farmAnimal.get(i).isDead()) {
                 farmAnimal.remove(i);
                 i--;
             }
         }
 
-        if(farmAnimal.size()==0){
+        if(farmAnimal.size()==0) {
             System.exit(0);
         }
     }
 
 	public  void draw(Graphics2D g) {
-        g.setColor(Color.GREEN);
+        g.setColor(Color.RED);
         g.fillRect(0,0,GamePanel.w,GamePanel.h);
         map.draw(g);
-
         player.draw(g);
         for(int i=0;i<farmAnimal.size();i++){
             Farm_Animal animal = farmAnimal.get(i);
@@ -114,7 +118,6 @@ public class PlayingState extends GameState {
 
             }
         }
-        //System.out.println("draw map");
 
         //draw stuff
         stuff.draw(g);
@@ -129,8 +132,10 @@ public class PlayingState extends GameState {
         if(k == KeyEvent.VK_I) player.setInteract(true);
     	if(k == KeyEvent.VK_M) player.setMix(true);
         if(k == KeyEvent.VK_T) player.setTalk(true);
-	if(k == KeyEvent.VK_S) player.setSell(true);
+    	if(k == KeyEvent.VK_S) player.setSell(true);
         if(k == KeyEvent.VK_C) player.setfillCan(true);
+        if(k == KeyEvent.VK_G) player.setGrow(true);
+        if(k == KeyEvent.VK_ESCAPE) player.setExit(true);
     }
 
 	public  void keyReleased(int k) {
@@ -142,7 +147,9 @@ public class PlayingState extends GameState {
         if(k == KeyEvent.VK_I) player.setInteract(false);
     	if(k == KeyEvent.VK_M) player.setMix(false);
         if(k == KeyEvent.VK_T) player.setTalk(false);
-	if(k == KeyEvent.VK_S) player.setSell(false);
+    	if(k == KeyEvent.VK_S) player.setSell(false);
         if(k == KeyEvent.VK_C) player.setfillCan(false);
+        if(k == KeyEvent.VK_G) player.setGrow(false);
+        if(k == KeyEvent.VK_ESCAPE) player.setExit(false); 
     }
 }

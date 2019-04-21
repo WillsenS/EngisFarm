@@ -2,6 +2,7 @@ import java.awt.image.*;
 import java.awt.*;
 import javax.swing.ImageIcon;
 import javax.imageio.ImageIO;
+import java.io.*;
 
 public class Background{
 
@@ -32,6 +33,8 @@ public class Background{
         this.dx = dx;
         this.dy =dy;
     }
+
+    
 
     public void update(){
         x+=dx;

@@ -8,7 +8,7 @@ import java.awt.image.BufferStrategy;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Sapi extends Farm_Animal {
+public class Sapi extends Farm_Animal implements LivingThings{
     private BufferedImage[] sprites;
     private int countMilk;
     private boolean isTalk;
@@ -16,7 +16,7 @@ public class Sapi extends Farm_Animal {
     private BufferedImage image;
     private Graphics2D g;
 
-    public Sapi(FarmMap fm){
+    public Sapi(FarmMap fm) {
         super(fm);
 
         moveSpeed =0.05;
@@ -32,11 +32,11 @@ public class Sapi extends Farm_Animal {
         try{
             BufferedImage sheet = ImageIO.read(getClass().getResourceAsStream("cow.png"));
             sprites = new BufferedImage[3];
-            for(int i =0;i<sprites.length;i++){
+            for(int i =0;i<sprites.length;i++) {
                 sprites[i] = sheet.getSubimage(1*width,0,width,height);
             }
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         animation = new Animation();
@@ -47,31 +47,34 @@ public class Sapi extends Farm_Animal {
 
     }
 
-    public void move(){
+    public void move() {
         int x = ThreadLocalRandom.current().nextInt(-randX, randY + 1);
         int y =ThreadLocalRandom.current().nextInt(-randX, randY);
-        if(!nothidup()){
-            if(getX()+x>30 &&getX()+x<GamePanel.w-30&&getY()+y>10&&getY()+y<GamePanel.h-30){
-                //dx += moveSpeed;
-                setPosition(getX()+x,getY()+x);
-            }
-            // } else {
-            //     setPosition(getX()-x*2,getY()-x*2);
-            // }
-            setFull(getFull()-0.01); 
-        }
+        if(!nothidup()) {
+
         
+            if(getX()<=30||getX()>=GamePanel.w-30) {
+                right = true;
+                left = false;
 
-
+            } 
+            // movement
+            if(left) {
+                dx -= moveSpeed;
+                if(dx < -maxSpeed) {
+                    dx = -maxSpeed;
+                }
+            }
+        }
     }
+
     public void eat(Graphics2D g){
         if (getFull() == HUNGRY){
             setFull(FULLMAX);
             countMilk =MAX;
 
         }
-
-
+        setFull(getFull()-0.1); 
     }
 
     public String getChar(){
@@ -94,7 +97,6 @@ public class Sapi extends Farm_Animal {
         isTalk = val;
     }
 
-
     public void getProduct(){
         this.countMilk =0;
     }
@@ -106,17 +108,18 @@ public class Sapi extends Farm_Animal {
     public String getEggandMilk(){
         return "CowMilk";
     }
+
     public void update(){
         move();
         //Print();
 
-        eat(g);
+        //eat(g);
         checkFarmMapCollision();
         setPosition(xtemp,ytemp);
         animation.update();
     }
 
-    public void draw(Graphics2D g){
+    public void draw(Graphics2D g) {
         if(notOnScreen()) return;
         setMapPosition();
         super.draw(g);
