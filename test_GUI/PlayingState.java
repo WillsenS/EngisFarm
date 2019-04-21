@@ -66,7 +66,7 @@ public class PlayingState extends GameState {
         
         // check killing 
         player.checkKill(farmAnimal);
-	player.checkMix();
+	    player.checkMix();
 
         for(int i=0;i<farmAnimal.size();i++){
             farmAnimal.get(i).update();
@@ -74,6 +74,10 @@ public class PlayingState extends GameState {
                 farmAnimal.remove(i);
                 i--;
             }
+        }
+
+        if(farmAnimal.size()==0){
+            System.exit(0);
         }
     }
 

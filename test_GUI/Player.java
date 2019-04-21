@@ -155,7 +155,7 @@ public class Player extends MapObject{
         checkFarmMapCollision();
         setPosition(xtemp,ytemp);
         talk(fa);
-        System.out.println(inventory);
+       // System.out.println(inventory);
         if (left) {
             if (currentAction!=LEFT) {
                 currentAction=LEFT;
@@ -220,7 +220,7 @@ public class Player extends MapObject{
 
                 if (interact) {
                     if (!e.getEggandMilk().equals("x")) {
-                        System.out.println("1");
+                        //System.out.println("1");
                         e.getProduct();
                         inventory.add(e.getEggandMilk());
                         interact = false;

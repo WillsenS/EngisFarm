@@ -19,7 +19,7 @@ public class Ayam extends Farm_Animal {
     public Ayam(FarmMap fm){
         super(fm);
 
-        moveSpeed =1;
+        moveSpeed =10;
         maxSpeed =10;
 
         width =30;
@@ -47,11 +47,13 @@ public class Ayam extends Farm_Animal {
     }
 
     public void move(){
-        double x = ThreadLocalRandom.current().nextDouble(-randX, randY + 1);
-        double y =ThreadLocalRandom.current().nextDouble(-randX, randY);
+        double x = moveSpeed;
+        // double x = ThreadLocalRandom.current().nextDouble(-randX, randY + 1);
+        // double y =ThreadLocalRandom.current().nextDouble(-randX, randY);
         if(!nothidup()){
             if(getX()+x>30 &&getX()+x<GamePanel.w-30&&getY()+y>10&&getY()+y<GamePanel.h-30){
                 //dx += moveSpeed;
+
                 setPosition(getX()+x,getY()+x);
             }
             // } else {
@@ -93,7 +95,7 @@ public class Ayam extends Farm_Animal {
         move();
         eat(g);
         //talk();
-        //Print();
+        Print();
         checkFarmMapCollision();
         setPosition(xtemp,ytemp);
         animation.update();
