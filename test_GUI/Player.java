@@ -1,146 +1,251 @@
-public class Player implements GameObject
-{
-	private Rectangle playerRectangle;
-	private Rectangle collisionCheckRectangle;
-	private int speed = 10;
+import java.util.*;
+import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
 
-	//0 = Right, 1 = Left, 2 = Up, 3 = Down
-	private int direction = 0;
-	private int layer = 0;
-	private Sprite sprite;
-	private AnimatedSprite animatedSprite = null;
-	private final int xCollisionOffset = 14;
-	private final int yCollisionOffset = 20;
+public class Player extends MapObject{
+    private int water;
+    private int money;
+    Vector<String> inventory; 
 
-	public Player(Sprite sprite, int xZoom, int yZoom)
-	{
-		this.sprite = sprite;
+	//private SpriteSheet playerSheet; 
 
-		if(sprite != null && sprite instanceof AnimatedSprite)
-			animatedSprite = (AnimatedSprite) sprite;
+    //actions
+    public boolean kill;
+    public boolean mix;
+    public boolean grow;
+    public boolean interact;
 
-		updateDirection();
-		playerRectangle = new Rectangle(-90, 0, 20, 26);
-		playerRectangle.generateGraphics(3, 0xFF00FF90);
-		collisionCheckRectangle = new Rectangle(0, 0, 10*xZoom, 15*yZoom);
-	}
 
-	private void updateDirection()
-	{
-		if(animatedSprite != null)
-		{
-			animatedSprite.setAnimationRange(direction * 8, (direction * 8) + 7);
+    private ArrayList<BufferedImage[]> sprites;
+    private final int [] numFrames ={
+        8,8,8,8
+    };
+
+    //actions
+    //private static final int DOWN =1;
+    private static final int RIGHT =1;
+    private static final int LEFT =0;
+    private static final int UP =2;
+    private static final int DOWN =3;
+    //private static final int KILL =2;
+    // private static final int DOWN =0;
+    // private static final int DOWN =0;
+    // private static final int DOWN =0;
+    
+    //const
+    private final int MAXWATER = 10;
+
+    public Player (FarmMap fm){
+        super(fm);
+
+        width =20;
+        height =20;
+        cwidth = 30;
+        cheight =30;
+
+        moveSpeed =5;
+        maxSpeed =1.6;
+        stopSpeed =0.4;
+
+        water = 0;
+        money =0;
+        inventory = new Vector<String>();
+        //kill = false;
+         kill = false;
+         mix = false;
+         grow = false;
+         interact = false;    
+
+        
+
+        // load sprite
+        try {
+            BufferedImage spritesheet = ImageIO.read(getClass().getResourceAsStream("x.png"));
+            sprites = new ArrayList<BufferedImage[]>();
+            for (int i =0; i <4;i++){
+                BufferedImage[] b = new BufferedImage[numFrames[i]];
+                for (int j =0; j<numFrames[i];j++){
+                    b[j] = spritesheet.getSubimage(j*width,i*height,width,height);
+                }
+                sprites.add(b);
+            }
+
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+		// BufferedImage playerSheetImage = loadImage("Player.png");
+		// //System.out.println("loadSuccess");
+		// playerSheet = new SpriteSheet(playerSheetImage);
+		// playerSheet.loadSprites(20, 26);
+
+        animation = new Animation();
+        currentAction =DOWN;
+        animation.setFrames(sprites.get(DOWN));
+        animation.setDelay(400);
+
+        
+    }
+    public void setKill(boolean k){
+        this.kill =k;
+    }
+    public void setGrow(boolean g){
+        grow = g;
+    }
+    public void setMix(boolean m){
+        mix = m;
+    }
+
+    public void setInteract (boolean i){
+        interact =i;
+    }
+
+    public void getNextPosition(){
+        //if(getx()>=10 && gety>=0)
+		// movement
+		if(left) {
+			x -= moveSpeed;
+            //x=0;
 		}
-	}
+		else if(right) {
+			x += moveSpeed;
 
-	//Call every time physically possible.
-	public void render(RenderHandler renderer, int xZoom, int yZoom)
-	{
-		if(animatedSprite != null)
-			renderer.renderSprite(animatedSprite, playerRectangle.x, playerRectangle.y, xZoom, yZoom, false);
-		else if(sprite != null)
-			renderer.renderSprite(sprite, playerRectangle.x, playerRectangle.y, xZoom, yZoom, false);
-		else
-			renderer.renderRectangle(playerRectangle, xZoom, yZoom, false);
-
-	}
-
-	//Call at 60 fps rate.
-	public void update(Game game)
-	{
-		KeyBoardListener keyListener = game.getKeyListener();
-
-		boolean didMove = false;
-		int newDirection = direction;
-
-		collisionCheckRectangle.x = playerRectangle.x;
-		collisionCheckRectangle.y = playerRectangle.y;
-
-		if(keyListener.left())
-		{
-			newDirection = 1;
-			didMove = true;
-			collisionCheckRectangle.x -= speed;
-		}
-		if(keyListener.right())
-		{
-			newDirection = 0;
-			didMove = true;
-			collisionCheckRectangle.x += speed;
-		}
-		if(keyListener.up()) 
-		{
-			collisionCheckRectangle.y -= speed;
-			didMove = true;
-			newDirection = 2;	
-		}
-		if(keyListener.down()) 
-		{
-			newDirection = 3;
-			didMove = true;
-			collisionCheckRectangle.y += speed;
-		}
-
-		if(newDirection != direction) 
-		{
-			direction = newDirection;
-			updateDirection();
-		}
-		if(keyListener.talk()){
-			System.out.println("haloooooooooooooo");
-		}
-
-
-		if(!didMove) {
-			animatedSprite.reset();
-		}
-
-		if(didMove) {
-
-
-			collisionCheckRectangle.x += xCollisionOffset;
-			collisionCheckRectangle.y += yCollisionOffset;
-
-			Rectangle axisCheck = new Rectangle(collisionCheckRectangle.x, playerRectangle.y + yCollisionOffset, collisionCheckRectangle.w, collisionCheckRectangle.h);
-
-			//Check the X axis
-			if(!game.getMap().checkCollision(axisCheck, layer, game.getXZoom(), game.getYZoom()) && 
-				!game.getMap().checkCollision(axisCheck, layer + 1, game.getXZoom(), game.getYZoom())) {
-				playerRectangle.x = collisionCheckRectangle.x - xCollisionOffset;
+			if(dx > maxSpeed) {
+				dx = maxSpeed;
 			}
-
-			axisCheck.x = playerRectangle.x + xCollisionOffset;
-			axisCheck.y = collisionCheckRectangle.y;
-			axisCheck.w = collisionCheckRectangle.w;
-			axisCheck.h = collisionCheckRectangle.h;
-			//axisCheck = new Rectangle(playerRectangle.x, collisionCheckRectangle.y, collisionCheckRectangle.w, collisionCheckRectangle.h);
-
-			//Check the Y axis
-			if(!game.getMap().checkCollision(axisCheck, layer, game.getXZoom(), game.getYZoom()) && 
-				!game.getMap().checkCollision(axisCheck, layer + 1, game.getXZoom(), game.getYZoom())) {
-				playerRectangle.y = collisionCheckRectangle.y - yCollisionOffset;
+            facingRight=true;
+		}
+		else if(up) {
+			y -= moveSpeed;
+			if(dy > maxSpeed) {
+				dy = maxSpeed;
 			}
-
-
-			animatedSprite.update(game);
+		}
+		else if(down) {
+			y += moveSpeed;
+			if(dy > maxSpeed) {
+				dy = maxSpeed;
+			}
 		}
 
-		updateCamera(game.getRenderer().getCamera());
-	}
+    }
 
-	public void updateCamera(Rectangle camera) {
-		camera.x = playerRectangle.x - (camera.w / 2);
-		camera.y = playerRectangle.y - (camera.h / 2);
-	}
 
-	public int getLayer() {
-		return layer;
-	}
 
-	public Rectangle getRectangle() {
-		return playerRectangle;
-	}
+    
+    public int getMoney() {
+        return money;
+    }
+    
+    public int getWater(){
+        return water;
+    }
 
-	//Call whenever mouse is clicked on Canvas.
-	public boolean handleMouseClick(Rectangle mouseRectangle, Rectangle camera, int xZoom, int yZoom) { return false; }
+    public Vector<String> getInventory(){
+        return inventory;
+    }
+
+    public void update(){
+        getNextPosition();
+        //checkKill();
+        checkFarmMapCollision();
+        setPosition(xtemp,ytemp);
+        System.out.println(inventory);
+        if (left){
+            if(currentAction!=LEFT){
+                currentAction=LEFT;
+                animation.setFrames(sprites.get(LEFT));
+                animation.setDelay(400);
+                width =20;
+            }
+        } else if (down){
+            if(currentAction!=DOWN){
+                currentAction = DOWN;
+                animation.setFrames(sprites.get(DOWN));
+                animation.setDelay(400);
+                width =20;
+            }
+        } else if(right){
+            if(currentAction!=RIGHT){
+                currentAction = RIGHT;
+                facingRight =true;
+                animation.setFrames(sprites.get(RIGHT));
+                animation.setDelay(400);
+                width =20;
+            }            
+        } else if(up){
+            if(currentAction!=UP){
+                currentAction = UP;
+                animation.setFrames(sprites.get(UP));
+                animation.setDelay(400);
+                width =20;
+            }             
+        }
+
+
+
+        animation.update();
+    }
+    
+
+    public void draw(Graphics2D g){
+        setMapPosition();
+        super.draw(g);
+    }
+
+    public void checkKill(ArrayList<Farm_Animal> fa){
+    //System.out.println("start trying again");
+    for(int i=0;i<fa.size();i++){
+        Farm_Animal e = fa.get(i);
+        //System.out.println(kill);
+        if (intersects(e)){
+            if(kill){
+                e.getProduct();
+                fa.remove(i);
+                inventory.add(e.nameProduct());                    
+                }
+        
+            if(interact){
+                if(!e.getEggandMilk().equals("x")){
+                    System.out.println("1");
+                    e.getProduct();
+                    inventory.add(e.getEggandMilk());
+                    interact = false;
+                }
+
+             }
+
+        }
+
+        }
+        
+    
+    
+
+    }
+	// private BufferedImage loadImage(String path)
+	// {
+	// 	try 
+	// 	{
+	// 		BufferedImage loadedImage = ImageIO.read(getClass().getResource(path));
+		
+	// 		BufferedImage formattedImage = new BufferedImage(loadedImage.getWidth(), loadedImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+	// 		formattedImage.getGraphics().drawImage(loadedImage, 0, 0, null);
+
+	// 		return formattedImage;
+	// 	}
+	// 	catch(IOException exception) 
+	// 	{
+	
+	// 		exception.printStackTrace();
+	// 		return null;
+	// 	}
+	// }
+
+
 }
