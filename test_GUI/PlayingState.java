@@ -1,12 +1,16 @@
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class PlayingState extends GameState {
     private FarmMap map;
     private Player player;
 
     private Stuff stuff;
+    private TalkText talkText;
 
     private ArrayList<Farm_Animal> farmAnimal;
 
@@ -59,6 +63,7 @@ public class PlayingState extends GameState {
         farmAnimal.add(k);
 
         stuff = new Stuff(player);
+        talkText = new TalkText();
     }
 
     public  void update() {
@@ -67,7 +72,7 @@ public class PlayingState extends GameState {
         // check killing 
         player.checkKill(farmAnimal);
 	    player.checkMix();
-	player.checkSell();
+    	player.checkSell();
 
         for(int i=0;i<farmAnimal.size();i++){
             farmAnimal.get(i).update();
@@ -89,7 +94,24 @@ public class PlayingState extends GameState {
 
         player.draw(g);
         for(int i=0;i<farmAnimal.size();i++){
-            farmAnimal.get(i).draw(g);
+            Farm_Animal animal = farmAnimal.get(i);
+            animal.draw(g);
+            if(animal.isTalk()) {
+                talkText.draw(g, farmAnimal.get(i));
+                TimerTask timerTask = new TimerTask() {
+
+                    @Override
+                    public void run() {
+                        System.out.println("TimerTask executing counter is: ");
+                        animal.setIsTalk(false);
+                    }
+                };
+
+                Timer timer = new Timer("MyTimer");//create a new Timer
+
+                timer.schedule(timerTask, 1000);
+
+            }
         }
         //System.out.println("draw map");
 

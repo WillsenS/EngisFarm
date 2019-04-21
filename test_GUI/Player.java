@@ -203,6 +203,7 @@ public class Player extends MapObject{
             Farm_Animal e = fa.get(i);
             if (intersects(e) && talk) {
                 e.talk();
+                e.setIsTalk(true);
                 talk = false;
                 break outloop;
             }

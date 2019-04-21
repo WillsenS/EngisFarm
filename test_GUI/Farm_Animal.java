@@ -65,6 +65,9 @@ public abstract class Farm_Animal extends MapObject{
     abstract void Print();
     abstract String nameProduct(); 
     abstract String getEggandMilk();
+    abstract String getTalk();
+    abstract boolean isTalk();
+    abstract void setIsTalk(boolean val);
     //abstract void setFull(int Full);
     abstract void move();
 }

@@ -11,6 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Babi extends Farm_Animal{
     private BufferedImage[] sprites;
     private int countPork;
+    private boolean isTalk;
 
     private BufferedImage image;
     private Graphics2D g;
@@ -26,6 +27,7 @@ public class Babi extends Farm_Animal{
         cwidth =20;
         cheight =20;
 
+        isTalk = false;
         // load sprite
         try{
             BufferedImage sheet = ImageIO.read(getClass().getResourceAsStream("babi.png"));
@@ -89,6 +91,15 @@ public class Babi extends Farm_Animal{
     public String getTalk(){
         return PIG;
     }
+
+    public boolean isTalk() {
+        return isTalk;
+    }
+
+    public void setIsTalk(boolean val) {
+        isTalk = val;
+    }
+
 
     public void getProduct(){
         this.countPork =0;
