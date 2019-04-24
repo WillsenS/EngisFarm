@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Domba extends Farm_Animal {
     private BufferedImage[] sprites;
-    private int countLambMeat;
+    private int countProduct;
     private boolean isTalk;
 
     private BufferedImage image;
@@ -28,6 +28,7 @@ public class Domba extends Farm_Animal {
         height =20;
         cwidth =20;
         cheight =20;
+        FULLMAX = 1000;
 
         isTalk = false;
         // load sprite
@@ -78,7 +79,7 @@ public class Domba extends Farm_Animal {
         
         if (getFull()==HUNGRY && arr[px][py]==4){
             setFull(FULLMAX);
-            countLambMeat=MAX;
+            countProduct=MAX;
             arr[px][py]=0;
             write();
             animation.gg(px,py,0);
@@ -108,16 +109,19 @@ public class Domba extends Farm_Animal {
 
 
     public void getProduct(){
-        this.countLambMeat =0;
+        this.countProduct =0;
     }
     public void setProduct(int x){
-        this.countLambMeat =x;
+        this.countProduct =x;
     }
     public String nameProduct(){
         return "LambMeat";
     }
     public String getEggandMilk(){
         return "x";
+    }
+    public int getCountProduct() {
+        return this.countProduct;
     }
     public void update(){
         move();
@@ -136,7 +140,7 @@ public class Domba extends Farm_Animal {
     }
 
     public void Print(){
-        System.out.println("Domba " + countLambMeat + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
+        System.out.println("Domba " + countProduct + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
     }
 
     public void read(){

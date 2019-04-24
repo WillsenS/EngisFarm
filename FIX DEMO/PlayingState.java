@@ -74,8 +74,8 @@ public class PlayingState extends GameState{
         
         // check killing 
         player.checkKill(farmAnimal);
-	    player.checkMix();
-    	player.checkSell();
+        player.checkMix();
+        player.checkSell();
         player.fillCan();
         player.checkgrow();
         player.exit();
@@ -86,6 +86,7 @@ public class PlayingState extends GameState{
                 farmAnimal.remove(i);
                 i--;
             }
+
         }
 
         if(farmAnimal.size()==0) {
@@ -93,7 +94,7 @@ public class PlayingState extends GameState{
         }
     }
 
-	public  void draw(Graphics2D g) {
+    public  void draw(Graphics2D g) {
         int R = 200;
         int G = 128;
         int B = 100;
@@ -116,10 +117,9 @@ public class PlayingState extends GameState{
                     }
                 };
 
-                Timer timer = new Timer("MyTimer");//create a new Timer
+                Timer timer = new Timer("MyTimer");
 
                 timer.schedule(timerTask, 1000);
-
             }
         }
 
@@ -127,31 +127,31 @@ public class PlayingState extends GameState{
         stuff.draw(g);
     }
 
-	public  void keyPressed(int k) {
-		if(k == KeyEvent.VK_LEFT) player.setLeft(true);
-		if(k == KeyEvent.VK_RIGHT) player.setRight(true);
-		if(k == KeyEvent.VK_UP) player.setUp(true);
-		if(k == KeyEvent.VK_DOWN) player.setDown(true);
+    public  void keyPressed(int k) {
+        if(k == KeyEvent.VK_LEFT) player.setLeft(true);
+        if(k == KeyEvent.VK_RIGHT) player.setRight(true);
+        if(k == KeyEvent.VK_UP) player.setUp(true);
+        if(k == KeyEvent.VK_DOWN) player.setDown(true);
         if(k == KeyEvent.VK_K) player.setKill(true);
         if(k == KeyEvent.VK_I) player.setInteract(true);
-    	if(k == KeyEvent.VK_M) player.setMix(true);
+        if(k == KeyEvent.VK_M) player.setMix(true);
         if(k == KeyEvent.VK_T) player.setTalk(true);
-    	if(k == KeyEvent.VK_S) player.setSell(true);
+        if(k == KeyEvent.VK_S) player.setSell(true);
         if(k == KeyEvent.VK_C) player.setfillCan(true);
         if(k == KeyEvent.VK_G) player.setGrow(true);
         if(k == KeyEvent.VK_ESCAPE) player.setExit(true);
     }
 
-	public  void keyReleased(int k) {
+    public  void keyReleased(int k) {
         if(k == KeyEvent.VK_LEFT) player.setLeft(false);
-		if(k == KeyEvent.VK_RIGHT) player.setRight(false);
-		if(k == KeyEvent.VK_UP) player.setUp(false);
-		if(k == KeyEvent.VK_DOWN) player.setDown(false);
+        if(k == KeyEvent.VK_RIGHT) player.setRight(false);
+        if(k == KeyEvent.VK_UP) player.setUp(false);
+        if(k == KeyEvent.VK_DOWN) player.setDown(false);
         if(k == KeyEvent.VK_K) player.setKill(false);
         if(k == KeyEvent.VK_I) player.setInteract(false);
-    	if(k == KeyEvent.VK_M) player.setMix(false);
+        if(k == KeyEvent.VK_M) player.setMix(false);
         if(k == KeyEvent.VK_T) player.setTalk(false);
-    	if(k == KeyEvent.VK_S) player.setSell(false);
+        if(k == KeyEvent.VK_S) player.setSell(false);
         if(k == KeyEvent.VK_C) player.setfillCan(false);
         if(k == KeyEvent.VK_G) player.setGrow(false);
         if(k == KeyEvent.VK_ESCAPE) player.setExit(false); 

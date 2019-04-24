@@ -26,8 +26,8 @@ public class Player extends MapObject{
 
     private ArrayList<BufferedImage[]> sprites;
     private final int[] numFrames = {
-		2, 8, 1, 2, 4, 2, 5
-	};
+        2, 8, 1, 2, 4, 2, 5
+    };
 
     //actions
     private static final int IDLE=0;
@@ -47,15 +47,15 @@ public class Player extends MapObject{
         super(fm);
 
         width = 30;
-	height = 30;
-	cwidth = 20;
-	cheight = 20;
+        height = 30;
+        cwidth = 20;
+        cheight = 20;
 
         moveSpeed = 5;
         maxSpeed = 1.6;
         stopSpeed = 0.4;
 
-        water = 0;
+        water = 20;
         money = 0;
         inventory = new Vector<String>();
         kill = false;
@@ -69,37 +69,37 @@ public class Player extends MapObject{
         try {
             BufferedImage spritesheet = ImageIO.read(getClass().getResourceAsStream("playersprites.gif"));
             sprites = new ArrayList<BufferedImage[]>();
-			for(int i = 0; i < 7; i++) {
-				
-				BufferedImage[] bi =
-					new BufferedImage[numFrames[i]];
-				
-				for(int j = 0; j < numFrames[i]; j++) {
-					
-					if(i != KILL) {
-						bi[j] = spritesheet.getSubimage(
-								j * width,
-								i * height,
-								width,
-								height
-						);
-					}
-					else {
-						bi[j] = spritesheet.getSubimage(
-								j * width * 2,
-								i * height,
-								width * 2,
-								height
-						);
-					}
-					
-				}
-				
-				sprites.add(bi);
-				
-			}
-			
-		}
+            for(int i = 0; i < 7; i++) {
+                
+                BufferedImage[] bi =
+                    new BufferedImage[numFrames[i]];
+                
+                for(int j = 0; j < numFrames[i]; j++) {
+                    
+                    if(i != KILL) {
+                        bi[j] = spritesheet.getSubimage(
+                                j * width,
+                                i * height,
+                                width,
+                                height
+                        );
+                    }
+                    else {
+                        bi[j] = spritesheet.getSubimage(
+                                j * width * 2,
+                                i * height,
+                                width * 2,
+                                height
+                        );
+                    }
+                    
+                }
+                
+                sprites.add(bi);
+                
+            }
+            
+        }
          catch (Exception e) {
             e.printStackTrace();
         }
@@ -242,14 +242,14 @@ public class Player extends MapObject{
                 width =30;
             }             
         }
-	else if(kill) {
-		if(currentAction != KILL) {
-			currentAction = KILL;
-			animation.setFrames(sprites.get(KILL));
-			animation.setDelay(50);
-			width = 60;
-		}
-		}
+    else if(kill) {
+        if(currentAction != KILL) {
+            currentAction = KILL;
+            animation.setFrames(sprites.get(KILL));
+            animation.setDelay(50);
+            width = 60;
+        }
+        }
         animation.update();
     }
     
@@ -291,10 +291,11 @@ public class Player extends MapObject{
 
                 if (interact) {
                     if (!e.getEggandMilk().equals("x")) {
-                        //System.out.println("1");
-                        e.setProduct(0);
                         e.Print();
-                        inventory.add(e.getEggandMilk());
+                        if (e.getCountProduct() > 0) {
+                            e.setProduct(0);
+                            inventory.add(e.getEggandMilk());
+                        }
                         interact = false;
                     }
                 }
@@ -378,7 +379,7 @@ public class Player extends MapObject{
     public void fillCan() {
         if(getX()>205 && getX()<235 && getY()>190 && getY()<240){
             if (this.water == 0 && fillingCan ) {
-                this.water+=10;
+                this.water+=20;
                 fillingCan = false;
             }
         }

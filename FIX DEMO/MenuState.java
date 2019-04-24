@@ -59,30 +59,30 @@ public class MenuState extends GameState{
         }
 
     }
-	private void select() {
-		if(currentChoice == 0) {     
-			gsm.setState(GameStateManager.playing);
-		}
-		if(currentChoice == 1) {
-			System.exit(0);
-		}
-	}
-	public void keyPressed(int k) {
-		if(k == KeyEvent.VK_ENTER){
-			select();
-		}
-		if(k == KeyEvent.VK_UP) {
-			currentChoice--;
-			if(currentChoice == -1) {
-				currentChoice = options.length - 1;
-			}
-		}
-		if(k == KeyEvent.VK_DOWN) {
-			currentChoice++;
-			if(currentChoice == options.length) {
-				currentChoice = 0;
-			}
-		}
-	}
+    private void select() {
+        if(currentChoice == 0) {     
+            gsm.setState(GameStateManager.playing);
+        }
+        if(currentChoice == 1) {
+            System.exit(0);
+        }
+    }
+    public void keyPressed(int k) {
+        if(k == KeyEvent.VK_ENTER){
+            select();
+        }
+        if(k == KeyEvent.VK_UP) {
+            currentChoice--;
+            if(currentChoice == -1) {
+                currentChoice = options.length - 1;
+            }
+        }
+        if(k == KeyEvent.VK_DOWN) {
+            currentChoice++;
+            if(currentChoice == options.length) {
+                currentChoice = 0;
+            }
+        }
+    }
     public void keyReleased(int k){}
 }

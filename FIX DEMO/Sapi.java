@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Sapi extends Farm_Animal implements LivingThings{
     private BufferedImage[] sprites;
-    private int countMilk;
+    private int countProduct;
     private boolean isTalk;
 
     private BufferedImage image;
@@ -29,6 +29,7 @@ public class Sapi extends Farm_Animal implements LivingThings{
         height =30;
         cwidth =20;
         cheight =20;
+        FULLMAX = 150;
 
         isTalk = false;
         // load sprite
@@ -91,7 +92,7 @@ public class Sapi extends Farm_Animal implements LivingThings{
         
         if (getFull()==HUNGRY && arr[px][py]==4){
             setFull(FULLMAX);
-            countMilk =MAX;
+            countProduct =MAX;
             arr[px][py]=0;
             write();
             animation.gg(px,py,0);
@@ -103,11 +104,15 @@ public class Sapi extends Farm_Animal implements LivingThings{
         return "S";
     }
     public void setProduct(int x){
-        this.countMilk =x;
+        this.countProduct =x;
     }
 
     public void talk(){
         System.out.println(COW);
+    }
+
+    public int getCountProduct() {
+        return this.countProduct;
     }
 
     public String getTalk(){
@@ -123,7 +128,7 @@ public class Sapi extends Farm_Animal implements LivingThings{
     }
 
     public void getProduct(){
-        this.countMilk =0;
+        this.countProduct =0;
     }
 
     public String nameProduct(){
@@ -150,7 +155,7 @@ public class Sapi extends Farm_Animal implements LivingThings{
     }
 
     public void Print(){
-        System.out.println("Sapi " + countMilk + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
+        System.out.println("Sapi " + countProduct + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
     }
 
     public void read(){

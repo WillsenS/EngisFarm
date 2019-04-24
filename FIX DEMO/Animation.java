@@ -25,23 +25,23 @@ public class Animation{
 
     public void setDelay(long d){delay =d;}
     public void setFrame(int i){currentFrame =i;}
-	public void update() {
-		
-		if(delay == -1) return;
-		
-		long elapsed = (System.nanoTime() - start) / 1000000;
-		if(elapsed > delay) {
-			currentFrame++;
-			start = System.nanoTime();
-		}
-		if(currentFrame == frames.length) {
-			currentFrame = 0;
-			playedOnce = true;
+    public void update() {
+        
+        if(delay == -1) return;
+        
+        long elapsed = (System.nanoTime() - start) / 1000000;
+        if(elapsed > delay) {
+            currentFrame++;
+            start = System.nanoTime();
         }
-	}
-	
-	public int getFrame() { return currentFrame; }
-	public BufferedImage getImage() { return frames[currentFrame]; }
+        if(currentFrame == frames.length) {
+            currentFrame = 0;
+            playedOnce = true;
+        }
+    }
+    
+    public int getFrame() { return currentFrame; }
+    public BufferedImage getImage() { return frames[currentFrame]; }
     public boolean hasPlayedOnce() { return playedOnce; }
 
     public void gg(int x, int y, int p){

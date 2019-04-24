@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Babi extends Farm_Animal{
     private BufferedImage[] sprites;
-    private int countPork;
+    private int countProduct;
     private boolean isTalk;
 
     private BufferedImage image;
@@ -27,6 +27,7 @@ public class Babi extends Farm_Animal{
         height =20;
         cwidth =20;
         cheight =20;
+        FULLMAX = 70;
 
         isTalk = false;
         // load sprite
@@ -78,7 +79,7 @@ public class Babi extends Farm_Animal{
         
         if (getFull()==HUNGRY && arr[px][py]==4){
             setFull(FULLMAX);
-            countPork =MAX;
+            countProduct =MAX;
             arr[px][py]=0;
             write();
             animation.gg(px,py,0);
@@ -108,17 +109,20 @@ public class Babi extends Farm_Animal{
 
 
     public void getProduct(){
-        this.countPork =0;
+        this.countProduct =0;
     }
     public String nameProduct(){
         return "Pork";
     }
     public void setProduct(int x){
-        this.countPork =x;
+        this.countProduct =x;
     }
 
     public String getEggandMilk(){
         return "x";
+    }
+    public int getCountProduct() {
+        return this.countProduct;
     }
     public void update(){
         move();
@@ -137,7 +141,7 @@ public class Babi extends Farm_Animal{
     }
 
     public void Print(){
-        System.out.println("Babi " + countPork + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
+        System.out.println("Babi " + countProduct + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
     }
 
     public void read(){

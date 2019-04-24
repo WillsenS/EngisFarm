@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Bebek extends Farm_Animal {
     private BufferedImage[] sprites;
-    private int countTelurB;
+    private int countProduct;
     private boolean isTalk;
 
     private Graphics2D g;
@@ -28,6 +28,7 @@ public class Bebek extends Farm_Animal {
         height =30;
         cwidth =20;
         cheight =20;
+        FULLMAX = 50;
 
         isTalk = false;
         // load sprite
@@ -78,7 +79,7 @@ public class Bebek extends Farm_Animal {
         
         if (getFull()==HUNGRY && arr[px][py]==4){
             setFull(FULLMAX);
-            countTelurB =MAX;
+            countProduct =MAX;
             arr[px][py]=0;
             write();
             animation.gg(px,py,0);
@@ -102,7 +103,7 @@ public class Bebek extends Farm_Animal {
         return isTalk;
     }
     public void setProduct(int x){
-        this.countTelurB =  x;
+        this.countProduct =  x;
     }
 
     public void setIsTalk(boolean val) {
@@ -111,7 +112,7 @@ public class Bebek extends Farm_Animal {
 
 
     public void getProduct(){
-        this.countTelurB =0;
+        this.countProduct =0;
     }
 
     public String nameProduct(){
@@ -131,6 +132,9 @@ public class Bebek extends Farm_Animal {
         animation.update();
     }
 
+    public int getCountProduct() {
+        return this.countProduct;
+    }
     public void draw(Graphics2D g){
         if(notOnScreen()) return;
         setMapPosition();
@@ -141,7 +145,7 @@ public class Bebek extends Farm_Animal {
     }
 
     public void Print(){
-        System.out.println("Bebek " + countTelurB + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
+        System.out.println("Bebek " + countProduct + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
     }
 
     public void read(){
