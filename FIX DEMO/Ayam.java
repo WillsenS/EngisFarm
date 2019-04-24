@@ -11,7 +11,7 @@ import java.io.*;
 
 public class Ayam extends Farm_Animal implements LivingThings{
     private BufferedImage[] sprites;
-    private int countTelurA;
+    private int countProduct;
     private boolean isTalk;
 
     private Graphics2D g;
@@ -30,6 +30,7 @@ public class Ayam extends Farm_Animal implements LivingThings{
         height =30;
         cwidth =20;
         cheight =20;
+        FULLMAX = 50;
 
         // load sprite
         try{
@@ -99,7 +100,7 @@ public class Ayam extends Farm_Animal implements LivingThings{
         
         if (getFull()==HUNGRY && arr[px][py]==4){
             setFull(FULLMAX);
-            countTelurA =MAX;
+            countProduct =MAX;
             arr[px][py]=0;
             write();
             animation.gg(px,py,0);
@@ -119,7 +120,7 @@ public class Ayam extends Farm_Animal implements LivingThings{
         return CHICKEN;
     }
     public void setProduct(int x){
-        this.countTelurA =x;
+        this.countProduct =x;
     }
 
     public boolean isTalk() {
@@ -131,7 +132,7 @@ public class Ayam extends Farm_Animal implements LivingThings{
     }
 
     public void getProduct() {
-        this.countTelurA =0;
+        this.countProduct =0;
     }
 
     public void update() {
@@ -147,6 +148,9 @@ public class Ayam extends Farm_Animal implements LivingThings{
     public String nameProduct() {
         return "ChickenMeat";
     }
+    public int getCountProduct() {
+        return this.countProduct;
+    }
     public String getEggandMilk() {
         return "ChickenEgg";
     }
@@ -157,7 +161,7 @@ public class Ayam extends Farm_Animal implements LivingThings{
     }
 
     public void Print() {
-        System.out.println("Ayam " + countTelurA + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
+        System.out.println("Ayam " + countProduct + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
     }
 
     public void read(){

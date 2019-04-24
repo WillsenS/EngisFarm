@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Kambing extends Farm_Animal{
     private BufferedImage[] sprites;
-    private int countgoatMilk;
+    private int countProduct;
     private boolean isTalk;
 
     private BufferedImage image;
@@ -28,6 +28,7 @@ public class Kambing extends Farm_Animal{
         height =20;
         cwidth =20;
         cheight =20;
+        FULLMAX = 90;
 
         isTalk = false;
         // load sprite
@@ -78,7 +79,7 @@ public class Kambing extends Farm_Animal{
         
         if (getFull()==HUNGRY && arr[px][py]==4){
             setFull(FULLMAX);
-            countgoatMilk=MAX;
+            countProduct=MAX;
             arr[px][py]=0;
             write();
             animation.gg(px,py,0);
@@ -95,6 +96,9 @@ public class Kambing extends Farm_Animal{
     public String getEggandMilk(){
         return "GoatMilk";
     }
+    public int getCountProduct() {
+        return this.countProduct;
+    }
 
     public void talk(){
         System.out.println(GOAT);
@@ -104,7 +108,7 @@ public class Kambing extends Farm_Animal{
         return GOAT;
     }
     public void setProduct(int x){
-        this.countgoatMilk =x;
+        this.countProduct =x;
     }
 
     public boolean isTalk() {
@@ -117,7 +121,7 @@ public class Kambing extends Farm_Animal{
 
 
     public void getProduct(){
-        this.countgoatMilk =0;
+        this.countProduct =0;
     }
 
     public void update(){
@@ -137,7 +141,7 @@ public class Kambing extends Farm_Animal{
     }
 
     public void Print(){
-        System.out.println("Kambing " + countgoatMilk + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
+        System.out.println("Kambing " + countProduct + " Full : "+ getFull()+" pos :  "+ getX() +" "+getY());
     }
 
     public void read(){

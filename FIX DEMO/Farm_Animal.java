@@ -8,7 +8,7 @@ public abstract class Farm_Animal extends MapObject{
     protected int id;
 
     protected final int MAX =1;
-    protected final double FULLMAX =100;
+    protected double FULLMAX =100;
     protected final int dead = 0;
     protected final int HUNGRY = 1;
 
@@ -56,12 +56,11 @@ public abstract class Farm_Animal extends MapObject{
          else return false;
                 
     }
-	public void update() {}
+    public void update() {}
     abstract void eat(Graphics2D g);
     abstract String getChar();
     abstract void getProduct();
     abstract void setProduct(int x);
-    //abstract Integer getCountProduct();
     abstract void talk();
     abstract void Print();
     abstract String nameProduct(); 
@@ -71,4 +70,5 @@ public abstract class Farm_Animal extends MapObject{
     abstract void setIsTalk(boolean val);
     //abstract void setFull(int Full);
     abstract void move();
+    abstract int getCountProduct();
 }

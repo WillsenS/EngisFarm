@@ -5,7 +5,7 @@
     <property name="build.dir" location="build" />
     <property name="bin.dir" location="${build.dir}/apps/java" />
     <property name="obj.dir" location="${build.dir}/objects/java" />
-    <property name="gui.dir" location="test_GUI" />
+    <property name="gui.dir" location="FIX DEMO" />
     <property name="src.dir" location="java/src" />
     <property name="test.dir" location="java/test" />
     <property name="report.dir" location="${build.dir}/docs/junit" />
