@@ -1,0 +1,104 @@
+\hypertarget{classProduct}{}\section{Product Class Reference}
+\label{classProduct}\index{Product@{Product}}
+
+
+{\ttfamily \#include $<$Product.\+h$>$}
+
+
+
+Inheritance diagram for Product\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classProduct__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \hyperlink{classProduct_a5c56d625cae28f43b626578ac4611e43}{get\+Product\+Value} ()=0
+\item 
+virtual int \hyperlink{classProduct_a739031c520fb9e376da3d3fc2955c7e7}{get\+Expire\+Value} ()=0
+\item 
+virtual void \hyperlink{classProduct_a84aba139efc9cbcb05d47de168645463}{set\+Expire\+Value} ()=0
+\item 
+virtual bool \hyperlink{classProduct_aec86d25d77417014f8780ea65416bac7}{is\+Expire} ()=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProduct_a42bbedb8ecb2675718cc0e0ba7d4ead8}\label{classProduct_a42bbedb8ecb2675718cc0e0ba7d4ead8}} 
+int {\bfseries product\+Value}
+\item 
+\mbox{\Hypertarget{classProduct_af9e601cc45c4281a39e7f4cbdf4d2a53}\label{classProduct_af9e601cc45c4281a39e7f4cbdf4d2a53}} 
+int {\bfseries expire\+Value}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classProduct}{Product} class.
+
+\begin{DoxyAuthor}{Author}
+Ghazwan S. M. \href{mailto:ghazwan.sihamudin@gmail.com}{\tt ghazwan.\+sihamudin@gmail.\+com} 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+2019.\+03.\+17 
+\end{DoxySince}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classProduct_a739031c520fb9e376da3d3fc2955c7e7}\label{classProduct_a739031c520fb9e376da3d3fc2955c7e7}} 
+\index{Product@{Product}!get\+Expire\+Value@{get\+Expire\+Value}}
+\index{get\+Expire\+Value@{get\+Expire\+Value}!Product@{Product}}
+\subsubsection{\texorpdfstring{get\+Expire\+Value()}{getExpireValue()}}
+{\footnotesize\ttfamily virtual int Product\+::get\+Expire\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get the expire value of the product. \begin{DoxyReturn}{Returns}
+int expire value. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classSideProduct_a2ea1a135e6456d0220f3ba3d3e8c9dfb}{Side\+Product}, and \hyperlink{classFarmProduct_a2a7526789b3ab01a8fda7773aa2c0565}{Farm\+Product}.
+
+\mbox{\Hypertarget{classProduct_a5c56d625cae28f43b626578ac4611e43}\label{classProduct_a5c56d625cae28f43b626578ac4611e43}} 
+\index{Product@{Product}!get\+Product\+Value@{get\+Product\+Value}}
+\index{get\+Product\+Value@{get\+Product\+Value}!Product@{Product}}
+\subsubsection{\texorpdfstring{get\+Product\+Value()}{getProductValue()}}
+{\footnotesize\ttfamily virtual int Product\+::get\+Product\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get the product value. \begin{DoxyReturn}{Returns}
+int product value. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classSideProduct_ae37e75482c8ddaf7abe070054fad58eb}{Side\+Product}, and \hyperlink{classFarmProduct_ae169937bd043517efa0a05be844aaa35}{Farm\+Product}.
+
+\mbox{\Hypertarget{classProduct_aec86d25d77417014f8780ea65416bac7}\label{classProduct_aec86d25d77417014f8780ea65416bac7}} 
+\index{Product@{Product}!is\+Expire@{is\+Expire}}
+\index{is\+Expire@{is\+Expire}!Product@{Product}}
+\subsubsection{\texorpdfstring{is\+Expire()}{isExpire()}}
+{\footnotesize\ttfamily virtual bool Product\+::is\+Expire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get the product expire condition. \begin{DoxyReturn}{Returns}
+bool expire condition. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classSideProduct_a9a37b515860c516ec28749f5b562aa0f}{Side\+Product}, and \hyperlink{classFarmProduct_a18cb875372c4e24ef79615bcd47a110e}{Farm\+Product}.
+
+\mbox{\Hypertarget{classProduct_a84aba139efc9cbcb05d47de168645463}\label{classProduct_a84aba139efc9cbcb05d47de168645463}} 
+\index{Product@{Product}!set\+Expire\+Value@{set\+Expire\+Value}}
+\index{set\+Expire\+Value@{set\+Expire\+Value}!Product@{Product}}
+\subsubsection{\texorpdfstring{set\+Expire\+Value()}{setExpireValue()}}
+{\footnotesize\ttfamily virtual void Product\+::set\+Expire\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Reduce the expire value of the product by 1. 
+
+Implemented in \hyperlink{classSideProduct_abff90c90ea13a3511dcd8dbdf55fc33c}{Side\+Product}, and \hyperlink{classFarmProduct_aea484f8f23984c14e0014fa7c35b9629}{Farm\+Product}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Product.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,10 @@
+<map id="Meatproducing" name="Meatproducing">
+<area shape="rect" id="node4" href="$classayam.html" title="ayam" alt="" coords="5,229,60,256"/>
+<area shape="rect" id="node5" href="$classbabi.html" title="babi" alt="" coords="84,229,131,256"/>
+<area shape="rect" id="node6" href="$classbebek.html" title="bebek" alt="" coords="155,229,212,256"/>
+<area shape="rect" id="node7" href="$classdomba.html" title="domba" alt="" coords="237,229,298,256"/>
+<area shape="rect" id="node8" href="$classkambing.html" title="kambing" alt="" coords="323,229,393,256"/>
+<area shape="rect" id="node9" href="$classsapi.html" title="sapi" alt="" coords="417,229,464,256"/>
+<area shape="rect" id="node2" href="$classFarmAnimal.html" title="FarmAnimal" alt="" coords="179,80,271,107"/>
+<area shape="rect" id="node3" href="$classLivingThings.html" title="LivingThings" alt="" coords="177,5,272,32"/>
+</map>
